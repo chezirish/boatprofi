@@ -290,7 +290,7 @@ html .section-form {
 .section-services {
     margin: 0 auto;
     margin-top: 3rem;
-    width: 75rem;
+    max-width: 75rem;
 }
 
 
@@ -302,6 +302,9 @@ html .section-form {
 
 .services-list {
     display: flex;
+    flex-wrap: wrap;
+    // flex-direction: row;
+    justify-content: space-around;
 }
 
 .sirvices-item {
@@ -309,6 +312,87 @@ html .section-form {
     border: 1px solid rgb(202, 202, 202);
     & .button {
         display: block;
+    }
+}
+
+.sirvices-item-icon img {
+    padding-top: 2rem;
+}
+
+.sirvices-item-content {
+    margin-right: 1rem;
+}
+
+.sirvices-item:nth-child(3n) {
+    margin-right: 0;
+}
+
+.sirvices-item {
+    // margin-right: 30px;
+    margin-bottom: 20;
+    min-width: 380px;
+}
+
+.section-catalog   {
+    max-width: 75rem;
+    margin: 0 auto;
+    margin-bottom: 2rem;
+    & .sirvices-item {  
+        position: relative;
+        min-height: 270px;
+    }
+    & .sirvices-item a{
+        display: block;
+    }
+    & .sirvices-item-icon {
+        width: 115px;
+        position: absolute;
+        right: 20px;
+        bottom: 0;
+    }
+}
+
+.section-products {
+    background: #f8f8f8;
+}
+
+.products-filter {
+    & p {
+        display: inline-block;
+        padding: 0 10px;
+        font-weight: 600;
+        font-size: 18px;
+        cursor: pointer;
+    }
+}
+
+.section-products-content {
+    max-width: 75rem;
+    margin: 0 auto;
+    padding-top: 3rem;
+    & .sirvices-item {
+        background: #fff;
+        min-width: auto;
+        max-width: 270px; 
+    }
+    & .sirvices-item-icon {
+        text-align: center;
+        & img {
+            padding-top: 0;
+            padding-bottom: 2rem;
+        }
+    }
+    & .sirvices-item-costs {
+        font-weight: 600;
+    }
+    & .bottom-block .button {
+        display: inline-block;
+    }
+    & .banner {
+        color: #fff;
+        padding: 3rem;
+        margin-bottom: 20px;
+        max-width: 540px;
     }
 }
 
@@ -341,6 +425,9 @@ html .section-form {
     .section-title  {
         display: none;
     }
+    .linkto-catalog {
+        display: none;
+    }
 }
 
 @media screen and (min-width: 40em) {
@@ -360,8 +447,9 @@ html .section-form {
     .tablet {
         display: block;
     }
-
-
+    // html .sirvices-item {
+    //     margin-right: 30px;
+    // }
 }
 
 

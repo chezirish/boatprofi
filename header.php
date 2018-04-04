@@ -122,9 +122,9 @@
 				</div>
 				<div class="woocommerce-data medium-3 large-2">
 					<div class="woocommerce-data-wrapper">
-						<img src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="address_icon" alt="heart">
-						<img src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="address_icon" alt="scheme">
-						<img src="<?= get_template_directory_uri() ?>/dist/assets/images/basket-icon.png" alt="address_icon" alt="basket">
+						<img src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png"  alt="heart">
+						<img src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
+						<img src="<?= get_template_directory_uri() ?>/dist/assets/images/basket-icon.png"  alt="basket">
 					</div>
 				</div>
 			</div>
