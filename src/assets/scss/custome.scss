@@ -8,9 +8,51 @@ body {
         
     }
     & .button {
-        background: #76ac4a; 
+        background: #54ae3f; 
     }
 }
+
+.slick-slide, .slick-slide * {
+    outline: none !important; 
+}
+
+html .slick-dots {
+    bottom: -70px;
+}
+
+html .slick-slide {
+    height: auto;
+}
+
+.slick-slide img {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.my-slick-dot {
+    width: 10px;
+    height: 10px;
+    background: #dbdbdb;
+    transition: 0.5s;
+    position: absolute;
+    bottom: 0;
+}
+
+.my-slick-dot:hover {
+    width: 10px;
+    height: 10px;
+    opacity: 0.5;
+    
+}
+
+.slick-active .my-slick-dot {
+    width: 15px;
+    height: 15px;
+    background: #54ae3f;
+}
+
+
 
 
 .site-header {
@@ -290,6 +332,7 @@ html .section-form {
 .section-services {
     margin: 0 auto;
     margin-top: 3rem;
+    margin-bottom: 2rem;
     max-width: 75rem;
 }
 
@@ -356,6 +399,17 @@ html .section-form {
     background: #f8f8f8;
 }
 
+.section-projects {
+    padding-bottom: 5rem;
+    background: #f8f8f8;
+}
+
+.section-projects-content {
+    max-width: 75rem;
+    margin: 0 auto;
+    padding-top: 3rem;
+}
+
 .products-filter {
     & p {
         display: inline-block;
@@ -385,19 +439,229 @@ html .section-form {
     & .sirvices-item-costs {
         font-weight: 600;
     }
-    & .bottom-block .button {
-        display: inline-block;
+    & .bottom-block {
+        // text-align: center;
+        min-height: 42px;
+        position: relative;
+        & .button {
+            display: inline-block;
+            margin-right: 20%;
+            // float: left;
+        }
+        & img {
+            position: absolute;
+            margin: auto 0;
+            top: 0;
+            bottom: 0;
+            // left: 0;
+            // right: 0;
+        }
+        & img:last-child {
+            // float: right;
+            left: initial;
+            right: 0;
+        }
     }
     & .banner {
         color: #fff;
         padding: 3rem;
         margin-bottom: 20px;
         max-width: 540px;
+        & p {
+            margin-bottom: 3rem;
+        }
     }
 }
 
+.project-slider-item:nth-child(odd) {
+    margin-top: 2rem;
+}
+
+.project-slider-item:nth-child(even) img:first-child {
+    margin-bottom: 2rem;
+}
+
+.section-reviews {
+    background: #1d1d1d;
+    padding-bottom: 2rem;
+}
+
+.section-reviews-content {
+    margin: 0 auto;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+    max-width: 75rem;
+    color: #ffffff;
+    & .section-headline {
+        color: #ffffff;
+        padding-top: 4rem;
+        margin-bottom: 3rem;
+    }
+}
+
+
+.section-about {
+    margin: 0 auto;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    max-width: 75rem; 
+}
+
+.section-about-content {
+    margin: 0 1rem;
+    // & .about, .articles {
+    //     width: 33rem;
+    // }
+    & .about  {
+        margin-bottom: 3rem;
+    }
+    & h3 {
+        margin-bottom: 2rem;
+    }
+    & .article-item-icon {
+        margin-right: 1rem;
+    }
+    & .article-item {
+        margin-bottom: 1rem;
+        & p {
+            color: #3a802a;
+        }
+        & span {
+            color: #b0b0b0;
+        }
+    }
+}
+
+// .reviews-slider-buttons {
+//     background-color: #111;
+// }
+
+.reviews-slider-buttons {
+    & p {
+        display: inline-block;
+        vertical-align: top;
+        margin: 0;
+        margin-top: 8px;
+    }
+    & .button {
+        display: block;
+        margin-top: 2rem;
+    }
+}
+
+.reviews-slider-left, .reviews-slider-right {
+    background: #1d1d1d;
+}
+
+
+//------------------footer--------------------//
+
+footer {
+    background: #1d1d1d;
+    color: #ffffff;
+    & .footer-container h6 {
+        margin-bottom: 1rem;
+        font-weight: 600;
+    }
+    & .footer-boatprofi nav a:first-child {
+        margin-right: 2rem;
+    }
+}
+
+.footer-boatprofi {
+    // position: relative;
+    & nav {
+        // position: absolute;
+        right: -40px;
+    }
+    color: #666666;
+    & a {
+        color: #666666;
+    }
+}
+
+.footer-slogan {
+    color: #ffffff;
+}
+
+.footer-contacts-phone {
+    margin-bottom: 2rem;
+    & p {
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+}
+
+.footer-contacts-address {
+    margin-bottom: 2rem;
+    & p {
+        font-weight: 500;
+        margin-bottom: 5px;
+    }
+}
+
+.footer-social-icons svg, .footer-social-icons img {
+    vertical-align: baseline;
+    width: 40px;
+    height: 40px;
+    margin-right: 15px;
+}
+
+.vertical-menu {
+    & li {
+        margin-bottom: 10px;
+    }
+    & a {
+        color: #fff;
+        text-decoration: none;
+        margin-bottom: 10px;
+    }
+}
+
+.footer-container {
+    border: none;
+}
+
+
+.boatprofi-logo-footer {
+    margin-bottom: 2rem;
+}
+
+.company-info {
+    margin-bottom: 3rem;
+    line-height: 1.9;
+}
+
+.reviews-slider-text {
+    margin-top: 1rem;
+}
+
+.reviews-slider-name p:first-child {
+    margin-bottom: 0.5rem;
+}
+
+.reviews-slogan {
+    color: #626262;
+}
+
+
+
 //___________________________ breakpoints ___________________________//
 
+@media screen and (max-width: 460px){
+    .article-item-icon {
+        float: none !important;
+        margin: 0 auto;
+        text-align: center;
+        width: 90%;
+        & img {
+            width: 100%;
+        }
+    }
+}
+
+
+//phone
 @media screen and (max-width: 39.9375em) {
     .top-bar-social-icons {
         display: none;
@@ -428,7 +692,53 @@ html .section-form {
     .linkto-catalog {
         display: none;
     }
+    .section-about-content {
+        & h3, .button {
+           text-align: center;
+        }
+        & .button {
+            display: block;
+            margin: 0 auto;
+        }
+        & .article-item-icon img {
+            max-width: 100%;
+        }
+    }
+    .section-about-content .article-item p {
+        color: black;
+    }
+    .footer-container {
+        text-align: center;
+    }
+
+    footer .footer-menu {
+        margin-bottom: 2rem;
+    }
+
+    footer .footer-boatprofi {
+        & a {
+            display: block;
+            margin-bottom: 3rem;
+        }
+        & nav a:first-child {
+            margin: 0;
+            margin-bottom: 1rem;
+        }
+    }
+    .reviews-slider-content {
+        text-align: center;
+    }
+
+    .section-reviews-content {
+        text-align: center;
+    }
 }
+
+
+
+
+
+
 
 @media screen and (min-width: 40em) {
     .header-navigation-phone {
@@ -436,7 +746,7 @@ html .section-form {
     }
 }
 
-
+//tablet
 @media screen and (min-width: 40em) and (max-width: 63.9375em) {
     .main_background {
         display: block;
@@ -450,10 +760,19 @@ html .section-form {
     // html .sirvices-item {
     //     margin-right: 30px;
     // }
+    .section-about-content .article-item p {
+        color: black;
+    }
+    .reviews-slider-content {
+        text-align: center;
+    }
+    .section-reviews-content {
+        text-align: center;
+    }
 }
 
 
-
+//desktop
 @media screen and (min-width: 94em) {
     .desktop {
         display: block;

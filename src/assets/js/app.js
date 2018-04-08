@@ -11,3 +11,4 @@ import Foundation from 'foundation-sites';
 $(document).foundation();
 
 import './lib/custome';
+import './lib/slick.min';
