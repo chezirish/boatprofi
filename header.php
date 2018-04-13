@@ -30,7 +30,7 @@
 				<div class="top-bar-social-icons-mobile">
 					<img src="<?= get_template_directory_uri() ?>/dist/assets/images/in2.svg" alt="icon">
 					<img src="<?= get_template_directory_uri() ?>/dist/assets/images/fb2.svg" alt="icon">
-					<img src="<?= get_template_directory_uri() ?>/dist/assets/images/vk.png" alt="icon">
+					<img src="<?= get_template_directory_uri() ?>/dist/assets/images/vk.svg" alt="icon">
 				</div>
 				<!-- <span class="site-mobile-title title-bar-title">
 					<p><a href="<?php //echo esc_url( home_url( '/' ) ); ?>" rel="home">Главная</a></p>
@@ -38,7 +38,7 @@
 			<!-- </div> -->
 		</div>
 
-		<nav class="site-navigation top-bar" role="navigation">
+		<nav class="site-navigation top-bar <?php echo  is_front_page() ? '' : 'links-black' ?>" role="navigation">
 			<!-- <div class="top-bar-left">
 				<div class="site-desktop-title top-bar-title">
 					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
@@ -50,16 +50,16 @@
 				<?php if ( ! get_theme_mod( 'wpt_mobile_menu_layout' ) || get_theme_mod( 'wpt_mobile_menu_layout' ) === 'topbar' ) : ?>
 					<?php get_template_part( 'template-parts/mobile-top-bar' ); ?>
 				<?php endif; ?>
-				<div class="top-bar-social-icons">
+				<div class="top-bar-social-icons <?php echo  is_front_page() ? '' : 'svg-colors' ?>">
 					<img src="<?= get_template_directory_uri() ?>/dist/assets/images/in2.svg" alt="icon">
 					<img src="<?= get_template_directory_uri() ?>/dist/assets/images/fb2.svg" alt="icon">
-					<img src="<?= get_template_directory_uri() ?>/dist/assets/images/vk.png" alt="icon">
+					<img src="<?= get_template_directory_uri() ?>/dist/assets/images/vk.svg" alt="icon">
 				</div>
 			</div>
 		</nav>
 
 		<div class="header-table">
-			<div class="header-info">
+			<div class="header-info <?php echo  is_front_page() ? '' : 'padding-top-header' ?>">
 				<div class="header-logo">
 					<img src="<?= get_template_directory_uri() ?>/dist/assets/images/logo.png" alt="logo">
 				</div>
@@ -67,62 +67,70 @@
 					<p>Подготовим ваш <br> катер к рыбалке.</p>
 				</div>
 				<div class="header-phone tablet">
-					<p><img src="<?= get_template_directory_uri() ?>/dist/assets/images/phone_icon.png" alt="phone_icon"> +7 910 818 81 39</p>
+					<p><img src="<?= get_template_directory_uri() ?>/dist/assets/images/phone_icon-header.png" alt="phone_icon"> +7 910 818 81 39</p>
 					<a href="" class="tablet">обратный звонок</a>
 				</div>
 				<div class="header-address desktop">
-					<p><img src="<?= get_template_directory_uri() ?>/dist/assets/images/address_icon.png" alt="address_icon" > г. Ярославль, ул. Республиканская д.7. ТЦ «Флагман»</p>
+					<p><img src="<?= get_template_directory_uri() ?>/dist/assets/images/address_icon-header.png" alt="address_icon" > г. Ярославль, ул. Республиканская д.7. ТЦ «Флагман»</p>
 					<a href="">показать на карте</a>
 					<a href="">изменить город</a>		
 				</div>
 			</div>
 			<div class="header-navigation-phone">
 				<div class="header-phone clearfix">
-					<p class="float-left"><img src="<?= get_template_directory_uri() ?>/dist/assets/images/phone_icon.png" alt="phone_icon"> +7 910 818 81 39</p>
+					<p class="float-left"><img src="<?= get_template_directory_uri() ?>/dist/assets/images/phone_icon-header.png" alt="phone_icon"> +7 910 818 81 39</p>
 					<img class="float-right" src="<?= get_template_directory_uri() ?>/dist/assets/images/basket-icon.png" alt="address_icon" alt="basket">
 				</div>
-				<div class="products-btn">
-					<div class="menu-wrapper">
-						<span class="menu-icon-span"></span>
-						<span class="menu-icon-span"></span>
-						<span class="menu-icon-span"></span>
+				<a class="header-navigation-link-btn" href="/catalog-products">
+					<div class="products-btn">
+						<div class="menu-wrapper">
+							<span class="menu-icon-span"></span>
+							<span class="menu-icon-span"></span>
+							<span class="menu-icon-span"></span>
+						</div>
+						<p>Каталог товаров</p>
 					</div>
-					<p>Каталог товаров</p>
-				</div>
+				</a>
+				<a class="header-navigation-link-btn" href="/services">
 				<div class="services-btn">
 					<div class="menu-wrapper">
 						<span class="menu-icon-span"></span>
 						<span class="menu-icon-span"></span>
 						<span class="menu-icon-span"></span>
 					</div>
-					<p>Наши услуги</p>
+					<p>Наши услуги</p>	
 				</div>
+				</a>
 			</div>
 			<div class="header-navigation grid-x">
-				<div class="products-btn medium-2 large-2">
-					<div class="menu-wrapper">
-						<span class="menu-icon-span"></span>
-						<span class="menu-icon-span"></span>
-						<span class="menu-icon-span"></span>
+				<a class="header-navigation-link-btn" href="/catalog-products">
+					<div class="products-btn medium-2 large-2">
+						<div class="menu-wrapper">
+							<span class="menu-icon-span"></span>
+							<span class="menu-icon-span"></span>
+							<span class="menu-icon-span"></span>
+						</div>
+						<p>Каталог товаров</p>
 					</div>
-					<p>Каталог товаров</p>
-				</div>
-				<div class="services-btn medium-2 large-2">
-					<div class="menu-wrapper">
-						<span class="menu-icon-span"></span>
-						<span class="menu-icon-span"></span>
-						<span class="menu-icon-span"></span>
+				</a>
+				<a class="header-navigation-link-btn" href="/services">
+					<div class="services-btn medium-2 large-2">
+						<div class="menu-wrapper">
+							<span class="menu-icon-span"></span>
+							<span class="menu-icon-span"></span>
+							<span class="menu-icon-span"></span>
+						</div>
+						<p>Наши услуги</p>
 					</div>
-					<p>Наши услуги</p>
-				</div>
+				</a>
 				<div class="search cell medium-5 large-6">
 					<form action="">
 						<input placeholder="Введите название товара" type="text">
 					</form>
 				</div>
 				<div class="woocommerce-data medium-3 large-2">
-					<div class="woocommerce-data-wrapper">
-						<img src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png"  alt="heart">
+					<div class="woocommerce-data-wrapper  <?php echo  is_front_page() ? '' : 'svg-colors' ?>">
+						<img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png"  alt="heart">
 						<img src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
 						<img src="<?= get_template_directory_uri() ?>/dist/assets/images/basket-icon.png"  alt="basket">
 					</div>

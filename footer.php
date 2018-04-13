@@ -11,14 +11,15 @@
 
 <footer class="footer">
     <div class="footer-container">
-        <div class="footer-grid grid-x grid-margin-x">
+        <div class="footer-grid grid-x grid-margin-x">  
             <div class="footer-boatprofi cell medium-6 large-6">
-                <img class="boatprofi-logo-footer" src="<?= get_template_directory_uri() ?>/src/assets/images/boatprofi_logo_footer.png" alt="logo">
+                <img class="boatprofi-logo-footer" src="<?= get_template_directory_uri() ?>/dist/assets/images/boatprofi_logo_footer2.png" alt="logo">
                 <p class="company-info">Профессиональная подготовка катеров для спортивной рыбалки - это не просто красивый маркетинговый слоган. За этими словами стоят десятки тысяч моточасов проведенных нашими спортсменами на водоемах, сотни нестандартных ситуаций и испытаний, которые выпадают на долю рыболова и его катера.</p>
-                <p class="footer-slogan">2016 © BoatProfi <br> Ремонт и тюнинг лодок и катеров</p>
-                <nav>
+                <p class="footer-slogan">2018 © BoatProfi <br> Ремонт и тюнинг лодок и катеров</p>
+                <nav class="footer-nav-menu">
                     <a href="#">Пользовательское соглашение</a>
-                    <a href="#">Разработано в: Папинсайт</a>
+                    <span>Разработано в:</span>
+                    <a href="#"> Папинсайт</a>
                 </nav>
                 <!-- <span>Пользовательское соглашение</span>
                 <span>Разработано в: Папинсайт</span> -->
@@ -34,13 +35,13 @@
                     <a href="#">обратный звонок</a>
                 </div>
                 <div class="footer-contacts-address">
-                    <p><img src="<?= get_template_directory_uri() ?>/dist/assets/images/address_icon.png" alt="address_icon" > г. Ярославль, ул. Республиканская д.7. ТЦ «Флагман»</p>
+                    <p><img src="<?= get_template_directory_uri() ?>/dist/assets/images/address-icon.png" alt="address_icon" > г. Ярославль, ул. Республиканская д.7. ТЦ «Флагман»</p>
                     <a href="#">показать на карте</a>
                 </div>
                 <div class="footer-social-icons">
                     <img src="<?= get_template_directory_uri() ?>/dist/assets/images/in2.svg" alt="icon">
 					<img src="<?= get_template_directory_uri() ?>/dist/assets/images/fb2.svg" alt="icon">
-					<img src="<?= get_template_directory_uri() ?>/src/assets/images/vk.svg" alt="icon">
+					<img src="<?= get_template_directory_uri() ?>/dist/assets/images/vk.svg" alt="icon">
                 </div>
             </div>
         </div>
