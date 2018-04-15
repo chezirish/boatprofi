@@ -6,7 +6,9 @@ Template Name: Отзывы
 get_header(); ?>
 
 <div class="contacts-reviews-page">
-    <h3>Отзывы</h3>
+    <div class="grid-container">
+        <h3>Отзывы</h3>
+    </div>
         <div class="portfolio-page__content">   
             <div class="portfolio-page__review-content clearfix">
                 <p class="portfolio-page__review-date portfolio-page__review-date-root float-left">26 февраля</p>

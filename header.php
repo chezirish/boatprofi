@@ -131,7 +131,7 @@
 				<div class="woocommerce-data medium-3 large-2">
 					<div class="woocommerce-data-wrapper  <?php echo  is_front_page() ? '' : 'svg-colors' ?>">
 						<img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png"  alt="heart">
-						<img src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
+						<img class="scheme-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
 						<img src="<?= get_template_directory_uri() ?>/dist/assets/images/basket-icon.png"  alt="basket">
 					</div>
 				</div>

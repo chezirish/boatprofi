@@ -6,6 +6,7 @@ Template Name: Страница статьи
 get_header(); ?>
 
 <div class="single-article_page">
+    <div class="grid-container">
     <h3>Выбор моторной лодки</h3>
     <div class="single-article_page-content">
         <p class="date">19 января 2018</p>
@@ -83,6 +84,7 @@ get_header(); ?>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 </div>
 

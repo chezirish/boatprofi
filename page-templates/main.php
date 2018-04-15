@@ -4,7 +4,10 @@ Template Name: Главная
 */
 
 ?>
-<div class="wrapper"><img class="main_background" src="<?= get_template_directory_uri() ?>/dist/assets/images/front_background.jpg" alt="boat"></div>
+<div class="wrapper" style="background-image:url(<?= get_template_directory_uri() ?>/dist/assets/images/front_background.jpg);background-size:cover;background-position:center">
+</div>
+
+<?php /* <img class="main_background" src="<?= get_template_directory_uri() ?>/dist/assets/images/front_background.jpg" alt="boat"> */ ?>
 
 <?php
 get_header(); ?>
@@ -14,38 +17,42 @@ get_header(); ?>
     <p>За этими словами стоят десятки тысяч моточасов проведенных нашими спортсменами на водоемах, сотни нестандартных ситуаций и испытаний, которые выпадают на долю рыболова и его катера. </p>
 </section>
 
+<!-- <div class="section-form-wrapper"> -->
 
 <section class="callout section-form">
-    <button class="close-button" aria-label="Dismiss alert" type="button">
-        <span aria-hidden="true">&times;</span>
-    </button>
-    <h4 class="section-form-title-desktop">Подготовим ваш катер <br>  к любительской или спортивной рыбалке</h4>
-    <h4 class="section-form-title-tablet">Подготовим мой катер</h4>
-    <form action="">
-        <div class="form-inputs clearfix">
-            <div class="form-left float-left">
-                <label for="name">Ваше имя</label>
-                <input  require placeholder="Введите данные" id="name" type="text">
+    
+        <button class="close-button" aria-label="Dismiss alert" type="button">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="section-form-title-desktop">Подготовим ваш катер <br>  к любительской или спортивной рыбалке</h4>
+        <h4 class="section-form-title-tablet">Подготовим мой катер</h4>
+        <form action="">
+            <div class="form-inputs clearfix">
+                <div class="form-left float-left">
+                    <label for="name">Ваше имя</label>
+                    <input  require placeholder="Введите данные" id="name" type="text">
+                </div>
+                <div class="form-right float-left">
+                    <label for="phone">Ваш телефон</label>
+                    <input  require placeholder="Введите данные" id="phone" type="number">
+                </div>
+                <button class="desktop float-right section-title-submit" type="submit">Отправть заявку</button>
             </div>
-            <div class="form-right float-left">
-                <label for="phone">Ваш телефон</label>
-                <input  require placeholder="Введите данные" id="phone" type="number">
+
+            <div class="file-wrapper">
+                <!-- <input type="file"> -->
+                <input class="input-file" id="my-file" type="file">
+                <label tabindex="0" for="my-file" class="input-file-trigger">+ Прикрепите фото катера</label>
+
+                <input class="css-checkbox" id="checkbox7" type="checkbox">
+                <label for="checkbox7" class="css-label lite-x-green">Согласен с "политикой конфидециальности"</label>
+                <p class="file-return"></p>
             </div>
-            <button class="desktop float-right section-title-submit" type="submit">Отправть заявку</button>
-        </div>
-
-        <div class="file-wrapper">
-            <!-- <input type="file"> -->
-            <input class="input-file" id="my-file" type="file">
-            <label tabindex="0" for="my-file" class="input-file-trigger">+ Прикрепите фото катера</label>
-
-            <input class="css-checkbox" id="checkbox7" type="checkbox">
-            <label for="checkbox7" class="css-label lite-x-green">Согласен с "политикой конфидециальности"</label>
-            <p class="file-return"></p>
-        </div>
-        <button class="section-title-submit section-title-submit-tablet" type="submit">Отправть заявку</button>
-    </form>
+            <button class="section-title-submit section-title-submit-tablet" type="submit">Отправть заявку</button>
+        </form>
 </section>
+<!-- </div> -->
+
 
 <section class="section-services">
     <div class="section-headline">
@@ -729,7 +736,7 @@ get_header(); ?>
                 <div class="bottom-block">
                     <button type="button" class="button">Заказать</button>
                     <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart">
-                    <img src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
+                    <img class="scheme-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
                 </div>
             </div>
         </div>
@@ -743,7 +750,7 @@ get_header(); ?>
                 <div class="bottom-block">
                     <button type="button" class="button">Заказать</button>
                     <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart">
-                    <img src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
+                    <img class="scheme-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
                 </div>
             </div>
         </div>
@@ -757,7 +764,7 @@ get_header(); ?>
                 <div class="bottom-block">
                     <button type="button" class="button">Заказать</button>
                     <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart">
-                    <img src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
+                    <img class="scheme-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
                 </div>
             </div>
         </div>
@@ -771,7 +778,7 @@ get_header(); ?>
                 <div class="bottom-block">
                     <button type="button" class="button">Заказать</button>
                     <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart">
-                    <img src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
+                    <img class="scheme-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
                 </div>
             </div>
         </div>
@@ -785,7 +792,7 @@ get_header(); ?>
                 <div class="bottom-block">
                     <button type="button" class="button">Заказать</button>
                     <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart">
-                    <img src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
+                    <img class="scheme-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
                 </div>
             </div>
         </div>
@@ -799,7 +806,7 @@ get_header(); ?>
                 <div class="bottom-block">
                     <button type="button" class="button">Заказать</button>
                     <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart">
-                    <img src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
+                    <img class="scheme-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
                 </div>
             </div>
         </div>
@@ -820,7 +827,7 @@ get_header(); ?>
                 <div class="bottom-block">
                     <button type="button" class="button">Заказать</button>
                     <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart">
-                    <img src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
+                    <img class="scheme-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
                 </div>
             </div>
         </div>
@@ -834,7 +841,7 @@ get_header(); ?>
                 <div class="bottom-block">
                     <button type="button" class="button">Заказать</button>
                     <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart">
-                    <img src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
+                    <img class="scheme-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
                 </div>
             </div>
         </div>
@@ -848,7 +855,7 @@ get_header(); ?>
                 <div class="bottom-block">
                     <button type="button" class="button">Заказать</button>
                     <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart">
-                    <img src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
+                    <img class="scheme-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
                 </div>
             </div>
         </div>
@@ -862,7 +869,7 @@ get_header(); ?>
                 <div class="bottom-block">
                     <button type="button" class="button">Заказать</button>
                     <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart">
-                    <img src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
+                    <img class="scheme-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
                 </div>
             </div>
         </div>

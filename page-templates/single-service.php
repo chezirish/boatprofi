@@ -7,7 +7,7 @@ get_header(); ?>
 
 <div class="single-service-page__content">
 
-    <div class="grid-x grid-margin-x">
+    <div class="single-service-page__content-grid grid-x grid-margin-x">
         <div class="single-service-page__sidebar cell medium-3 large-3">
             <a href="">Монтаж электромоторов</a>
             <a href="">Установка картоплоттеров, эхолотов</a>
@@ -21,13 +21,30 @@ get_header(); ?>
         </div>
 
         <div class="single-service-page__right-content cell medium-12 large-9">
+            <div class="grid-container">
+            <ul class="vertical menu accordion-menu" data-accordion-menu data-multi-open="false">
+                <li class="accordion-menu-container">
+                    <a href="#">Электрические троллинговыемоторы</a>        
+                    <ul class="menu vertical nested">
+                    <li><a href="">Монтаж электромоторов</a></li>
+                    <li><a href="">Установка картоплоттеров, эхолотов</a></li>
+                    <li><a href="">Подиумы из стеклопластика</a></li>
+                    <li><a href="">Монтаж и ТО лодочных моторов</a></li>
+                    <li><a href="">Пошив чехлов и тенов</a></li>
+                    <li><a href="">Ремонт любых корпусов</a></li>
+                    <li><a href="">ТО троллинговых моторов</a></li>
+                   <li><a href="">Тюнинг лодочных прицетов</a></li>
+                    <li><a href="">ТО и зимняя консервация</a></li>
+                    </ul>
+                </li>
+            </ul> 
             <h3>Монтаж электромоторов</h3>
-            <div class="single-service-page__info-wrapper clearfix">
+            <div class="single-service-page__info-wrapper single-service-page__info-wrapper-first clearfix">
                 <div class="single-service-page__icon float-left" style="background-image:url(<?= get_template_directory_uri() ?>/dist/assets/images/single-service.jpg);background-size:cover"></div>
                 <div class="single-service-page__info float-left">
                     <p class="single-service-page__price">от 15 000 руб.</p>
                     <button type="button" class="single-service-page__button button">Отправить заявку</button>
-                    <p class="single-service-page__add"><img src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png"  alt="heart"> В избранное</p>
+                    <p class="single-service-page__add"><img class="heart" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png"  alt="heart"> В избранное</p>
                     <a class="single-service-page__examples" href="">Примеры работ в портфолио </a>
                     <a href="">Купить электромотор</a>
                     <div class="footer-social-icons">
@@ -41,7 +58,7 @@ get_header(); ?>
             <div class="single-service-page__info-phone">
                 <p class="single-service-page__price">от 15 000 руб.</p>
                 <button type="button" class="single-service-page__button button">Отправить заявку</button>
-                <p class="single-service-page__add"><img src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png"  alt="heart"> В избранное</p>
+                <p class="single-service-page__add"><img class="heart" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png"  alt="heart"> В избранное</p>
                 <a class="single-service-page__examples" href="">Примеры работ в портфолио </a>
                 <a href="">Купить электромотор</a>
                 <div class="footer-social-icons">
@@ -55,7 +72,7 @@ get_header(); ?>
                     <h4>Описание товара</h4>
                     <p>Современные технологии сегодня уже добрались и до рыбалки.  Катера спортсменов, оборудованные сложнейшими рыбопоисковыми комплексами - это новый мир, который привлекает все больше и больше людей, интересующихся рыбалкой. Наш технический центр по подготовке спортивных рыболовных катеров, предлагает вам, под руководством опытного инструктора, познакомиться с современной рыбопоисковой техникой</p>
                 </div>
-                <div class=" single-service-page__info-desc float-left">
+                <div class=" single-service-page__info-desc float-right">
                     <img src="<?= get_template_directory_uri() ?>/dist/assets/images/single-service1.jpg" alt="boat">
                     <img src="<?= get_template_directory_uri() ?>/dist/assets/images/single-service2.jpg" alt="boat">
                     <img src="<?= get_template_directory_uri() ?>/dist/assets/images/single-service4.jpg" alt="boat">
@@ -91,9 +108,10 @@ get_header(); ?>
                 <p>При оказании услуги выполняется</p>
                 <h3> Тестирование оборудования на воде. </h3>
             </div>
+            </div>
         </div>
     </div>
-
+<div class="grid-container">
 <div class="portfolio-page__content">
     <div class="slider-wrapper">
         <div class="slider-nav clearfix">
@@ -116,7 +134,7 @@ get_header(); ?>
                         <div class="bottom-block">
                             <button type="button" class="button">Заказать</button>
                             <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart">
-                            <img src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
+                            <img class="scheme-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
                         </div>
                     </div>
                 </div>
@@ -130,7 +148,7 @@ get_header(); ?>
                         <div class="bottom-block">
                             <button type="button" class="button">Заказать</button>
                             <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart">
-                            <img src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
+                            <img class="scheme-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
                         </div>
                     </div>
                 </div>
@@ -144,7 +162,7 @@ get_header(); ?>
                         <div class="bottom-block">
                             <button type="button" class="button">Заказать</button>
                             <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart">
-                            <img src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
+                            <img class="scheme-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
                         </div>
                     </div>
                 </div>
@@ -158,7 +176,7 @@ get_header(); ?>
                         <div class="bottom-block">
                             <button type="button" class="button">Заказать</button>
                             <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart">
-                            <img src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
+                            <img class="scheme-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
                         </div>
                     </div>
                 </div>
@@ -172,13 +190,14 @@ get_header(); ?>
                         <div class="bottom-block">
                             <button type="button" class="button">Заказать</button>
                             <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart">
-                            <img src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
+                            <img class="scheme-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 </div>
 
 

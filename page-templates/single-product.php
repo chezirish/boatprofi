@@ -8,6 +8,8 @@ get_header(); ?>
 <div class="single-product-page">
     <div class="single-product-page__content grid-x grid-padding-x">
             <div class="single-product-page__left-content cell medium-6 large-6">
+            <h4>Эхолот-картплоттер <br>  Humminbird HELIX 10 SI GPS</h4>
+            <p class="p-order"><span class="span-order">Под заказ </span> (Предполагаемый срок поставки: 25 марта)</p>
                 <div class="single-product-page__preview-icons-wrapper">
                     <div class="single-product-page__preview-icon single-product-page__preview-icon-is-active">
                         <img src="<?= get_template_directory_uri() ?>/dist/assets/images/product-page__preview-icon1.png" alt="tool">
@@ -40,8 +42,8 @@ get_header(); ?>
                 <p class="p-order"><span class="span-order">Под заказ </span> (Предполагаемый срок поставки: 25 марта)</p>
                 <p class="single-service-page__price">159 000 руб.</p>
                 <button type="button" class="single-service-page__button button">Заказать</button>
-                <p class="single-service-page__add"><img src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png"  alt="heart">В избранное</p>
-                <p class="single-service-page__add"><img src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png"  alt="scheme">Сравнить</p>
+                <p class="single-service-page__add"><img class="heart" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png"  alt="heart"><span>В избранное</span></p>
+                <p class="single-service-page__add"><img class="scheme" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png"  alt="scheme"><span>Сравнить</span></p>
                 <div class="footer-social-icons">
                     <img src="<?= get_template_directory_uri() ?>/dist/assets/images/in2.svg" alt="icon">
                     <img src="<?= get_template_directory_uri() ?>/dist/assets/images/fb2.svg" alt="icon">
@@ -112,6 +114,7 @@ get_header(); ?>
 </div>
 
 <div class="portfolio-page__content">
+<div class="grid-container">
     <div class="slider-wrapper">
         <div class="slider-nav clearfix">
                 <h3 class="float-left">С этим товаров покупают</h3>
@@ -133,7 +136,7 @@ get_header(); ?>
                         <div class="bottom-block">
                             <button type="button" class="button">Заказать</button>
                             <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart">
-                            <img src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
+                            <img class="scheme-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
                         </div>
                     </div>
                 </div>
@@ -147,7 +150,7 @@ get_header(); ?>
                         <div class="bottom-block">
                             <button type="button" class="button">Заказать</button>
                             <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart">
-                            <img src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
+                            <img class="scheme-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
                         </div>
                     </div>
                 </div>
@@ -161,7 +164,7 @@ get_header(); ?>
                         <div class="bottom-block">
                             <button type="button" class="button">Заказать</button>
                             <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart">
-                            <img src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
+                            <img class="scheme-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
                         </div>
                     </div>
                 </div>
@@ -175,7 +178,7 @@ get_header(); ?>
                         <div class="bottom-block">
                             <button type="button" class="button">Заказать</button>
                             <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart">
-                            <img src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
+                            <img class="scheme-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
                         </div>
                     </div>
                 </div>
@@ -189,12 +192,13 @@ get_header(); ?>
                         <div class="bottom-block">
                             <button type="button" class="button">Заказать</button>
                             <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart">
-                            <img src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
+                            <img class="scheme-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 </div>
 

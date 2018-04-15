@@ -6,7 +6,10 @@ Template Name: Статьи
 get_header(); ?>
 
 <div class="articles_page-content">
-    <h3>Статьи</h3>
+    <div class="grid-container">
+        <h3>Статьи</h3>
+    </div>
+    
 
     <div class="articles_page-articles-list">
         <div class="articles_page-article-item">

@@ -6,17 +6,19 @@ Template Name: Портфолио
 get_header(); ?>
 
 <div class="portfolio-page__content">
+    <div class="grid-container">
     <div class="portfolio-page__title">
-        <h2>Чемпионский <br>  Alumacraft <br>  trophi 205</h2>
+        <h2 class="portfolio-page__title-name">Чемпионский <br>  Alumacraft <br>  trophi 205</h2>
+        <h2 class="portfolio-page__title-name-tablet">Чемпионский  Alumacraft trophi 205</h2>
         <div class="portfolio-page__title-main-avatar" style="background-image:url(<?= get_template_directory_uri() ?>/dist/assets/images/boat5.jpg);background-size:cover;background-repeat:no-repeat"></div>
         <!-- <img class="portfolio-page__title-main-avatar" src="<?= get_template_directory_uri() ?>/dist/assets/images/boat5.jpg" alt="boat"> -->
         <div class="portfolio-page__title-small-avatars-wrapper">
-            <img class="portfolio-page__title-small-avatar" src="<?= get_template_directory_uri() ?>/dist/assets/images/boat6.jpg" alt="boat">
-            <img class="portfolio-page__title-small-avatar" src="<?= get_template_directory_uri() ?>/dist/assets/images/boat8.jpg" alt="boat">
-            <img class="portfolio-page__title-small-avatar" src="<?= get_template_directory_uri() ?>/dist/assets/images/boat9.jpg" alt="boat">
+            <img class="portfolio-page__title-small-avatar" src="<?= get_template_directory_uri() ?>/dist/assets/images/boat6.jpg" alt="boat"><img class="portfolio-page__title-small-avatar" src="<?= get_template_directory_uri() ?>/dist/assets/images/boat8.jpg" alt="boat"><img class="portfolio-page__title-small-avatar" src="<?= get_template_directory_uri() ?>/dist/assets/images/boat9.jpg" alt="boat">
         </div>
     </div>
+    </div>
     <div class="portfolio-page__tasks grid-x grid-margin-x">
+        <!-- <div class="grid-container"> -->
         <div class="cell medium-6 large-6">
             <div class="tasks-content">
                 <div class="tasks-goal">
@@ -29,7 +31,9 @@ get_header(); ?>
                 </div>
             </div>
         </div>  
+        <!-- </div> -->
 
+        <div class="grid-container">
         <div class="cell medium-6 large-6">
             <div class="tasks-icon">
                 <h3>Выполнено</h3>
@@ -43,8 +47,10 @@ get_header(); ?>
                 <img class="kruchok" src="<?= get_template_directory_uri() ?>/dist/assets/images/kruchok.png">
             </div> 
         </div>
+        </div>
     </div>
 
+    <div class="grid-container">
     <div class="process">
         <h3>Процесс работы</h3>
         <div class="process-content">
@@ -63,7 +69,7 @@ get_header(); ?>
                 </div>
             </div>
 
-            <div class="process-content-item clearfix">
+            <div class="process-content-item-last clearfix">
                 <div class="process-text float-left">
                     <p class="process-text-left">Демонтированный двигатель был установлен на стенд и на протяжении продолжительного времени подвергнут испытаниям на разных режимах. </p>
                 </div>
@@ -73,9 +79,12 @@ get_header(); ?>
             </div>
         </div>
     </div>
+    </div>
 </div>
 
+
 <div class="portfolio-page__review">
+<div class="grid-container">
     <div class="portfolio-page__content">   
         <h3 class="review-title">Отзыв о проекте</h3>
         <div class="portfolio-page__review-content clearfix">
@@ -88,6 +97,7 @@ get_header(); ?>
             </div>
         </div>
     </div>
+</div>
 </div>
 
 
@@ -141,7 +151,7 @@ get_header(); ?>
                     <div class="bottom-block">
                         <button type="button" class="button">Заказать</button>
                         <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart">
-                        <img src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
+                        <img class="scheme-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
                     </div>
                 </div>
             </div>
@@ -155,7 +165,7 @@ get_header(); ?>
                     <div class="bottom-block">
                         <button type="button" class="button">Заказать</button>
                         <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart">
-                        <img src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
+                        <img class="scheme-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
                     </div>
                 </div>
             </div>
@@ -169,7 +179,7 @@ get_header(); ?>
                     <div class="bottom-block">
                         <button type="button" class="button">Заказать</button>
                         <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart">
-                        <img src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
+                        <img class="scheme-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
                     </div>
                 </div>
             </div>
@@ -183,7 +193,7 @@ get_header(); ?>
                     <div class="bottom-block">
                         <button type="button" class="button">Заказать</button>
                         <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart">
-                        <img src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
+                        <img class="scheme-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
                     </div>
                 </div>
             </div>
@@ -197,7 +207,7 @@ get_header(); ?>
                     <div class="bottom-block">
                         <button type="button" class="button">Заказать</button>
                         <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart">
-                        <img src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
+                        <img class="scheme-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
                     </div>
                 </div>
             </div>
