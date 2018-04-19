@@ -19,6 +19,7 @@ get_header(); ?>
 
 <!-- <div class="section-form-wrapper"> -->
 
+<!-- <div class="grid-container"> -->
 <section class="callout section-form">
     
         <button class="close-button" aria-label="Dismiss alert" type="button">
@@ -52,8 +53,9 @@ get_header(); ?>
         </form>
 </section>
 <!-- </div> -->
+<!-- </div> -->
 
-
+<div class="section-services-wrapper">
 <section class="section-services">
     <div class="section-headline">
         <h3>Наши услуги</h3>
@@ -72,12 +74,12 @@ get_header(); ?>
         </div>
         <div class="sirvices-item clearfix">
             <div class="sirvices-item-content float-left">
-                <h5>Монтаж <br> электромоторов</h5>
+                <h5>Установка <br> картоплоттеров </h5>
                 <button type="button" class="button">Заказать</button>
                 <a href="#">подробнее</a>
             </div>
             <div class="sirvices-item-icon float-right">
-                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/motor-icon.png" alt="icon">
+                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/service-icon.png" alt="icon">
             </div>
         </div>
         <div class="sirvices-item clearfix">
@@ -87,71 +89,73 @@ get_header(); ?>
                 <a href="#">подробнее</a>
             </div>
             <div class="sirvices-item-icon float-right">
-                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/motor-icon.png" alt="icon">
+                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/service-icon2.png" alt="icon">
             </div>
         </div>
         <div class="sirvices-item clearfix">
             <div class="sirvices-item-content float-left">
-                <h5>Монтаж <br> электромоторов</h5>
+                <h5>Подиумы <br> из стеклопластика</h5>
                 <button type="button" class="button">Заказать</button>
                 <a href="#">подробнее</a>
             </div>
             <div class="sirvices-item-icon float-right">
-                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/motor-icon.png" alt="icon">
+                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/service-icon3.png" alt="icon">
             </div>
         </div>
         <div class="sirvices-item clearfix">
             <div class="sirvices-item-content float-left">
-                <h5>Монтаж <br> электромоторов</h5>
+                <h5> Монтаж и ТО <br>  лодочных моторов  </h5>
                 <button type="button" class="button">Заказать</button>
                 <a href="#">подробнее</a>
             </div>
             <div class="sirvices-item-icon float-right">
-                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/motor-icon.png" alt="icon">
+                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/service-icon4.png" alt="icon">
             </div>
         </div>
         <div class="sirvices-item clearfix">
             <div class="sirvices-item-content float-left">
-                <h5>Монтаж <br> электромоторов</h5>
+                <h5>Пошив чехлов <br> и тентов  </h5>
                 <button type="button" class="button">Заказать</button>
                 <a href="#">подробнее</a>
             </div>
             <div class="sirvices-item-icon float-right">
-                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/motor-icon.png" alt="icon">
+                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/service-icon5.png" alt="icon">
             </div>
         </div>
         <div class="sirvices-item clearfix">
             <div class="sirvices-item-content float-left">
-                <h5>Монтаж <br> электромоторов</h5>
+                <h5>Ремонт любых <br>  корпусов </h5>
                 <button type="button" class="button">Заказать</button>
                 <a href="#">подробнее</a>
             </div>
             <div class="sirvices-item-icon float-right">
-                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/motor-icon.png" alt="icon">
+                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/service-icon6.png" alt="icon">
             </div>
         </div>
         <div class="sirvices-item clearfix">
             <div class="sirvices-item-content float-left">
-                <h5>Монтаж <br> электромоторов</h5>
+                <h5>ТО троллинговых <br> моторов  </h5>
                 <button type="button" class="button">Заказать</button>
                 <a href="#">подробнее</a>
             </div>
             <div class="sirvices-item-icon float-right">
-                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/motor-icon.png" alt="icon">
+                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/service-icon7.png" alt="icon">
             </div>
         </div>
         <div class="sirvices-item clearfix">
             <div class="sirvices-item-content float-left">
-                <h5>Монтаж <br> электромоторов</h5>
+                <h5>Тюнинг лодочных <br> прицепов   </h5>
                 <button type="button" class="button">Заказать</button>
                 <a href="#">подробнее</a>
             </div>
             <div class="sirvices-item-icon float-right">
-                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/motor-icon.png" alt="icon">
+                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/service-icon8.png" alt="icon">
             </div>
         </div>
     </div>
 </section>
+</div>
+
 
 <section class="section-projects">
 <div class="section-projects-content">
@@ -201,7 +205,75 @@ get_header(); ?>
                         <p>Еще проекты</p>
                     </div>
                 </div>
+                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/boat10.jpg" alt="boat">
+                <p class="project-slider-item-bottom-text">Установить электро  мотор с функцией gps  якоря и автопилота</p>
+            </div>
+        </div>
+        <div class="project-slider-item">
+            <div class="project-slider-item-icon">
+                <div class="project-slider-modal">
+                    <div class="project-slider-modal-content">
+                        <img src="<?= get_template_directory_uri() ?>/dist/assets/images/slider-modal-icon.png" alt="arrow">
+                        <p>Еще проекты</p>
+                    </div>
+                </div>
+                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/car.jpg" alt="boat">
+                <p class="project-slider-item-bottom-text">Совсем скоро снимем  тент и покажем,  что внутри.</p>
+            </div>
+            <div class="project-slider-item-icon">
+                <div class="project-slider-modal">
+                    <div class="project-slider-modal-content">
+                        <img src="<?= get_template_directory_uri() ?>/dist/assets/images/slider-modal-icon.png" alt="arrow">
+                        <p>Еще проекты</p>
+                    </div>
+                </div>
+                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/boat3.jpg" alt="boat">
+                <p class="project-slider-item-bottom-text">Совсем скоро снимем  тент и покажем,  что внутри.</p>
+            </div>
+        </div>
+        <div class="project-slider-item">
+            <div class="project-slider-item-icon">
+                <div class="project-slider-modal">
+                    <div class="project-slider-modal-content">
+                        <img src="<?= get_template_directory_uri() ?>/dist/assets/images/slider-modal-icon.png" alt="arrow">
+                        <p>Еще проекты</p>
+                    </div>
+                </div>
                 <img src="<?= get_template_directory_uri() ?>/dist/assets/images/boat1.jpg" alt="boat">
+                <p class="project-slider-item-bottom-text">Установить электро  мотор с функцией gps  якоря и автопилота</p>
+            </div>
+        </div>
+        <div class="project-slider-item">
+            <div class="project-slider-item-icon">
+                <div class="project-slider-modal">
+                    <div class="project-slider-modal-content">
+                        <img src="<?= get_template_directory_uri() ?>/dist/assets/images/slider-modal-icon.png" alt="arrow">
+                        <p>Еще проекты</p>
+                    </div>
+                </div>
+                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/car.jpg" alt="boat">
+                <p class="project-slider-item-bottom-text">Совсем скоро снимем  тент и покажем,  что внутри.</p>
+            </div>
+            <div class="project-slider-item-icon">
+                <div class="project-slider-modal">
+                    <div class="project-slider-modal-content">
+                        <img src="<?= get_template_directory_uri() ?>/dist/assets/images/slider-modal-icon.png" alt="arrow">
+                        <p>Еще проекты</p>
+                    </div>
+                </div>
+                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/boat3.jpg" alt="boat">
+                <p class="project-slider-item-bottom-text">Совсем скоро снимем  тент и покажем,  что внутри.</p>
+            </div>
+        </div>
+        <div class="project-slider-item">
+            <div class="project-slider-item-icon">
+                <div class="project-slider-modal">
+                    <div class="project-slider-modal-content">
+                        <img src="<?= get_template_directory_uri() ?>/dist/assets/images/slider-modal-icon.png" alt="arrow">
+                        <p>Еще проекты</p>
+                    </div>
+                </div>
+                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/boat10.jpg" alt="boat">
                 <p class="project-slider-item-bottom-text">Установить электро  мотор с функцией gps  якоря и автопилота</p>
             </div>
         </div>
@@ -247,7 +319,7 @@ get_header(); ?>
                         <p>Еще проекты</p>
                     </div>
                 </div>
-                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/boat2.jpg" alt="boat">
+                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/car.jpg" alt="boat">
                 <p class="project-slider-item-bottom-text">Совсем скоро снимем  тент и покажем,  что внутри.</p>
             </div>
             <div class="project-slider-item-icon">
@@ -269,7 +341,7 @@ get_header(); ?>
                         <p>Еще проекты</p>
                     </div>
                 </div>
-                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/boat1.jpg" alt="boat">
+                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/boat10.jpg" alt="boat">
                 <p class="project-slider-item-bottom-text">Установить электро  мотор с функцией gps  якоря и автопилота</p>
             </div>
         </div>
@@ -315,7 +387,7 @@ get_header(); ?>
                         <p>Еще проекты</p>
                     </div>
                 </div>
-                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/boat2.jpg" alt="boat">
+                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/car.jpg" alt="boat">
                 <p class="project-slider-item-bottom-text">Совсем скоро снимем  тент и покажем,  что внутри.</p>
             </div>
             <div class="project-slider-item-icon">
@@ -337,7 +409,7 @@ get_header(); ?>
                         <p>Еще проекты</p>
                     </div>
                 </div>
-                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/boat1.jpg" alt="boat">
+                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/boat10.jpg" alt="boat">
                 <p class="project-slider-item-bottom-text">Установить электро  мотор с функцией gps  якоря и автопилота</p>
             </div>
         </div>
@@ -383,7 +455,7 @@ get_header(); ?>
                         <p>Еще проекты</p>
                     </div>
                 </div>
-                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/boat2.jpg" alt="boat">
+                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/car.jpg" alt="boat">
                 <p class="project-slider-item-bottom-text">Совсем скоро снимем  тент и покажем,  что внутри.</p>
             </div>
             <div class="project-slider-item-icon">
@@ -405,7 +477,7 @@ get_header(); ?>
                         <p>Еще проекты</p>
                     </div>
                 </div>
-                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/boat1.jpg" alt="boat">
+                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/boat10.jpg" alt="boat">
                 <p class="project-slider-item-bottom-text">Установить электро  мотор с функцией gps  якоря и автопилота</p>
             </div>
         </div>
@@ -451,7 +523,7 @@ get_header(); ?>
                         <p>Еще проекты</p>
                     </div>
                 </div>
-                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/boat2.jpg" alt="boat">
+                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/car.jpg" alt="boat">
                 <p class="project-slider-item-bottom-text">Совсем скоро снимем  тент и покажем,  что внутри.</p>
             </div>
             <div class="project-slider-item-icon">
@@ -473,7 +545,7 @@ get_header(); ?>
                         <p>Еще проекты</p>
                     </div>
                 </div>
-                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/boat1.jpg" alt="boat">
+                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/boat10.jpg" alt="boat">
                 <p class="project-slider-item-bottom-text">Установить электро  мотор с функцией gps  якоря и автопилота</p>
             </div>
         </div>
@@ -507,7 +579,7 @@ get_header(); ?>
                         <p>Еще проекты</p>
                     </div>
                 </div>
-                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/boat1.jpg" alt="boat">
+                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/boat10.jpg" alt="boat">
                 <p class="project-slider-item-bottom-text">Установить электро  мотор с функцией gps  якоря и автопилота</p>
             </div>
         </div>
@@ -519,7 +591,7 @@ get_header(); ?>
                         <p>Еще проекты</p>
                     </div>
                 </div>
-                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/boat2.jpg" alt="boat">
+                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/car.jpg" alt="boat">
                 <p class="project-slider-item-bottom-text">Совсем скоро снимем  тент и покажем,  что внутри.</p>
             </div>
             <div class="project-slider-item-icon">
@@ -541,75 +613,7 @@ get_header(); ?>
                         <p>Еще проекты</p>
                     </div>
                 </div>
-                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/boat1.jpg" alt="boat">
-                <p class="project-slider-item-bottom-text">Установить электро  мотор с функцией gps  якоря и автопилота</p>
-            </div>
-        </div>
-        <div class="project-slider-item">
-            <div class="project-slider-item-icon">
-                <div class="project-slider-modal">
-                    <div class="project-slider-modal-content">
-                        <img src="<?= get_template_directory_uri() ?>/dist/assets/images/slider-modal-icon.png" alt="arrow">
-                        <p>Еще проекты</p>
-                    </div>
-                </div>
-                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/boat2.jpg" alt="boat">
-                <p class="project-slider-item-bottom-text">Совсем скоро снимем  тент и покажем,  что внутри.</p>
-            </div>
-            <div class="project-slider-item-icon">
-                <div class="project-slider-modal">
-                    <div class="project-slider-modal-content">
-                        <img src="<?= get_template_directory_uri() ?>/dist/assets/images/slider-modal-icon.png" alt="arrow">
-                        <p>Еще проекты</p>
-                    </div>
-                </div>
-                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/boat3.jpg" alt="boat">
-                <p class="project-slider-item-bottom-text">Совсем скоро снимем  тент и покажем,  что внутри.</p>
-            </div>
-        </div>
-        <div class="project-slider-item">
-            <div class="project-slider-item-icon">
-                <div class="project-slider-modal">
-                    <div class="project-slider-modal-content">
-                        <img src="<?= get_template_directory_uri() ?>/dist/assets/images/slider-modal-icon.png" alt="arrow">
-                        <p>Еще проекты</p>
-                    </div>
-                </div>
-                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/boat1.jpg" alt="boat">
-                <p class="project-slider-item-bottom-text">Установить электро  мотор с функцией gps  якоря и автопилота</p>
-            </div>
-        </div>
-        <div class="project-slider-item">
-            <div class="project-slider-item-icon">
-                <div class="project-slider-modal">
-                    <div class="project-slider-modal-content">
-                        <img src="<?= get_template_directory_uri() ?>/dist/assets/images/slider-modal-icon.png" alt="arrow">
-                        <p>Еще проекты</p>
-                    </div>
-                </div>
-                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/boat2.jpg" alt="boat">
-                <p class="project-slider-item-bottom-text">Совсем скоро снимем  тент и покажем,  что внутри.</p>
-            </div>
-            <div class="project-slider-item-icon">
-                <div class="project-slider-modal">
-                    <div class="project-slider-modal-content">
-                        <img src="<?= get_template_directory_uri() ?>/dist/assets/images/slider-modal-icon.png" alt="arrow">
-                        <p>Еще проекты</p>
-                    </div>
-                </div>
-                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/boat3.jpg" alt="boat">
-                <p class="project-slider-item-bottom-text">Совсем скоро снимем  тент и покажем,  что внутри.</p>
-            </div>
-        </div>
-        <div class="project-slider-item">
-            <div class="project-slider-item-icon">
-                <div class="project-slider-modal">
-                    <div class="project-slider-modal-content">
-                        <img src="<?= get_template_directory_uri() ?>/dist/assets/images/slider-modal-icon.png" alt="arrow">
-                        <p>Еще проекты</p>
-                    </div>
-                </div>
-                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/boat1.jpg" alt="boat">
+                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/boat10.jpg" alt="boat">
                 <p class="project-slider-item-bottom-text">Установить электро  мотор с функцией gps  якоря и автопилота</p>
             </div>
         </div>
@@ -658,52 +662,61 @@ get_header(); ?>
         </div>
         <div class="sirvices-item">
             <div class="sirvices-item-content">
-                <h5>Элетрические   <br> троллинговые моторы</h5>
-                <a href="#">Minn kota</a>
-                <a href="#">MotorGuide</a>
+                <h5>Эхолоты и картоплоттеры</h5>
+                <a href="">Lowrance</a>
+                <a href="">Humminbird</a>
+                <a href="">RayMarine</a>
+                <a href="">Garmin</a>
+                <a href="">StarMaps</a> 
             </div>
-            <div class="sirvices-item-icon">
-                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/tool.png" alt="icon">
-            </div>
-        </div>
-        <div class="sirvices-item">
-            <div class="sirvices-item-content">
-                <h5>Элетрические   <br> троллинговые моторы</h5>
-                <a href="#">Minn kota</a>
-                <a href="#">MotorGuide</a>
-            </div>
-            <div class="sirvices-item-icon">
-                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/tool.png" alt="icon">
+            <div style="width:190px" class="sirvices-item-icon">
+                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/tool10.png" alt="icon">
             </div>
         </div>
         <div class="sirvices-item">
             <div class="sirvices-item-content">
-                <h5>Элетрические   <br> троллинговые моторы</h5>
-                <a href="#">Minn kota</a>
-                <a href="#">MotorGuide</a>
+                <h5>Аккумуляторы <br> и зарядные устройства</h5>
+                <a href="">Аккумуляторные батареи</a>
+                <a href="">Зарядные устройства</a>
+                <a href="">Аксессуары</a>
+                   
             </div>
             <div class="sirvices-item-icon">
-                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/tool.png" alt="icon">
+                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/tool11.png" alt="icon">
             </div>
         </div>
         <div class="sirvices-item">
             <div class="sirvices-item-content">
-                <h5>Элетрические   <br> троллинговые моторы</h5>
+                <h5>Моторы для лодок</h5>
                 <a href="#">Minn kota</a>
                 <a href="#">MotorGuide</a>
             </div>
             <div class="sirvices-item-icon">
-                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/tool.png" alt="icon">
+                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/tool12.png" alt="icon">
             </div>
         </div>
         <div class="sirvices-item">
             <div class="sirvices-item-content">
-                <h5>Элетрические   <br> троллинговые моторы</h5>
+                <h5>Аксессуары для прицепов</h5>
+
+                <a href="">Опора</a>
+                <a href="">Опорное колесо</a>
+                <a href="">Колпачок на фаркоп </a>
+                <a href="">Светодиодные</a>
+                <a href="">габариты</a>
+            </div>
+            <div class="sirvices-item-icon">
+                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/tool13.png" alt="icon">
+            </div>
+        </div>
+        <div class="sirvices-item">
+            <div class="sirvices-item-content">
+                <h5>Сопутствующие товары</h5>
                 <a href="#">Minn kota</a>
                 <a href="#">MotorGuide</a>
             </div>
             <div class="sirvices-item-icon">
-                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/tool.png" alt="icon">
+                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/tool14.png" alt="icon">
             </div>
         </div>
     </div>
@@ -714,99 +727,153 @@ get_header(); ?>
     <div class="section-headline">
         <h3>Товары нашего магазина</h3>
     </div>
-    <nav class="clearfix">
-        <div class="products-filter float-left">
-            <p>Акционные</p>
-            <p>Новинки</p>
-            <p>Хиты продаж</p>
-        </div>
-        <div class="linkto-catalog float-right">
-            <a href="">Перейти в каталог</a>
-        </div>
-    </nav>
+    <div class="grid-container">
+        <nav class="clearfix">
+            <div class="products-filter float-left">
+                <p>Акционные</p>
+                <p>Новинки</p>
+                <p>Хиты продаж</p>
+            </div>
+            <div class="linkto-catalog float-right">
+                <a href="">Перейти в каталог</a>
+            </div>
+        </nav>
+    </div>
+
 
     <div class="services-list">
         <div class="sirvices-item">
-            <div class="sirvices-item-icon" <div class="sirvices-item-icon"  style="background-image:url(<?= get_template_directory_uri() ?>/dist/assets/images/tool3.png);background-size:contain;background-position:center;background-repeat:no-repeat">
+            <div class="sirvices-item-modal-basket reveal" data-closable>
+                <button class="close-button"  data-close aria-label="Dismiss alert" type="button">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4>Товар оправлен в корзину!</h4>
+                <a href="">перейти в корзину</a>
+                <p>Список будет очищен по завершению сессии</p>
+            </div>
+            <div class="sirvices-item-icon" <div class="sirvices-item-icon"  style="background-image:url(<?= get_template_directory_uri() ?>/dist/assets/images/tool2.png);background-size:contain;background-position:center;background-repeat:no-repeat">
                <?php /* <img  src="<?= get_template_directory_uri() ?>/dist/assets/images/tool2.png" alt="tool"> */ ?>
             </div>
             <div class="sirvices-item-content">
                 <p>Зарядное устройство Dual Pro Professional SS1 220 В</p>
                 <p><span class="sirvices-item-costs">106600 руб.</span></p>
                 <div class="bottom-block">
-                    <button type="button" class="button">Заказать</button>
-                    <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart">
-                    <img class="scheme-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
+                    <button type="button" class="button add-basket">В корзину</button>
+                    <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart"  data-tooltip tabindex="1" title="В избранное" data-position="bottom" data-alignment="center">
+                    <img class="scheme-icon" data-tooltip tabindex="1" title="В сравнение" data-position="bottom" data-alignment="center" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
                 </div>
             </div>
         </div>
         <div class="sirvices-item">
+            <p class="sirvices-item-tag">Хит продаж</p>
+            <p class="sirvices-item-tag">Новинка</p>
+            <div class="sirvices-item-modal-basket reveal" data-closable>
+                <button class="close-button"  data-close aria-label="Dismiss alert" type="button">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4>Товар оправлен в корзину!</h4>
+                <a href="">перейти в корзину</a>
+                <p>Список будет очищен по завершению сессии</p>
+            </div>
+
             <div class="sirvices-item-icon" <div class="sirvices-item-icon"  style="background-image:url(<?= get_template_directory_uri() ?>/dist/assets/images/tool3.png);background-size:contain;background-position:center;background-repeat:no-repeat">
                <?php /* <img  src="<?= get_template_directory_uri() ?>/dist/assets/images/tool2.png" alt="tool"> */ ?>
             </div>
             <div class="sirvices-item-content">
-                <p>Зарядное устройство Dual Pro Professional SS1 220 В</p>
+                <p>Троллинговый мотор Minn Kota TERROVA 55LB-48</p>
                 <p><span class="sirvices-item-costs">106600 руб.</span></p>
                 <div class="bottom-block">
-                    <button type="button" class="button">Заказать</button>
-                    <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart">
-                    <img class="scheme-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
+                    <button type="button" class="button add-basket">В корзину</button>
+                    <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart"  data-tooltip tabindex="1" title="В избранное" data-position="bottom" data-alignment="center">
+                    <img class="scheme-icon" data-tooltip tabindex="1" title="В сравнение" data-position="bottom" data-alignment="center" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
                 </div>
             </div>
         </div>
         <div class="sirvices-item">
-            <div class="sirvices-item-icon" <div class="sirvices-item-icon"  style="background-image:url(<?= get_template_directory_uri() ?>/dist/assets/images/tool3.png);background-size:contain;background-position:center;background-repeat:no-repeat">
+            <div class="sirvices-item-modal-basket reveal" data-closable>
+                <button class="close-button"  data-close aria-label="Dismiss alert" type="button">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4>Товар оправлен в корзину!</h4>
+                <a href="">перейти в корзину</a>
+                <p>Список будет очищен по завершению сессии</p>
+            </div>
+            <div class="sirvices-item-icon" <div class="sirvices-item-icon"  style="background-image:url(<?= get_template_directory_uri() ?>/dist/assets/images/tool4.png);background-size:contain;background-position:center;background-repeat:no-repeat">
                <?php /* <img  src="<?= get_template_directory_uri() ?>/dist/assets/images/tool2.png" alt="tool"> */ ?>
             </div>
             <div class="sirvices-item-content">
-                <p>Зарядное устройство Dual Pro Professional SS1 220 В</p>
+                <p>Эхолот-картплоттер  Humminbird HELIX 10 SI GPS</p>
                 <p><span class="sirvices-item-costs">106600 руб.</span></p>
                 <div class="bottom-block">
-                    <button type="button" class="button">Заказать</button>
-                    <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart">
-                    <img class="scheme-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
+                    <button type="button" class="button add-basket">В корзину</button>
+                    <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart"  data-tooltip tabindex="1" title="В избранное" data-position="bottom" data-alignment="center">
+                    <img class="scheme-icon" data-tooltip tabindex="1" title="В сравнение" data-position="bottom" data-alignment="center" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
                 </div>
             </div>
         </div>
         <div class="sirvices-item">
-            <div class="sirvices-item-icon" <div class="sirvices-item-icon"  style="background-image:url(<?= get_template_directory_uri() ?>/dist/assets/images/tool3.png);background-size:contain;background-position:center;background-repeat:no-repeat">
+            <div class="sirvices-item-modal-basket reveal" data-closable>
+                <button class="close-button"  data-close aria-label="Dismiss alert" type="button">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4>Товар оправлен в корзину!</h4>
+                <a href="">перейти в корзину</a>
+                <p>Список будет очищен по завершению сессии</p>
+            </div>
+            <div class="sirvices-item-icon" <div class="sirvices-item-icon"  style="background-image:url(<?= get_template_directory_uri() ?>/dist/assets/images/tool2.png);background-size:contain;background-position:center;background-repeat:no-repeat">
                <?php /* <img  src="<?= get_template_directory_uri() ?>/dist/assets/images/tool2.png" alt="tool"> */ ?>
             </div>
             <div class="sirvices-item-content">
                 <p>Зарядное устройство Dual Pro Professional SS1 220 В</p>
                 <p><span class="sirvices-item-costs">106600 руб.</span></p>
                 <div class="bottom-block">
-                    <button type="button" class="button">Заказать</button>
-                    <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart">
-                    <img class="scheme-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
+                    <button type="button" class="button add-basket">В корзину</button>
+                    <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart"  data-tooltip tabindex="1" title="В избранное" data-position="bottom" data-alignment="center">
+                    <img class="scheme-icon" data-tooltip tabindex="1" title="В сравнение" data-position="bottom" data-alignment="center" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
                 </div>
             </div>
         </div>
         <div class="sirvices-item">
+            <div class="sirvices-item-modal-basket reveal" data-closable>
+                <button class="close-button"  data-close aria-label="Dismiss alert" type="button">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4>Товар оправлен в корзину!</h4>
+                <a href="">перейти в корзину</a>
+                <p>Список будет очищен по завершению сессии</p>
+            </div>
             <div class="sirvices-item-icon" <div class="sirvices-item-icon"  style="background-image:url(<?= get_template_directory_uri() ?>/dist/assets/images/tool3.png);background-size:contain;background-position:center;background-repeat:no-repeat">
                <?php /* <img  src="<?= get_template_directory_uri() ?>/dist/assets/images/tool2.png" alt="tool"> */ ?>
             </div>
             <div class="sirvices-item-content">
-                <p>Зарядное устройство Dual Pro Professional SS1 220 В</p>
+                <p>Троллинговый мотор Minn Kota TERROVA 55LB-48</p>
                 <p><span class="sirvices-item-costs">106600 руб.</span></p>
                 <div class="bottom-block">
-                    <button type="button" class="button">Заказать</button>
-                    <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart">
-                    <img class="scheme-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
+                    <button type="button" class="button add-basket">В корзину</button>
+                    <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart"  data-tooltip tabindex="1" title="В избранное" data-position="bottom" data-alignment="center">
+                    <img class="scheme-icon" data-tooltip tabindex="1" title="В сравнение" data-position="bottom" data-alignment="center" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
                 </div>
             </div>
         </div>
         <div class="sirvices-item">
-            <div class="sirvices-item-icon" <div class="sirvices-item-icon"  style="background-image:url(<?= get_template_directory_uri() ?>/dist/assets/images/tool3.png);background-size:contain;background-position:center;background-repeat:no-repeat">
+            <div class="sirvices-item-modal-basket reveal" data-closable>
+                <button class="close-button"  data-close aria-label="Dismiss alert" type="button">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4>Товар оправлен в корзину!</h4>
+                <a href="">перейти в корзину</a>
+                <p>Список будет очищен по завершению сессии</p>
+            </div>
+            <div class="sirvices-item-icon" <div class="sirvices-item-icon"  style="background-image:url(<?= get_template_directory_uri() ?>/dist/assets/images/tool2.png);background-size:contain;background-position:center;background-repeat:no-repeat">
                <?php /* <img  src="<?= get_template_directory_uri() ?>/dist/assets/images/tool2.png" alt="tool"> */ ?>
             </div>
             <div class="sirvices-item-content">
                 <p>Зарядное устройство Dual Pro Professional SS1 220 В</p>
                 <p><span class="sirvices-item-costs">106600 руб.</span></p>
                 <div class="bottom-block">
-                    <button type="button" class="button">Заказать</button>
-                    <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart">
-                    <img class="scheme-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
+                    <button type="button" class="button add-basket">В корзину</button>
+                    <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart"  data-tooltip tabindex="1" title="В избранное" data-position="bottom" data-alignment="center">
+                    <img class="scheme-icon" data-tooltip tabindex="1" title="В сравнение" data-position="bottom" data-alignment="center" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
                 </div>
             </div>
         </div>
@@ -818,58 +885,90 @@ get_header(); ?>
         </div>
 
         <div class="sirvices-item">
-            <div class="sirvices-item-icon" <div class="sirvices-item-icon"  style="background-image:url(<?= get_template_directory_uri() ?>/dist/assets/images/tool3.png);background-size:contain;background-position:center;background-repeat:no-repeat">
+            <div class="sirvices-item-modal-basket reveal" data-closable>
+                <button class="close-button"  data-close aria-label="Dismiss alert" type="button">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4>Товар оправлен в корзину!</h4>
+                <a href="">перейти в корзину</a>
+                <p>Список будет очищен по завершению сессии</p>
+            </div>
+            <div class="sirvices-item-icon" <div class="sirvices-item-icon"  style="background-image:url(<?= get_template_directory_uri() ?>/dist/assets/images/tool2.png);background-size:contain;background-position:center;background-repeat:no-repeat">
                <?php /* <img  src="<?= get_template_directory_uri() ?>/dist/assets/images/tool2.png" alt="tool"> */ ?>
             </div>
             <div class="sirvices-item-content">
                 <p>Зарядное устройство Dual Pro Professional SS1 220 В</p>
                 <p><span class="sirvices-item-costs">106600 руб.</span></p>
                 <div class="bottom-block">
-                    <button type="button" class="button">Заказать</button>
-                    <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart">
-                    <img class="scheme-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
+                    <button type="button" class="button add-basket">В корзину</button>
+                    <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart"  data-tooltip tabindex="1" title="В избранное" data-position="bottom" data-alignment="center">
+                    <img class="scheme-icon" data-tooltip tabindex="1" title="В сравнение" data-position="bottom" data-alignment="center" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
                 </div>
             </div>
         </div>
         <div class="sirvices-item">
+            <div class="sirvices-item-modal-basket reveal" data-closable>
+                <button class="close-button"  data-close aria-label="Dismiss alert" type="button">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4>Товар оправлен в корзину!</h4>
+                <a href="">перейти в корзину</a>
+                <p>Список будет очищен по завершению сессии</p>
+            </div>
             <div class="sirvices-item-icon" <div class="sirvices-item-icon"  style="background-image:url(<?= get_template_directory_uri() ?>/dist/assets/images/tool3.png);background-size:contain;background-position:center;background-repeat:no-repeat">
                <?php /* <img  src="<?= get_template_directory_uri() ?>/dist/assets/images/tool2.png" alt="tool"> */ ?>
             </div>
             <div class="sirvices-item-content">
-                <p>Зарядное устройство Dual Pro Professional SS1 220 В</p>
+                <p>Троллинговый мотор Minn Kota TERROVA 55LB-48</p>
                 <p><span class="sirvices-item-costs">106600 руб.</span></p>
                 <div class="bottom-block">
-                    <button type="button" class="button">Заказать</button>
-                    <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart">
-                    <img class="scheme-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
+                    <button type="button" class="button add-basket">В корзину</button>
+                    <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart"  data-tooltip tabindex="1" title="В избранное" data-position="bottom" data-alignment="center">
+                    <img class="scheme-icon" data-tooltip tabindex="1" title="В сравнение" data-position="bottom" data-alignment="center" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
                 </div>
             </div>
         </div>
         <div class="sirvices-item">
-            <div class="sirvices-item-icon" <div class="sirvices-item-icon"  style="background-image:url(<?= get_template_directory_uri() ?>/dist/assets/images/tool3.png);background-size:contain;background-position:center;background-repeat:no-repeat">
+            <div class="sirvices-item-modal-basket reveal" data-closable>
+                <button class="close-button"  data-close aria-label="Dismiss alert" type="button">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4>Товар оправлен в корзину!</h4>
+                <a href="">перейти в корзину</a>
+                <p>Список будет очищен по завершению сессии</p>
+            </div>
+            <div class="sirvices-item-icon" <div class="sirvices-item-icon"  style="background-image:url(<?= get_template_directory_uri() ?>/dist/assets/images/tool4.png);background-size:contain;background-position:center;background-repeat:no-repeat">
                <?php /* <img  src="<?= get_template_directory_uri() ?>/dist/assets/images/tool2.png" alt="tool"> */ ?>
             </div>
             <div class="sirvices-item-content">
-                <p>Зарядное устройство Dual Pro Professional SS1 220 В</p>
+                <p>Эхолот-картплоттер  Humminbird HELIX 10 SI GPS</p>
                 <p><span class="sirvices-item-costs">106600 руб.</span></p>
                 <div class="bottom-block">
-                    <button type="button" class="button">Заказать</button>
-                    <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart">
-                    <img class="scheme-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
+                    <button type="button" class="button add-basket">В корзину</button>
+                    <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart"  data-tooltip tabindex="1" title="В избранное" data-position="bottom" data-alignment="center">
+                    <img class="scheme-icon" data-tooltip tabindex="1" title="В сравнение" data-position="bottom" data-alignment="center" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
                 </div>
             </div>
         </div>
         <div class="sirvices-item">
-            <div class="sirvices-item-icon" <div class="sirvices-item-icon"  style="background-image:url(<?= get_template_directory_uri() ?>/dist/assets/images/tool3.png);background-size:contain;background-position:center;background-repeat:no-repeat">
+            <div class="sirvices-item-modal-basket reveal" data-closable>
+                <button class="close-button"  data-close aria-label="Dismiss alert" type="button">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4>Товар оправлен в корзину!</h4>
+                <a href="">перейти в корзину</a>
+                <p>Список будет очищен по завершению сессии</p>
+            </div>
+            <div class="sirvices-item-icon" <div class="sirvices-item-icon"  style="background-image:url(<?= get_template_directory_uri() ?>/dist/assets/images/tool2.png);background-size:contain;background-position:center;background-repeat:no-repeat">
                <?php /* <img  src="<?= get_template_directory_uri() ?>/dist/assets/images/tool2.png" alt="tool"> */ ?>
             </div>
             <div class="sirvices-item-content">
                 <p>Зарядное устройство Dual Pro Professional SS1 220 В</p>
                 <p><span class="sirvices-item-costs">106600 руб.</span></p>
                 <div class="bottom-block">
-                    <button type="button" class="button">Заказать</button>
-                    <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart">
-                    <img class="scheme-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
+                    <button type="button" class="button add-basket">В корзину</button>
+                    <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart"  data-tooltip tabindex="1" title="В избранное" data-position="bottom" data-alignment="center">
+                    <img class="scheme-icon" data-tooltip tabindex="1" title="В сравнение" data-position="bottom" data-alignment="center" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
                 </div>
             </div>
         </div>

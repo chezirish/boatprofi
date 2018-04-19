@@ -14,6 +14,43 @@ $(function() {
 
     fixTopBar();
 
+    $('.arrow-top-up').click(function (e) {
+        e.preventDefault();
+        $('html,body').animate({
+            scrollTop: 0
+        }, {
+            duration: 1250
+        });
+    });
+    $(window).scroll(function () {
+        if ($(document).scrollTop() > 1000) {
+            $('.arrow-top-up').fadeIn();
+        } else {
+            $('.arrow-top-up').fadeOut();
+        }
+    });
+
+
+
+    $('.products-filter p').click(function(){
+        $('.products-filter p').css('border', "none");
+        $(this).css('border-bottom', '2px solid green');
+    });
+
+    $('.add-basket').click(function(){
+        $(this).parent().parent().parent().find( $('.sirvices-item-modal-basket') ).css('display', 'block');
+        // $(this).replaceWith( "<p class='added-basket'>" + 'Товар в корзине' + "</p>" );
+    });
+
+
+    $('.header-address-city-modal p:first-child').css('color', 'green');
+
+    $('.header-address-city-modal p').click(function(){
+        $('.header-address-city-modal p').css('color', 'black');
+        $(this).css('color', 'green');
+    });
+
+
    // single product
 
     $('.single-service-page__add').mouseenter(function(){
@@ -188,13 +225,13 @@ $(function() {
 
     if($('img[src$=".svg"]')){
         $('img[src$=".svg"]').each(function() {
-            var $img = jQuery(this);
+            var $img = $(this);
             var imgURL = $img.attr('src');
             var attributes = $img.prop("attributes");
 
             $.get(imgURL, function(data) {
                 // Get the SVG tag, ignore the rest
-                var $svg = jQuery(data).find('svg');
+                var $svg = $(data).find('svg');
 
                 // Remove any invalid XML tags
                 $svg = $svg.removeAttr('xmlns:a');
@@ -227,12 +264,15 @@ $(function() {
     
 
     // catalog-products
-
+    // $(this).parent().parent().parent().find( $('.sirvices-item-modal-basket') ).css('display', 'block');
     $('.catalog-products_page-content .catalog-products_content .sirvices-item').mouseenter(function(){
         var sirvicesItemClone = $( this ).clone();
         sirvicesItemClone.appendTo( this );
         sirvicesItemClone.css('display', "block");
         sirvicesItemClone.css('position', "absolute");
+        sirvicesItemClone.find( $('.add-basket') ).click(function(){
+            sirvicesItemClone.find( $('.sirvices-item-modal-basket') ).css('display', 'block');
+        });
         
         sirvicesItemClone.css('border', "none");
         sirvicesItemClone.addClass('sirvices-item-modal-over');
@@ -390,10 +430,10 @@ $(function() {
         slidesToShow: 1,
         arrows: false,
         slidesToScroll: 1,
-        speed: 500,
-        fade: true,
-        infinite: true,
-        cssEase: 'linear'
+        speed: 500
+        // fade: true,
+        // infinite: true,
+        // cssEase: 'linear'
     });
 
 

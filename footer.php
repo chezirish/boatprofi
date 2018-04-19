@@ -31,7 +31,9 @@
             <div class="footer-contacts cell medium-3 large-3">
                 <h6>НАШИ КОНТАКТЫ</h6>
                 <div class="footer-contacts-phone">
+                    <a href="tel:79108188139">
                     <p><img src="<?= get_template_directory_uri() ?>/dist/assets/images/phone_icon.png" alt="phone_icon"> +7 910 818 81 39</p>
+                    </a>
                     <a href="#">обратный звонок</a>
                 </div>
                 <div class="footer-contacts-address">

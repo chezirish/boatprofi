@@ -57,6 +57,51 @@ get_header(); ?>
     <p class="basket-page__content-total"><span>Итого:</span> 203 200 руб.</p>
     </div>
 
+     <div class="grid-container">
+        <section class="callout section-form">
+
+            <h4>Оформление заказа</h4>   
+            <form action="" class="clearfix">
+                <div class="form-inputs grid-x grid-margin-x">
+                    <div class="form-left cell medium-6 large-4">
+                        <label for="name">Ваше ФИО (полностью)</label>
+                        <input  require placeholder="Введите данные" id="name" type="text">
+                    </div>
+                    <div class="form-right cell medium-6 large-4">
+                        <label for="phone">E-mail</label>
+                        <input  require placeholder="Введите данные" id="phone" type="number">
+                    </div>
+                    <div class="form-right form-last cell medium-6 large-4">
+                        <label for="desc">Контактный телефон</label>
+                        <input  require placeholder="Введите данные" id="desc" type="text">
+                    </div>
+                    <div class="form-left cell medium-6 large-8">
+                        <label for="name">Адрес доставки</label>
+                        <input  require placeholder="Введите данные" id="name" type="text">
+                    </div>
+                    <div class="form-right form-right-get cell medium-4 large-4">
+                        <label for="phone">Способ доставки</label>
+                        <select value="выберите">
+                            <option disabled selected>Выберите способ доставки</option>
+                            <option id="phone" name="" id="">1</option>
+                            <option name="" id="">2</option>
+                            <option name="" id="">3</option>
+                            <option name="" id="">4</option>
+                        </select>
+                    </div>
+                    <div class="form-right form-desktop cell medium-12 large-12">
+                        <label for="phone">Комментарий</label>
+                        <input  require placeholder="Текст комментария" id="phone" type="number">
+                    </div>
+                    <div class="form-last-phone form-right form-last cell medium-12 large-12">
+                        <label for="desc">Комментарий</label>
+                        <textarea require placeholder="Текст комментария"  id="desc" cols="20" rows="7"></textarea>
+                    </div>
+                </div>
+                <button class="button basket-form-button float-right" type="submit">Оформить заказ</button>
+            </form>
+        </section>
+    </div>
 </div>
 
 <?php get_footer();

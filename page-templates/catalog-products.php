@@ -115,6 +115,14 @@ get_header(); ?>
 
             <div class="services-list">
                 <div class="sirvices-item clearfix ">
+                    <div class="sirvices-item-modal-basket reveal" data-closable>
+                        <button class="close-button"  data-close aria-label="Dismiss alert" type="button">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h4>Товар оправлен в корзину!</h4>
+                        <a href="">перейти в корзину</a>
+                        <p>Список будет очищен по завершению сессии</p>
+                    </div>
                     <div class="sirvices-item-icon"  style="background-image:url(<?= get_template_directory_uri() ?>/dist/assets/images/tool3.png);background-size:contain;background-position:center;background-repeat:no-repeat">
                     </div>
                     <div class="sirvices-item-content">
@@ -122,9 +130,9 @@ get_header(); ?>
                         
                         <p><span class="sirvices-item-costs">106600 руб.</span></p>
                         <div class="bottom-block">
-                            <button type="button" class="button">Заказать</button>
-                            <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart">
-                            <img class="scheme-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
+                            <button type="button" class=" add-basket button">В корзину</button>
+                             <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart"  data-tooltip tabindex="1" title="В избранное" data-position="bottom" data-alignment="center">
+                            <img class="scheme-icon" data-tooltip tabindex="1" title="В сравнение" data-position="bottom" data-alignment="center" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
                         </div>
                     </div>
                     <div class="sirvices-item-content-gorizontal">
@@ -135,14 +143,22 @@ get_header(); ?>
                     <div class="bottom-block-gorizontal-wrapper">
                         <div class="bottom-block bottom-block-gorizontal">
                             <p><span class="sirvices-item-costs">106600 руб.</span></p>
-                            <button type="button" class="button">Заказать</button>
-                            <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart">
-                            <img class="scheme-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
+                            <button type="button" class=" add-basket button">В корзину</button>
+                             <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart"  data-tooltip tabindex="1" title="В избранное" data-position="bottom" data-alignment="center">
+                            <img class="scheme-icon" data-tooltip tabindex="1" title="В сравнение" data-position="bottom" data-alignment="center" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
                         </div>
                     </div>
                 </div>
 
                 <div class="sirvices-item clearfix ">
+                    <div class="sirvices-item-modal-basket reveal" data-closable>
+                        <button class="close-button"  data-close aria-label="Dismiss alert" type="button">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h4>Товар оправлен в корзину!</h4>
+                        <a href="">перейти в корзину</a>
+                        <p>Список будет очищен по завершению сессии</p>
+                    </div>
                     <div class="sirvices-item-icon"  style="background-image:url(<?= get_template_directory_uri() ?>/dist/assets/images/tool2.png);background-size:contain;background-position:center;background-repeat:no-repeat">
                     </div>
                     <div class="sirvices-item-content">
@@ -150,9 +166,9 @@ get_header(); ?>
                         <!--  -->
                         <p><span class="sirvices-item-costs">106600 руб.</span></p>
                         <div class="bottom-block">
-                            <button type="button" class="button">Заказать</button>
-                            <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart">
-                            <img class="scheme-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
+                            <button type="button" class=" add-basket button">В корзину</button>
+                             <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart"  data-tooltip tabindex="1" title="В избранное" data-position="bottom" data-alignment="center">
+                            <img class="scheme-icon" data-tooltip tabindex="1" title="В сравнение" data-position="bottom" data-alignment="center" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
                         </div>
                     </div>
                     <div class="sirvices-item-content-gorizontal">
@@ -163,14 +179,22 @@ get_header(); ?>
                     <div class="bottom-block-gorizontal-wrapper">
                         <div class="bottom-block bottom-block-gorizontal">
                             <p><span class="sirvices-item-costs">106600 руб.</span></p>
-                            <button type="button" class="button">Заказать</button>
-                            <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart">
-                            <img class="scheme-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
+                            <button type="button" class=" add-basket button">В корзину</button>
+                             <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart"  data-tooltip tabindex="1" title="В избранное" data-position="bottom" data-alignment="center">
+                            <img class="scheme-icon" data-tooltip tabindex="1" title="В сравнение" data-position="bottom" data-alignment="center" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
                         </div>
                     </div>
                 </div>
 
                 <div class="sirvices-item clearfix ">
+                    <div class="sirvices-item-modal-basket reveal" data-closable>
+                        <button class="close-button"  data-close aria-label="Dismiss alert" type="button">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h4>Товар оправлен в корзину!</h4>
+                        <a href="">перейти в корзину</a>
+                        <p>Список будет очищен по завершению сессии</p>
+                    </div>
                     <div class="sirvices-item-icon"  style="background-image:url(<?= get_template_directory_uri() ?>/dist/assets/images/tool4.png);background-size:contain;background-position:center;background-repeat:no-repeat">
                     </div>
                     <div class="sirvices-item-content">
@@ -178,9 +202,9 @@ get_header(); ?>
                         
                         <p><span class="sirvices-item-costs">106600 руб.</span></p>
                         <div class="bottom-block">
-                            <button type="button" class="button">Заказать</button>
-                            <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart">
-                            <img class="scheme-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
+                            <button type="button" class=" add-basket button">В корзину</button>
+                             <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart"  data-tooltip tabindex="1" title="В избранное" data-position="bottom" data-alignment="center">
+                            <img class="scheme-icon" data-tooltip tabindex="1" title="В сравнение" data-position="bottom" data-alignment="center" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
                         </div>
                     </div>
                     <div class="sirvices-item-content-gorizontal">
@@ -191,14 +215,22 @@ get_header(); ?>
                     <div class="bottom-block-gorizontal-wrapper">
                         <div class="bottom-block bottom-block-gorizontal">
                             <p><span class="sirvices-item-costs">106600 руб.</span></p>
-                            <button type="button" class="button">Заказать</button>
-                            <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart">
-                            <img class="scheme-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
+                            <button type="button" class=" add-basket button">В корзину</button>
+                             <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart"  data-tooltip tabindex="1" title="В избранное" data-position="bottom" data-alignment="center">
+                            <img class="scheme-icon" data-tooltip tabindex="1" title="В сравнение" data-position="bottom" data-alignment="center" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
                         </div>
                     </div>
                 </div>
                 
                 <div class="sirvices-item clearfix ">
+                    <div class="sirvices-item-modal-basket reveal" data-closable>
+                        <button class="close-button"  data-close aria-label="Dismiss alert" type="button">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h4>Товар оправлен в корзину!</h4>
+                        <a href="">перейти в корзину</a>
+                        <p>Список будет очищен по завершению сессии</p>
+                    </div>
                     <div class="sirvices-item-icon"  style="background-image:url(<?= get_template_directory_uri() ?>/dist/assets/images/tool3.png);background-size:contain;background-position:center;background-repeat:no-repeat">
                     </div>
                     <div class="sirvices-item-content">
@@ -206,9 +238,9 @@ get_header(); ?>
                         
                         <p><span class="sirvices-item-costs">106600 руб.</span></p>
                         <div class="bottom-block">
-                            <button type="button" class="button">Заказать</button>
-                            <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart">
-                            <img class="scheme-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
+                            <button type="button" class=" add-basket button">В корзину</button>
+                             <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart"  data-tooltip tabindex="1" title="В избранное" data-position="bottom" data-alignment="center">
+                            <img class="scheme-icon" data-tooltip tabindex="1" title="В сравнение" data-position="bottom" data-alignment="center" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
                         </div>
                     </div>
                     <div class="sirvices-item-content-gorizontal">
@@ -219,14 +251,22 @@ get_header(); ?>
                     <div class="bottom-block-gorizontal-wrapper">
                         <div class="bottom-block bottom-block-gorizontal">
                             <p><span class="sirvices-item-costs">106600 руб.</span></p>
-                            <button type="button" class="button">Заказать</button>
-                            <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart">
-                            <img class="scheme-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
+                            <button type="button" class=" add-basket button">В корзину</button>
+                             <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart"  data-tooltip tabindex="1" title="В избранное" data-position="bottom" data-alignment="center">
+                            <img class="scheme-icon" data-tooltip tabindex="1" title="В сравнение" data-position="bottom" data-alignment="center" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
                         </div>
                     </div>
                 </div>
 
                 <div class="sirvices-item clearfix ">
+                    <div class="sirvices-item-modal-basket reveal" data-closable>
+                        <button class="close-button"  data-close aria-label="Dismiss alert" type="button">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h4>Товар оправлен в корзину!</h4>
+                        <a href="">перейти в корзину</a>
+                        <p>Список будет очищен по завершению сессии</p>
+                    </div>
                     <div class="sirvices-item-icon"  style="background-image:url(<?= get_template_directory_uri() ?>/dist/assets/images/tool2.png);background-size:contain;background-position:center;background-repeat:no-repeat">
                     </div>
                     <div class="sirvices-item-content">
@@ -234,9 +274,9 @@ get_header(); ?>
                         
                         <p><span class="sirvices-item-costs">106600 руб.</span></p>
                         <div class="bottom-block">
-                            <button type="button" class="button">Заказать</button>
-                            <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart">
-                            <img class="scheme-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
+                            <button type="button" class=" add-basket button">В корзину</button>
+                             <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart"  data-tooltip tabindex="1" title="В избранное" data-position="bottom" data-alignment="center">
+                            <img class="scheme-icon" data-tooltip tabindex="1" title="В сравнение" data-position="bottom" data-alignment="center" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
                         </div>
                     </div>
                     <div class="sirvices-item-content-gorizontal">
@@ -247,14 +287,22 @@ get_header(); ?>
                     <div class="bottom-block-gorizontal-wrapper">
                         <div class="bottom-block bottom-block-gorizontal">
                             <p><span class="sirvices-item-costs">106600 руб.</span></p>
-                            <button type="button" class="button">Заказать</button>
-                            <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart">
-                            <img class="scheme-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
+                            <button type="button" class=" add-basket button">В корзину</button>
+                             <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart"  data-tooltip tabindex="1" title="В избранное" data-position="bottom" data-alignment="center">
+                            <img class="scheme-icon" data-tooltip tabindex="1" title="В сравнение" data-position="bottom" data-alignment="center" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
                         </div>
                     </div>
                 </div>
 
                 <div class="sirvices-item clearfix ">
+                    <div class="sirvices-item-modal-basket reveal" data-closable>
+                        <button class="close-button"  data-close aria-label="Dismiss alert" type="button">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h4>Товар оправлен в корзину!</h4>
+                        <a href="">перейти в корзину</a>
+                        <p>Список будет очищен по завершению сессии</p>
+                    </div>
                     <div class="sirvices-item-icon"  style="background-image:url(<?= get_template_directory_uri() ?>/dist/assets/images/tool4.png);background-size:contain;background-position:center;background-repeat:no-repeat">
                     </div>
                     <div class="sirvices-item-content">
@@ -262,9 +310,9 @@ get_header(); ?>
                         
                         <p><span class="sirvices-item-costs">106600 руб.</span></p>
                         <div class="bottom-block">
-                            <button type="button" class="button">Заказать</button>
-                            <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart">
-                            <img class="scheme-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
+                            <button type="button" class=" add-basket button">В корзину</button>
+                             <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart"  data-tooltip tabindex="1" title="В избранное" data-position="bottom" data-alignment="center">
+                            <img class="scheme-icon" data-tooltip tabindex="1" title="В сравнение" data-position="bottom" data-alignment="center" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
                         </div>
                     </div>
                     <div class="sirvices-item-content-gorizontal">
@@ -275,14 +323,22 @@ get_header(); ?>
                     <div class="bottom-block-gorizontal-wrapper">
                         <div class="bottom-block bottom-block-gorizontal">
                             <p><span class="sirvices-item-costs">106600 руб.</span></p>
-                            <button type="button" class="button">Заказать</button>
-                            <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart">
-                            <img class="scheme-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
+                            <button type="button" class=" add-basket button">В корзину</button>
+                             <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart"  data-tooltip tabindex="1" title="В избранное" data-position="bottom" data-alignment="center">
+                            <img class="scheme-icon" data-tooltip tabindex="1" title="В сравнение" data-position="bottom" data-alignment="center" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
                         </div>
                     </div>
                 </div>
 
                 <div class="sirvices-item clearfix ">
+                    <div class="sirvices-item-modal-basket reveal" data-closable>
+                        <button class="close-button"  data-close aria-label="Dismiss alert" type="button">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h4>Товар оправлен в корзину!</h4>
+                        <a href="">перейти в корзину</a>
+                        <p>Список будет очищен по завершению сессии</p>
+                    </div>
                     <div class="sirvices-item-icon"  style="background-image:url(<?= get_template_directory_uri() ?>/dist/assets/images/tool3.png);background-size:contain;background-position:center;background-repeat:no-repeat">
                     </div>
                     <div class="sirvices-item-content">
@@ -290,9 +346,9 @@ get_header(); ?>
                         
                         <p><span class="sirvices-item-costs">106600 руб.</span></p>
                         <div class="bottom-block">
-                            <button type="button" class="button">Заказать</button>
-                            <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart">
-                            <img class="scheme-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
+                            <button type="button" class=" add-basket button">В корзину</button>
+                             <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart"  data-tooltip tabindex="1" title="В избранное" data-position="bottom" data-alignment="center">
+                            <img class="scheme-icon" data-tooltip tabindex="1" title="В сравнение" data-position="bottom" data-alignment="center" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
                         </div>
                     </div>
                     <div class="sirvices-item-content-gorizontal">
@@ -303,14 +359,22 @@ get_header(); ?>
                     <div class="bottom-block-gorizontal-wrapper">
                         <div class="bottom-block bottom-block-gorizontal">
                             <p><span class="sirvices-item-costs">106600 руб.</span></p>
-                            <button type="button" class="button">Заказать</button>
-                            <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart">
-                            <img class="scheme-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
+                            <button type="button" class=" add-basket button">В корзину</button>
+                             <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart"  data-tooltip tabindex="1" title="В избранное" data-position="bottom" data-alignment="center">
+                            <img class="scheme-icon" data-tooltip tabindex="1" title="В сравнение" data-position="bottom" data-alignment="center" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
                         </div>
                     </div>
                 </div>
 
                 <div class="sirvices-item clearfix ">
+                    <div class="sirvices-item-modal-basket reveal" data-closable>
+                        <button class="close-button"  data-close aria-label="Dismiss alert" type="button">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h4>Товар оправлен в корзину!</h4>
+                        <a href="">перейти в корзину</a>
+                        <p>Список будет очищен по завершению сессии</p>
+                    </div>
                     <div class="sirvices-item-icon"  style="background-image:url(<?= get_template_directory_uri() ?>/dist/assets/images/tool2.png);background-size:contain;background-position:center;background-repeat:no-repeat">
                     </div>
                     <div class="sirvices-item-content">
@@ -318,9 +382,9 @@ get_header(); ?>
                         
                         <p><span class="sirvices-item-costs">106600 руб.</span></p>
                         <div class="bottom-block">
-                            <button type="button" class="button">Заказать</button>
-                            <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart">
-                            <img class="scheme-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
+                            <button type="button" class=" add-basket button">В корзину</button>
+                             <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart"  data-tooltip tabindex="1" title="В избранное" data-position="bottom" data-alignment="center">
+                            <img class="scheme-icon" data-tooltip tabindex="1" title="В сравнение" data-position="bottom" data-alignment="center" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
                         </div>
                     </div>
                     <div class="sirvices-item-content-gorizontal">
@@ -331,14 +395,22 @@ get_header(); ?>
                     <div class="bottom-block-gorizontal-wrapper">
                         <div class="bottom-block bottom-block-gorizontal">
                             <p><span class="sirvices-item-costs">106600 руб.</span></p>
-                            <button type="button" class="button">Заказать</button>
-                            <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart">
-                            <img class="scheme-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
+                            <button type="button" class=" add-basket button">В корзину</button>
+                             <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart"  data-tooltip tabindex="1" title="В избранное" data-position="bottom" data-alignment="center">
+                            <img class="scheme-icon" data-tooltip tabindex="1" title="В сравнение" data-position="bottom" data-alignment="center" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
                         </div>
                     </div>
                 </div>
 
                 <div class="sirvices-item clearfix ">
+                    <div class="sirvices-item-modal-basket reveal" data-closable>
+                        <button class="close-button"  data-close aria-label="Dismiss alert" type="button">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h4>Товар оправлен в корзину!</h4>
+                        <a href="">перейти в корзину</a>
+                        <p>Список будет очищен по завершению сессии</p>
+                    </div>
                     <div class="sirvices-item-icon"  style="background-image:url(<?= get_template_directory_uri() ?>/dist/assets/images/tool4.png);background-size:contain;background-position:center;background-repeat:no-repeat">
                     </div>
                     <div class="sirvices-item-content">
@@ -346,9 +418,9 @@ get_header(); ?>
                         
                         <p><span class="sirvices-item-costs">106600 руб.</span></p>
                         <div class="bottom-block">
-                            <button type="button" class="button">Заказать</button>
-                            <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart">
-                            <img class="scheme-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
+                            <button type="button" class=" add-basket button">В корзину</button>
+                             <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart"  data-tooltip tabindex="1" title="В избранное" data-position="bottom" data-alignment="center">
+                            <img class="scheme-icon" data-tooltip tabindex="1" title="В сравнение" data-position="bottom" data-alignment="center" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
                         </div>
                     </div>
                     <div class="sirvices-item-content-gorizontal">
@@ -359,18 +431,52 @@ get_header(); ?>
                     <div class="bottom-block-gorizontal-wrapper">
                         <div class="bottom-block bottom-block-gorizontal">
                             <p><span class="sirvices-item-costs">106600 руб.</span></p>
-                            <button type="button" class="button">Заказать</button>
-                            <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart">
-                            <img class="scheme-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
+                            <button type="button" class=" add-basket button">В корзину</button>
+                             <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart"  data-tooltip tabindex="1" title="В избранное" data-position="bottom" data-alignment="center">
+                            <img class="scheme-icon" data-tooltip tabindex="1" title="В сравнение" data-position="bottom" data-alignment="center" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
                         </div>
                     </div>
                 </div> 
             </div>
 
+<section class="callout section-form small reveal"  id="exampleModal1" data-reveal>
+    
+    <button class="close-button"  aria-label="Close modal" type="button"  data-close>
+        <span aria-hidden="true">&times;</span>
+    </button>
+    <h4 class="section-form-title-desktop">Подготовим ваш катер <br>  к любительской или спортивной рыбалке</h4>
+    <h4 class="section-form-title-tablet">Подготовим мой катер</h4>
+    <form action="">
+        <div class="form-inputs clearfix">
+            <div class="form-left float-left">
+                <label for="name">Ваше имя</label>
+                <input  require placeholder="Введите данные" id="name" type="text">
+            </div>
+            <div class="form-right float-left">
+                <label for="phone">Ваш телефон</label>
+                <input  require placeholder="Введите данные" id="phone" type="number">
+            </div>
+            <button class="desktop float-right section-title-submit" type="submit">Отправть заявку</button>
+        </div>
+
+        <div class="file-wrapper">
+            <!-- <input type="file"> -->
+            <!-- <input class="input-file" id="my-file" type="file">
+            <label tabindex="0" for="my-file" class="input-file-trigger">+ Прикрепите фото катера</label> -->
+
+            <input class="css-checkbox" id="checkbox7" type="checkbox">
+            <label for="checkbox7" class="css-label lite-x-green">Согласен с "политикой конфидециальности"</label>
+            <p class="file-return"></p>
+        </div>
+        <button class="section-title-submit section-title-submit-tablet" type="submit">Отправть заявку</button>
+    </form>
+</section>
+
+
             <div class="grid-container">       
                 <div class="catalog-products_choose clearfix">
                     <h4 class="float-left">Сложно выбрать?</h4>
-                    <button type="button" class="float-right button">Записаться на консультацию</button>
+                    <button type="button" data-open="exampleModal1" class="float-right button">Записаться на консультацию</button>
                 </div>
                 <div class="catalog-products_question clearfix">
                     <h4 class="float-left">Остались вопросы?</h4>

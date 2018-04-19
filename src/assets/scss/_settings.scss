@@ -834,10 +834,10 @@ $titlebar-icon-spacing: 0.25rem;
 
 $has-tip-cursor: help;
 $has-tip-font-weight: $global-weight-bold;
-$has-tip-border-bottom: dotted 1px $dark-gray;
-$tooltip-background-color: $black;
-$tooltip-color: $white;
-$tooltip-padding: 0.75rem;
+$has-tip-border-bottom: none;
+$tooltip-background-color: #fff;
+$tooltip-color: #f5470a;
+$tooltip-padding: 0;
 $tooltip-max-width: 10rem;
 $tooltip-font-size: $small-font-size;
 $tooltip-pip-width: 0.75rem;

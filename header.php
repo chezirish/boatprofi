@@ -61,25 +61,38 @@
 		<div class="header-table">
 			<div class="header-info <?php echo  is_front_page() ? '' : 'padding-top-header' ?>">
 				<div class="header-logo">
+					<a href="/">
 					<img src="<?= get_template_directory_uri() ?>/dist/assets/images/logo.png" alt="logo">
+					</a>
 				</div>
 				<div class="header-tagline">
 					<p>Подготовим ваш <br> катер к рыбалке.</p>
 				</div>
 				<div class="header-phone tablet">
+					<a class="header-phone-number" href="tel:79108188139">
 					<p><img src="<?= get_template_directory_uri() ?>/dist/assets/images/phone_icon-header.png" alt="phone_icon"> +7 910 818 81 39</p>
+					</a>
 					<a href="" class="tablet">обратный звонок</a>
 				</div>
 				<div class="header-address desktop">
 					<p><img src="<?= get_template_directory_uri() ?>/dist/assets/images/address_icon-header.png" alt="address_icon" > г. Ярославль, ул. Республиканская д.7. ТЦ «Флагман»</p>
 					<a href="">показать на карте</a>
-					<a href="">изменить город</a>		
+					<div class="header-address-city">
+						<a href="">изменить город</a>	
+						<div class="header-address-city-modal">
+							<p>Ярославль</p>
+							<p>Москва</p>
+							<p>Тверь</p>
+						</div>
+					</div>	
 				</div>
 			</div>
 			<div class="header-navigation-phone">
 				<div class="header-phone clearfix">
 					<p class="float-left"><img src="<?= get_template_directory_uri() ?>/dist/assets/images/phone_icon-header.png" alt="phone_icon"> +7 910 818 81 39</p>
-					<img class="float-right" src="<?= get_template_directory_uri() ?>/dist/assets/images/basket-icon.png" alt="address_icon" alt="basket">
+					<a href="">
+					<img class="float-right" src="<?= get_template_directory_uri() ?>/dist/assets/images/basket-icon2.png" alt="address_icon" alt="basket">
+					</a>
 				</div>
 				<a class="header-navigation-link-btn" href="/catalog-products">
 					<div class="products-btn">
@@ -103,7 +116,7 @@
 				</a>
 			</div>
 			<div class="header-navigation grid-x">
-				<a class="header-navigation-link-btn" href="/catalog-products">
+				<!-- <a class="header-navigation-link-btn" href="/catalog-products"> -->
 					<div class="products-btn medium-2 large-2">
 						<div class="menu-wrapper">
 							<span class="menu-icon-span"></span>
@@ -111,18 +124,42 @@
 							<span class="menu-icon-span"></span>
 						</div>
 						<p>Каталог товаров</p>
+						<ul class="dropdown-menu">
+							<li><a href="">Электрические  троллинговые моторы</a></li>
+							<li><a href="">Эхолоты и картоплоттеры </a></li>
+							<li><a href="">Аккумуляторы и зарядные устройства </a></li>
+							<li><a href="">Моторы для лодок </a></li>
+							<li class="dropdown-menu-have-nested"><a href="">Аксессуары для прицепов </a>
+								<ul class="dropdown-menu dropdown-menu-nested">
+									<li><a href="">опора </a></li>
+									<li><a href="">опорное кресло </a></li>
+									<li><a href="">Колпачок на фаркоп </a></li>
+									<li><a href="">Светодиодные габариты </a></li>
+									<li><a href="">защита </a></li>
+								</ul>
+							</li>
+							<li><a href="">Сопутствующие товары </a></li>
+						</ul>
 					</div>
-				</a>
-				<a class="header-navigation-link-btn" href="/services">
+				<!-- </a> -->
+				<!-- <a class="header-navigation-link-btn" href="/services"> -->
 					<div class="services-btn medium-2 large-2">
-						<div class="menu-wrapper">
+						<div class="menu-wrapper"> 
 							<span class="menu-icon-span"></span>
 							<span class="menu-icon-span"></span>
 							<span class="menu-icon-span"></span>
 						</div>
 						<p>Наши услуги</p>
+						<ul class="dropdown-menu">
+							<li><a href="">Монтаж  электромоторов</a></li>
+							<li><a href="">Установка эхолотов </a></li>
+							<li><a href="">Подиумы  из стеклопластика </a></li>
+							<li><a href="">Установка  картоплоттеров </a></li>
+							<li><a href="">Монтаж  электромоторов</a></li>
+							<li><a href="">ТО троллинговых моторов  </a></li>
+						</ul>
 					</div>
-				</a>
+				<!-- </a> -->
 				<div class="search cell medium-5 large-6">
 					<form action="">
 						<input placeholder="Введите название товара" type="text">
@@ -132,9 +169,25 @@
 					<div class="woocommerce-data-wrapper  <?php echo  is_front_page() ? '' : 'svg-colors' ?>">
 						<img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png"  alt="heart">
 						<img class="scheme-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
-						<img src="<?= get_template_directory_uri() ?>/dist/assets/images/basket-icon.png"  alt="basket">
+						<a href="/basket">
+						<img style="position: relative;bottom: 5px" src="<?= get_template_directory_uri() ?>/dist/assets/images/basket-icon2.png"  alt="basket">
+						</a>
 					</div>
 				</div>
 			</div>
 		</div>
+			<a class="arrow-top-up" href="">
+			<img src="<?= get_template_directory_uri() ?>/dist/assets/images/to-up.svg"  alt="arrow">
+			</a>
 	</header>
+
+	<?php if(!is_front_page()): ?>
+	<div class="grid-container">
+		<div class="bread-crumbs">
+			<a href="">Каталог товаров</a>
+			<a href="">Электрические</a>
+			<p>троллинговые моторы</p>	
+		</div>
+	</div>
+	<?php endif; ?>
+    

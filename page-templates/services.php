@@ -24,12 +24,12 @@ get_header(); ?>
             </div>
             <div class="sirvices-item clearfix">
                 <div class="sirvices-item-content float-left">
-                    <h5>Монтаж <br> электромоторов</h5>
+                    <h5>Установка <br> картоплоттеров </h5>
                     <button type="button" class="button">Заказать</button>
                     <a href="#">подробнее</a>
                 </div>
                 <div class="sirvices-item-icon float-right">
-                    <img src="<?= get_template_directory_uri() ?>/dist/assets/images/motor-icon.png" alt="icon">
+                    <img src="<?= get_template_directory_uri() ?>/dist/assets/images/service-icon.png" alt="icon">
                 </div>
             </div>
             <div class="sirvices-item clearfix">
@@ -39,67 +39,67 @@ get_header(); ?>
                     <a href="#">подробнее</a>
                 </div>
                 <div class="sirvices-item-icon float-right">
-                    <img src="<?= get_template_directory_uri() ?>/dist/assets/images/motor-icon.png" alt="icon">
+                    <img src="<?= get_template_directory_uri() ?>/dist/assets/images/service-icon2.png" alt="icon">
                 </div>
             </div>
             <div class="sirvices-item clearfix">
                 <div class="sirvices-item-content float-left">
-                    <h5>Монтаж <br> электромоторов</h5>
+                    <h5>Подиумы <br> из стеклопластика</h5>
                     <button type="button" class="button">Заказать</button>
                     <a href="#">подробнее</a>
                 </div>
                 <div class="sirvices-item-icon float-right">
-                    <img src="<?= get_template_directory_uri() ?>/dist/assets/images/motor-icon.png" alt="icon">
+                    <img src="<?= get_template_directory_uri() ?>/dist/assets/images/service-icon3.png" alt="icon">
                 </div>
             </div>
             <div class="sirvices-item clearfix">
                 <div class="sirvices-item-content float-left">
-                    <h5>Монтаж <br> электромоторов</h5>
+                    <h5> Монтаж и ТО <br>  лодочных моторов  </h5>
                     <button type="button" class="button">Заказать</button>
                     <a href="#">подробнее</a>
                 </div>
                 <div class="sirvices-item-icon float-right">
-                    <img src="<?= get_template_directory_uri() ?>/dist/assets/images/motor-icon.png" alt="icon">
+                    <img src="<?= get_template_directory_uri() ?>/dist/assets/images/service-icon4.png" alt="icon">
                 </div>
             </div>
             <div class="sirvices-item clearfix">
                 <div class="sirvices-item-content float-left">
-                    <h5>Монтаж <br> электромоторов</h5>
+                    <h5>Пошив чехлов <br> и тентов  </h5>
                     <button type="button" class="button">Заказать</button>
                     <a href="#">подробнее</a>
                 </div>
                 <div class="sirvices-item-icon float-right">
-                    <img src="<?= get_template_directory_uri() ?>/dist/assets/images/motor-icon.png" alt="icon">
+                    <img src="<?= get_template_directory_uri() ?>/dist/assets/images/service-icon5.png" alt="icon">
                 </div>
             </div>
             <div class="sirvices-item clearfix">
                 <div class="sirvices-item-content float-left">
-                    <h5>Монтаж <br> электромоторов</h5>
+                    <h5>Ремонт любых <br>  корпусов </h5>
                     <button type="button" class="button">Заказать</button>
                     <a href="#">подробнее</a>
                 </div>
                 <div class="sirvices-item-icon float-right">
-                    <img src="<?= get_template_directory_uri() ?>/dist/assets/images/motor-icon.png" alt="icon">
+                    <img src="<?= get_template_directory_uri() ?>/dist/assets/images/service-icon6.png" alt="icon">
                 </div>
             </div>
             <div class="sirvices-item clearfix">
                 <div class="sirvices-item-content float-left">
-                    <h5>Монтаж <br> электромоторов</h5>
+                    <h5>ТО троллинговых <br> моторов  </h5>
                     <button type="button" class="button">Заказать</button>
                     <a href="#">подробнее</a>
                 </div>
                 <div class="sirvices-item-icon float-right">
-                    <img src="<?= get_template_directory_uri() ?>/dist/assets/images/motor-icon.png" alt="icon">
+                    <img src="<?= get_template_directory_uri() ?>/dist/assets/images/service-icon7.png" alt="icon">
                 </div>
             </div>
             <div class="sirvices-item clearfix">
                 <div class="sirvices-item-content float-left">
-                    <h5>Монтаж <br> электромоторов</h5>
+                    <h5>Тюнинг лодочных <br> прицепов   </h5>
                     <button type="button" class="button">Заказать</button>
                     <a href="#">подробнее</a>
                 </div>
                 <div class="sirvices-item-icon float-right">
-                    <img src="<?= get_template_directory_uri() ?>/dist/assets/images/motor-icon.png" alt="icon">
+                    <img src="<?= get_template_directory_uri() ?>/dist/assets/images/service-icon8.png" alt="icon">
                 </div>
             </div>
         </div>
