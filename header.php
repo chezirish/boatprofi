@@ -91,8 +91,15 @@
 				<div class="header-phone clearfix">
 					<p class="float-left"><img src="<?= get_template_directory_uri() ?>/dist/assets/images/phone_icon-header.png" alt="phone_icon"> +7 910 818 81 39</p>
 					<a href="<?php echo esc_url( wc_get_cart_url() ); ?>">
-					<span class="count"><?php echo wp_kses_data( WC()->cart->get_cart_contents_count() ) ;?></span>
-					<img class="float-right" src="<?= get_template_directory_uri() ?>/dist/assets/images/basket-icon.png" alt="address_icon" alt="basket">
+
+						<div class="basket-wrapper basket-wrapper-phone">
+							<?php wp_kses_data( WC()->cart->get_cart_contents_count()) != 0 ? $basket_count = wp_kses_data( WC()->cart->get_cart_contents_count() ) : $basket_count =  '';?>
+							<?php if($basket_count != 0): ?>
+							<span class="basket-count"><?php echo $basket_count; ?></span>
+							<?php endif; ?>
+							<img class="float-right" src="<?= get_template_directory_uri() ?>/dist/assets/images/basket-icon.png" alt="basket">
+						</div>
+					
 					</a>
 				</div>
 				<a class="header-navigation-link-btn" href="/catalog-products">
@@ -171,8 +178,14 @@
 						<img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png"  alt="heart">
 						<img class="scheme-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
 						<!-- <a target="_blank" href="<?php echo esc_url( wc_get_cart_url() ); ?>"> -->
-						<!-- <span class="count"><?php echo wp_kses_data( WC()->cart->get_cart_contents_count() ) ;?></span> -->
-						<img src="<?= get_template_directory_uri() ?>/dist/assets/images/basket-icon.png"  alt="basket">
+						<div class="basket-wrapper">
+							<?php wp_kses_data( WC()->cart->get_cart_contents_count()) != 0 ? $basket_count = wp_kses_data( WC()->cart->get_cart_contents_count() ) : $basket_count =  '';?>
+							<?php if($basket_count != 0): ?>
+							<span class="basket-count"><?php echo $basket_count; ?></span>
+							<?php endif; ?>
+							<img src="<?= get_template_directory_uri() ?>/dist/assets/images/basket-icon.png"  alt="basket">
+						</div>
+						
 						<!-- </a> -->
 					</div>
 				</div>

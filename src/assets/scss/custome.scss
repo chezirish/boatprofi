@@ -763,6 +763,25 @@ html .section-form {
     top: 40;
 }
 
+.basket-wrapper {
+    display: inline-block;
+    position: relative;
+}
+
+.basket-count {
+    position: absolute;
+    right: -12px;
+    top: -10px;
+    background: #f5470a;
+    border-radius: 50%;
+    min-width: 22px;
+    min-height: 20px;
+    color: white;
+}
+
+.basket-wrapper-phone {
+    display: block;
+}
 
 .sirvices-item-modal-basket {
     padding: 2rem;
@@ -3251,6 +3270,13 @@ html .basket-page__content .basket-form-button:hover {
     .contacts_page-map-info-block {
         display: none;
     }
+    
+    .basket-count {
+        right: 4px;
+        top: -15px;
+    }
+
+    
 
 }
 
