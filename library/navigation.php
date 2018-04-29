@@ -12,6 +12,7 @@ register_nav_menus(
 		'top-bar-r'  => esc_html__( 'Top Bar', 'foundationpress' ),
 		'mobile-nav' => esc_html__( 'Mobile', 'foundationpress' ),
 		'footer-nav' => esc_html__( 'Footer menu', 'foundationpress' ),
+		'services-nav' => esc_html__( 'Меню услуг', 'foundationpress' )
 	)
 );
 
@@ -30,6 +31,24 @@ if ( ! function_exists( 'foundationpress_footer_nav' ) ) {
 				// 'menu_class'     => 'dropdown menu',
 				'items_wrap'     => '<ul class="vertical-menu" >%3$s</ul>',
 				'theme_location' => 'footer-nav',
+				'depth'          => 3,
+				'fallback_cb'    => false,
+				// 'walker'         => new Foundationpress_Top_Bar_Walker(),
+			)
+		);
+	}
+}
+
+
+
+if ( ! function_exists( 'foundationpress_services_nav' ) ) {
+	function foundationpress_services_nav() {
+		wp_nav_menu(
+			array(
+				'container'      => false,
+				// 'menu_class'     => 'dropdown menu',
+				'items_wrap'     => '<div class="sirvices-nav">%3$s</div>',
+				'theme_location' => 'services-nav',
 				'depth'          => 3,
 				'fallback_cb'    => false,
 				// 'walker'         => new Foundationpress_Top_Bar_Walker(),

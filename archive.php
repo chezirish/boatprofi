@@ -17,6 +17,15 @@
 
 get_header(); ?>
 
+<?php if ( is_post_type_archive()) : ?>
+
+	<?php while ( have_posts() ) : the_post(); ?>
+		<?php get_template_part( 'template-parts/content', get_post_type() ); ?>
+	<?php endwhile; ?>
+
+<?php get_footer(); ?>
+<?php endif; ?>
+
 <div class="main-container">
 	<div class="main-grid">
 		<main class="main-content">
@@ -45,7 +54,7 @@ get_header(); ?>
 			<?php endif; ?>
 
 		</main>
-		<?php get_sidebar(); ?>
+		<?php //get_sidebar(); ?>
 
 	</div>
 </div>

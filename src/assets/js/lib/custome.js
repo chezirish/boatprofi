@@ -14,6 +14,7 @@ $(function() {
 
     fixTopBar();
 
+
     $('.arrow-top-up').click(function (e) {
         e.preventDefault();
         $('html,body').animate({

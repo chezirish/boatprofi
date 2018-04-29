@@ -12,123 +12,54 @@ get_header(); ?>
     
 
     <div class="articles_page-articles-list">
-        <div class="articles_page-article-item">
-            <p>19 января 2018</p>
-            <div class="articles_page-article-item-img">
-                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/man.jpg" alt="man">
-                <a href="/single-article"><button type="button" class="button">Подробнее о статье</button></a>
-            </div>
-            <p>MotorGuide Xi3 – первый в России</p>
-        </div>
 
-        <div class="articles_page-article-item">
-            <p>19 января 2018</p>
-            <div class="articles_page-article-item-img">
-            <img src="<?= get_template_directory_uri() ?>/dist/assets/images/boat.jpg" alt="boat">
-            <a href="/single-article"><button type="button" class="button">Подробнее о статье</button></a>
-            </div>
-            <p>VesselView Mobile - система  управления от Mercury.</p>
-        </div>
+         <?php
+            
+            $ourCurrentPage = get_query_var('paged');
+            $args = array(
 
+                'paged' => $ourCurrentPage,
+                'posts_per_page' => 12,                
+                'post_type' => 'articles-post' );
+            $postslist = new WP_Query( $args );
 
-        <div class="articles_page-article-item">
-            <p>19 января 2018</p>
-            <div class="articles_page-article-item-img">
-                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/man.jpg" alt="man">
-                <a href="/single-article"><button type="button" class="button">Подробнее о статье</button></a>
-            </div>
-            <p>MotorGuide Xi3 – первый в России</p>
-        </div>
+            if ( $postslist->have_posts() ) :
+                while ( $postslist->have_posts() ) : $postslist->the_post();
+                
 
+                     ?>
+                        
+                        <div class="articles_page-article-item">
+                        <a class="sirvices-item-link-wrapper" href="<?php echo the_permalink() ?>">
+                            <p><?php  echo get_the_date('j F Y'); ?></p>
+                            <div class="articles_page-article-item-img">
+                                <?php the_post_thumbnail('', array( 'class' => "")) ?>                                
+                                <button type="button" class="button">Подробнее о статье</button>
+                            </div>
+                            <?php the_excerpt() ?>
+                        </a>
+                        </div>
+                        
+                    <?php
 
-        <div class="articles_page-article-item">
-            <p>19 января 2018</p>
-            <div class="articles_page-article-item-img">
-                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/boat.jpg" alt="boat">
-                <a href="/single-article"><button type="button" class="button">Подробнее о статье</button></a>
-            </div>
-            <p>VesselView Mobile - система  управления от Mercury.</p>
-        </div>
+                        
 
-                <div class="articles_page-article-item">
-            <p>19 января 2018</p>
-            <div class="articles_page-article-item-img">
-                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/man.jpg" alt="man">
-                <a href="/single-article"><button type="button" class="button">Подробнее о статье</button></a>
-            </div>
-            <p>MotorGuide Xi3 – первый в России</p>
-        </div>
+                endwhile;
+                wp_reset_postdata(); 
+            endif;
+        ?>
 
-        <div class="articles_page-article-item">
-            <p>19 января 2018</p>
-            <div class="articles_page-article-item-img">
-            <img src="<?= get_template_directory_uri() ?>/dist/assets/images/boat.jpg" alt="boat">
-            <a href="/single-article"><button type="button" class="button">Подробнее о статье</button></a>
-            </div>
-            <p>VesselView Mobile - система  управления от Mercury.</p>
-        </div>
+        
 
 
-        <div class="articles_page-article-item">
-            <p>19 января 2018</p>
-            <div class="articles_page-article-item-img">
-                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/man.jpg" alt="man">
-                <a href="/single-article"><button type="button" class="button">Подробнее о статье</button></a>
-            </div>
-            <p>MotorGuide Xi3 – первый в России</p>
-        </div>
-
-
-        <div class="articles_page-article-item">
-            <p>19 января 2018</p>
-            <div class="articles_page-article-item-img">
-                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/boat.jpg" alt="boat">
-                <a href="/single-article"><button type="button" class="button">Подробнее о статье</button></a>
-            </div>
-            <p>VesselView Mobile - система  управления от Mercury.</p>
-        </div>
-
-                <div class="articles_page-article-item">
-            <p>19 января 2018</p>
-            <div class="articles_page-article-item-img">
-                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/man.jpg" alt="man">
-                <a href="/single-article"><button type="button" class="button">Подробнее о статье</button></a>
-            </div>
-            <p>MotorGuide Xi3 – первый в России</p>
-        </div>
-
-        <div class="articles_page-article-item">
-            <p>19 января 2018</p>
-            <div class="articles_page-article-item-img">
-            <img src="<?= get_template_directory_uri() ?>/dist/assets/images/boat.jpg" alt="boat">
-            <a href="/single-article"><button type="button" class="button">Подробнее о статье</button></a>
-            </div>
-            <p>VesselView Mobile - система  управления от Mercury.</p>
-        </div>
-
-
-        <div class="articles_page-article-item">
-            <p>19 января 2018</p>
-            <div class="articles_page-article-item-img">
-                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/man.jpg" alt="man">
-                <a href="/single-article"><button type="button" class="button">Подробнее о статье</button></a>
-            </div>
-            <p>MotorGuide Xi3 – первый в России</p>
-        </div>
-
-
-        <div class="articles_page-article-item">
-            <p>19 января 2018</p>
-            <div class="articles_page-article-item-img">
-                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/boat.jpg" alt="boat">
-                <a href="/single-article"><button type="button" class="button">Подробнее о статье</button></a>
-            </div>
-            <p>VesselView Mobile - система  управления от Mercury.</p>
-        </div>
 
         
 
     </div>
+
+    <div class="pagination"  role="navigation" aria-label="Pagination">
+        <?php echo paginate_links(array('total' => $postslist->max_num_pages));  ?>
+    </div>   
 </div>
 
 <?php get_footer();

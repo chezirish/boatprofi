@@ -68,6 +68,30 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 
+.pagination {
+    // max-width: 350px;
+    display: flex;
+    justify-content: center;
+    margin: 3rem auto;
+    margin-top: 0;
+    & a, span {
+        display: inline-block;
+        border: 1px solid #cacaca;
+    }
+    .prev {
+        margin-right: 2rem;
+    }
+    .next {
+        margin-left: 2rem;
+    }
+    .current {
+        color: #ff4b3a;
+        background: #fff;
+        box-shadow: 0px 2px 6px 1px rgba(0, 0, 0, 0.4);
+    }
+}
+
+
 .header-phone [href^="tel"]  {
     display: contents;
     text-decoration: none;
@@ -135,7 +159,7 @@ html .dropdown-menu .dropdown-menu-nested {
         position: relative;
         margin: 0 0.75rem;
         opacity: 1;
-        content: ">";
+        content: '›';
         color: #afafaf;
         text-decoration: none;
         display: inline-block;
@@ -143,13 +167,13 @@ html .dropdown-menu .dropdown-menu-nested {
     display: none;
 }
 
-ul  {
+.custome-ul-style {
     list-style-image: url("../images/li-dots.png");
 }
 
-.footer-grid ul {
-    list-style-image: initial;
-}
+// .footer-grid ul {
+//     list-style-image: initial;
+// }
 
 .tooltip {
     box-shadow: 0px 10px 40px -10px #515151;
@@ -555,6 +579,28 @@ html svg:hover path,html svg:hover polygon {
     padding: 12px 28px;
 }
 
+.footer-social-icons-single-service a:last-child svg {
+    width: 35px;
+}
+
+
+html .footer-social-icons-single-service a {
+    display: inline-block;
+}
+
+.sirvices-item-content h5 {
+    max-width: 175px;
+}
+
+.sirvices-item-link-wrapper:hover {
+    color: black;
+    text-decoration: none;
+}
+
+.sirvices-item-link-wrapper {
+    color: black;
+    text-decoration: none;
+}
 
 .sirvices-item-content .bottom-block .button  {
     padding: 0.85em 1em;
@@ -594,9 +640,9 @@ html svg:hover path,html svg:hover polygon {
     & img:not(:last-child) {
         margin-right: 30px;
     }
-    & img:first-child {
+    // & img:first-child {
         
-    }
+    // }
 }
 
 .header-navigation-phone {
@@ -817,6 +863,15 @@ html .section-form {
     background: #f8f8f8;
 }
 
+.pojects-link-wrapper {
+    color: black;
+    text-decoration: none;
+}
+
+.pojects-link-wrapper:hover {
+    color: black;
+}
+
 .section-projects-content {
     max-width: 75rem;
     margin: 0 auto;
@@ -1028,6 +1083,10 @@ html .section-form {
     }
     & .article-item-icon {
         margin-right: 1rem;
+        & img {
+            width: 120px;
+            height: 90px;
+        }
     }
     & .article-item {
         margin-bottom: 1rem;
@@ -1584,6 +1643,10 @@ html body .sirvices-item-modal-over {
     margin-bottom: 2rem;
 }
 
+.single-article_page-info {
+    margin-bottom: 2rem;
+}
+
 .facts-list {
     margin-right: 4rem;
 }
@@ -1678,6 +1741,10 @@ html body .sirvices-item-modal-over {
     margin-bottom: 3rem;
 }
 
+.portfolio-page__title-name {
+    max-width: 330px;
+}
+
 .portfolio-page__title-name-tablet {
     display: none;
 }
@@ -1732,7 +1799,7 @@ html body .sirvices-item-modal-over {
     border: 10px solid #fff;
     color: #fff;
     padding: 45px;
-    padding-right: 0;
+    padding-right: 10px;
     & h3 {
         font-weight: 700;
         margin-bottom: 1rem;
@@ -2027,6 +2094,10 @@ html body .sirvices-item-modal-over {
 .single-service-page__content {
     margin: 0 auto;
     max-width: 75rem;
+}
+
+.sirvices-nav li {
+    list-style-type: none;
 }
 
 .single-service-page__sidebar {
@@ -2686,13 +2757,14 @@ html .basket-page__content .basket-form-button:hover {
 //___________________________ breakpoints ___________________________//
 
 @media screen and (max-width: 460px){
-    .article-item-icon {
+    .section-about-content .article-item-icon {
         float: none !important;
         margin: 0 auto;
         text-align: center;
         width: 90%;
         & img {
             width: 100%;
+            height: auto;
         }
     }
 }
@@ -2749,6 +2821,7 @@ html .basket-page__content .basket-form-button:hover {
         }
         & .article-item-icon img {
             max-width: 100%;
+            height: auto;
         }
     }
     .section-about-content .article-item p {

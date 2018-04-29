@@ -61,97 +61,48 @@ get_header(); ?>
         <h3>Наши услуги</h3>
     </div>
 
-    <div class="services-list">
-        <div class="sirvices-item clearfix">
-            <div class="sirvices-item-content float-left">
-                <h5>Монтаж <br> электромоторов</h5>
-                <button type="button" class="button">Заказать</button>
-                <a href="#">подробнее</a>
-            </div>
-            <div class="sirvices-item-icon float-right">
-                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/motor-icon.png" alt="icon">
-            </div>
-        </div>
-        <div class="sirvices-item clearfix">
-            <div class="sirvices-item-content float-left">
-                <h5>Установка <br> картоплоттеров </h5>
-                <button type="button" class="button">Заказать</button>
-                <a href="#">подробнее</a>
-            </div>
-            <div class="sirvices-item-icon float-right">
-                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/service-icon.png" alt="icon">
-            </div>
-        </div>
-        <div class="sirvices-item clearfix">
-            <div class="sirvices-item-content float-left">
-                <h5>Монтаж <br> электромоторов</h5>
-                <button type="button" class="button">Заказать</button>
-                <a href="#">подробнее</a>
-            </div>
-            <div class="sirvices-item-icon float-right">
-                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/service-icon2.png" alt="icon">
-            </div>
-        </div>
-        <div class="sirvices-item clearfix">
-            <div class="sirvices-item-content float-left">
-                <h5>Подиумы <br> из стеклопластика</h5>
-                <button type="button" class="button">Заказать</button>
-                <a href="#">подробнее</a>
-            </div>
-            <div class="sirvices-item-icon float-right">
-                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/service-icon3.png" alt="icon">
-            </div>
-        </div>
-        <div class="sirvices-item clearfix">
-            <div class="sirvices-item-content float-left">
-                <h5> Монтаж и ТО <br>  лодочных моторов  </h5>
-                <button type="button" class="button">Заказать</button>
-                <a href="#">подробнее</a>
-            </div>
-            <div class="sirvices-item-icon float-right">
-                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/service-icon4.png" alt="icon">
-            </div>
-        </div>
-        <div class="sirvices-item clearfix">
-            <div class="sirvices-item-content float-left">
-                <h5>Пошив чехлов <br> и тентов  </h5>
-                <button type="button" class="button">Заказать</button>
-                <a href="#">подробнее</a>
-            </div>
-            <div class="sirvices-item-icon float-right">
-                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/service-icon5.png" alt="icon">
-            </div>
-        </div>
-        <div class="sirvices-item clearfix">
-            <div class="sirvices-item-content float-left">
-                <h5>Ремонт любых <br>  корпусов </h5>
-                <button type="button" class="button">Заказать</button>
-                <a href="#">подробнее</a>
-            </div>
-            <div class="sirvices-item-icon float-right">
-                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/service-icon6.png" alt="icon">
-            </div>
-        </div>
-        <div class="sirvices-item clearfix">
-            <div class="sirvices-item-content float-left">
-                <h5>ТО троллинговых <br> моторов  </h5>
-                <button type="button" class="button">Заказать</button>
-                <a href="#">подробнее</a>
-            </div>
-            <div class="sirvices-item-icon float-right">
-                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/service-icon7.png" alt="icon">
-            </div>
-        </div>
-        <div class="sirvices-item clearfix">
-            <div class="sirvices-item-content float-left">
-                <h5>Тюнинг лодочных <br> прицепов   </h5>
-                <button type="button" class="button">Заказать</button>
-                <a href="#">подробнее</a>
-            </div>
-            <div class="sirvices-item-icon float-right">
-                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/service-icon8.png" alt="icon">
-            </div>
-        </div>
+    <div class="services-list">  
+
+         <?php
+                
+                $ourCurrentPage = get_query_var('paged');
+                $args = array(
+
+                    'paged' => $ourCurrentPage,
+                    'posts_per_page' => 9,
+                    'category__in' => array(33),                
+                    'post_type' => 'services-post' );
+                $postslist = new WP_Query( $args );
+
+                if ( $postslist->have_posts() ) :
+                    while ( $postslist->have_posts() ) : $postslist->the_post();
+                    
+
+                        ?>
+                            <a class="sirvices-item-link-wrapper" href="<?php the_permalink(); ?>">
+                            <div class="sirvices-item clearfix">
+                                <div class="sirvices-item-content float-left">
+                                    <h5><?php the_title(); ?></h5>
+                                    <button type="button" class="button">Заказать</button>
+                                    <object data="" type="">
+                                        <a>подробнее</a> 
+                                    </object>
+                                </div>
+                                <div class="sirvices-item-icon float-right">
+                                    <img src="<?= get_field('service_preview_icon')['url']; ?>" alt="icon">
+                                </div>
+                            </div>
+                            </a>
+
+                        <?php
+
+                            
+
+                    endwhile;
+                    wp_reset_postdata(); 
+                endif;
+            ?>
+
     </div>
 </section>
 </div>
@@ -163,7 +114,7 @@ get_header(); ?>
         <h3>Наши проекты</h3>
     </div>
     <div class="project-slider">
-        <div class="project-slider-item">
+        <!-- <div class="project-slider-item">
             <div class="project-slider-item-icon">
                 <div class="project-slider-modal">
                     <div class="project-slider-modal-content">
@@ -196,449 +147,100 @@ get_header(); ?>
                 <img src="<?= get_template_directory_uri() ?>/dist/assets/images/boat3.jpg" alt="boat">
                 <p class="project-slider-item-bottom-text">Совсем скоро снимем  тент и покажем,  что внутри.</p>
             </div>
-        </div>
-        <div class="project-slider-item">
-            <div class="project-slider-item-icon">
-                <div class="project-slider-modal">
-                    <div class="project-slider-modal-content">
-                        <img src="<?= get_template_directory_uri() ?>/dist/assets/images/slider-modal-icon.png" alt="arrow">
-                        <p>Еще проекты</p>
-                    </div>
-                </div>
-                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/boat10.jpg" alt="boat">
-                <p class="project-slider-item-bottom-text">Установить электро  мотор с функцией gps  якоря и автопилота</p>
-            </div>
-        </div>
-        <div class="project-slider-item">
-            <div class="project-slider-item-icon">
-                <div class="project-slider-modal">
-                    <div class="project-slider-modal-content">
-                        <img src="<?= get_template_directory_uri() ?>/dist/assets/images/slider-modal-icon.png" alt="arrow">
-                        <p>Еще проекты</p>
-                    </div>
-                </div>
-                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/car.jpg" alt="boat">
-                <p class="project-slider-item-bottom-text">Совсем скоро снимем  тент и покажем,  что внутри.</p>
-            </div>
-            <div class="project-slider-item-icon">
-                <div class="project-slider-modal">
-                    <div class="project-slider-modal-content">
-                        <img src="<?= get_template_directory_uri() ?>/dist/assets/images/slider-modal-icon.png" alt="arrow">
-                        <p>Еще проекты</p>
-                    </div>
-                </div>
-                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/boat3.jpg" alt="boat">
-                <p class="project-slider-item-bottom-text">Совсем скоро снимем  тент и покажем,  что внутри.</p>
-            </div>
-        </div>
-        <div class="project-slider-item">
-            <div class="project-slider-item-icon">
-                <div class="project-slider-modal">
-                    <div class="project-slider-modal-content">
-                        <img src="<?= get_template_directory_uri() ?>/dist/assets/images/slider-modal-icon.png" alt="arrow">
-                        <p>Еще проекты</p>
-                    </div>
-                </div>
-                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/boat1.jpg" alt="boat">
-                <p class="project-slider-item-bottom-text">Установить электро  мотор с функцией gps  якоря и автопилота</p>
-            </div>
-        </div>
-        <div class="project-slider-item">
-            <div class="project-slider-item-icon">
-                <div class="project-slider-modal">
-                    <div class="project-slider-modal-content">
-                        <img src="<?= get_template_directory_uri() ?>/dist/assets/images/slider-modal-icon.png" alt="arrow">
-                        <p>Еще проекты</p>
-                    </div>
-                </div>
-                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/car.jpg" alt="boat">
-                <p class="project-slider-item-bottom-text">Совсем скоро снимем  тент и покажем,  что внутри.</p>
-            </div>
-            <div class="project-slider-item-icon">
-                <div class="project-slider-modal">
-                    <div class="project-slider-modal-content">
-                        <img src="<?= get_template_directory_uri() ?>/dist/assets/images/slider-modal-icon.png" alt="arrow">
-                        <p>Еще проекты</p>
-                    </div>
-                </div>
-                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/boat3.jpg" alt="boat">
-                <p class="project-slider-item-bottom-text">Совсем скоро снимем  тент и покажем,  что внутри.</p>
-            </div>
-        </div>
-        <div class="project-slider-item">
-            <div class="project-slider-item-icon">
-                <div class="project-slider-modal">
-                    <div class="project-slider-modal-content">
-                        <img src="<?= get_template_directory_uri() ?>/dist/assets/images/slider-modal-icon.png" alt="arrow">
-                        <p>Еще проекты</p>
-                    </div>
-                </div>
-                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/boat10.jpg" alt="boat">
-                <p class="project-slider-item-bottom-text">Установить электро  мотор с функцией gps  якоря и автопилота</p>
-            </div>
-        </div>
-        <div class="project-slider-item">
-            <div class="project-slider-item-icon">
-                <div class="project-slider-modal">
-                    <div class="project-slider-modal-content">
-                        <img src="<?= get_template_directory_uri() ?>/dist/assets/images/slider-modal-icon.png" alt="arrow">
-                        <p>Еще проекты</p>
-                    </div>
-                </div>
-                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/boat2.jpg" alt="boat">
-                <p class="project-slider-item-bottom-text">Совсем скоро снимем  тент и покажем,  что внутри.</p>
-            </div>
-            <div class="project-slider-item-icon">
-                <div class="project-slider-modal">
-                    <div class="project-slider-modal-content">
-                        <img src="<?= get_template_directory_uri() ?>/dist/assets/images/slider-modal-icon.png" alt="arrow">
-                        <p>Еще проекты</p>
-                    </div>
-                </div>
-                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/boat3.jpg" alt="boat">
-                <p class="project-slider-item-bottom-text">Совсем скоро снимем  тент и покажем,  что внутри.</p>
-            </div>
-        </div>
-        <div class="project-slider-item">
-            <div class="project-slider-item-icon">
-                <div class="project-slider-modal">
-                    <div class="project-slider-modal-content">
-                        <img src="<?= get_template_directory_uri() ?>/dist/assets/images/slider-modal-icon.png" alt="arrow">
-                        <p>Еще проекты</p>
-                    </div>
-                </div>
-                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/boat1.jpg" alt="boat">
-                <p class="project-slider-item-bottom-text">Установить электро  мотор с функцией gps  якоря и автопилота</p>
-            </div>
-        </div>
-        <div class="project-slider-item">
-            <div class="project-slider-item-icon">
-                <div class="project-slider-modal">
-                    <div class="project-slider-modal-content">
-                        <img src="<?= get_template_directory_uri() ?>/dist/assets/images/slider-modal-icon.png" alt="arrow">
-                        <p>Еще проекты</p>
-                    </div>
-                </div>
-                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/car.jpg" alt="boat">
-                <p class="project-slider-item-bottom-text">Совсем скоро снимем  тент и покажем,  что внутри.</p>
-            </div>
-            <div class="project-slider-item-icon">
-                <div class="project-slider-modal">
-                    <div class="project-slider-modal-content">
-                        <img src="<?= get_template_directory_uri() ?>/dist/assets/images/slider-modal-icon.png" alt="arrow">
-                        <p>Еще проекты</p>
-                    </div>
-                </div>
-                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/boat3.jpg" alt="boat">
-                <p class="project-slider-item-bottom-text">Совсем скоро снимем  тент и покажем,  что внутри.</p>
-            </div>
-        </div>
-        <div class="project-slider-item">
-            <div class="project-slider-item-icon">
-                <div class="project-slider-modal">
-                    <div class="project-slider-modal-content">
-                        <img src="<?= get_template_directory_uri() ?>/dist/assets/images/slider-modal-icon.png" alt="arrow">
-                        <p>Еще проекты</p>
-                    </div>
-                </div>
-                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/boat10.jpg" alt="boat">
-                <p class="project-slider-item-bottom-text">Установить электро  мотор с функцией gps  якоря и автопилота</p>
-            </div>
-        </div>
-        <div class="project-slider-item">
-            <div class="project-slider-item-icon">
-                <div class="project-slider-modal">
-                    <div class="project-slider-modal-content">
-                        <img src="<?= get_template_directory_uri() ?>/dist/assets/images/slider-modal-icon.png" alt="arrow">
-                        <p>Еще проекты</p>
-                    </div>
-                </div>
-                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/boat2.jpg" alt="boat">
-                <p class="project-slider-item-bottom-text">Совсем скоро снимем  тент и покажем,  что внутри.</p>
-            </div>
-            <div class="project-slider-item-icon">
-                <div class="project-slider-modal">
-                    <div class="project-slider-modal-content">
-                        <img src="<?= get_template_directory_uri() ?>/dist/assets/images/slider-modal-icon.png" alt="arrow">
-                        <p>Еще проекты</p>
-                    </div>
-                </div>
-                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/boat3.jpg" alt="boat">
-                <p class="project-slider-item-bottom-text">Совсем скоро снимем  тент и покажем,  что внутри.</p>
-            </div>
-        </div>
-        <div class="project-slider-item">
-            <div class="project-slider-item-icon">
-                <div class="project-slider-modal">
-                    <div class="project-slider-modal-content">
-                        <img src="<?= get_template_directory_uri() ?>/dist/assets/images/slider-modal-icon.png" alt="arrow">
-                        <p>Еще проекты</p>
-                    </div>
-                </div>
-                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/boat1.jpg" alt="boat">
-                <p class="project-slider-item-bottom-text">Установить электро  мотор с функцией gps  якоря и автопилота</p>
-            </div>
-        </div>
-        <div class="project-slider-item">
-            <div class="project-slider-item-icon">
-                <div class="project-slider-modal">
-                    <div class="project-slider-modal-content">
-                        <img src="<?= get_template_directory_uri() ?>/dist/assets/images/slider-modal-icon.png" alt="arrow">
-                        <p>Еще проекты</p>
-                    </div>
-                </div>
-                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/car.jpg" alt="boat">
-                <p class="project-slider-item-bottom-text">Совсем скоро снимем  тент и покажем,  что внутри.</p>
-            </div>
-            <div class="project-slider-item-icon">
-                <div class="project-slider-modal">
-                    <div class="project-slider-modal-content">
-                        <img src="<?= get_template_directory_uri() ?>/dist/assets/images/slider-modal-icon.png" alt="arrow">
-                        <p>Еще проекты</p>
-                    </div>
-                </div>
-                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/boat3.jpg" alt="boat">
-                <p class="project-slider-item-bottom-text">Совсем скоро снимем  тент и покажем,  что внутри.</p>
-            </div>
-        </div>
-        <div class="project-slider-item">
-            <div class="project-slider-item-icon">
-                <div class="project-slider-modal">
-                    <div class="project-slider-modal-content">
-                        <img src="<?= get_template_directory_uri() ?>/dist/assets/images/slider-modal-icon.png" alt="arrow">
-                        <p>Еще проекты</p>
-                    </div>
-                </div>
-                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/boat10.jpg" alt="boat">
-                <p class="project-slider-item-bottom-text">Установить электро  мотор с функцией gps  якоря и автопилота</p>
-            </div>
-        </div>
-        <div class="project-slider-item">
-            <div class="project-slider-item-icon">
-                <div class="project-slider-modal">
-                    <div class="project-slider-modal-content">
-                        <img src="<?= get_template_directory_uri() ?>/dist/assets/images/slider-modal-icon.png" alt="arrow">
-                        <p>Еще проекты</p>
-                    </div>
-                </div>
-                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/boat2.jpg" alt="boat">
-                <p class="project-slider-item-bottom-text">Совсем скоро снимем  тент и покажем,  что внутри.</p>
-            </div>
-            <div class="project-slider-item-icon">
-                <div class="project-slider-modal">
-                    <div class="project-slider-modal-content">
-                        <img src="<?= get_template_directory_uri() ?>/dist/assets/images/slider-modal-icon.png" alt="arrow">
-                        <p>Еще проекты</p>
-                    </div>
-                </div>
-                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/boat3.jpg" alt="boat">
-                <p class="project-slider-item-bottom-text">Совсем скоро снимем  тент и покажем,  что внутри.</p>
-            </div>
-        </div>
-        <div class="project-slider-item">
-            <div class="project-slider-item-icon">
-                <div class="project-slider-modal">
-                    <div class="project-slider-modal-content">
-                        <img src="<?= get_template_directory_uri() ?>/dist/assets/images/slider-modal-icon.png" alt="arrow">
-                        <p>Еще проекты</p>
-                    </div>
-                </div>
-                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/boat1.jpg" alt="boat">
-                <p class="project-slider-item-bottom-text">Установить электро  мотор с функцией gps  якоря и автопилота</p>
-            </div>
-        </div>
-        <div class="project-slider-item">
-            <div class="project-slider-item-icon">
-                <div class="project-slider-modal">
-                    <div class="project-slider-modal-content">
-                        <img src="<?= get_template_directory_uri() ?>/dist/assets/images/slider-modal-icon.png" alt="arrow">
-                        <p>Еще проекты</p>
-                    </div>
-                </div>
-                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/car.jpg" alt="boat">
-                <p class="project-slider-item-bottom-text">Совсем скоро снимем  тент и покажем,  что внутри.</p>
-            </div>
-            <div class="project-slider-item-icon">
-                <div class="project-slider-modal">
-                    <div class="project-slider-modal-content">
-                        <img src="<?= get_template_directory_uri() ?>/dist/assets/images/slider-modal-icon.png" alt="arrow">
-                        <p>Еще проекты</p>
-                    </div>
-                </div>
-                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/boat3.jpg" alt="boat">
-                <p class="project-slider-item-bottom-text">Совсем скоро снимем  тент и покажем,  что внутри.</p>
-            </div>
-        </div>
-        <div class="project-slider-item">
-            <div class="project-slider-item-icon">
-                <div class="project-slider-modal">
-                    <div class="project-slider-modal-content">
-                        <img src="<?= get_template_directory_uri() ?>/dist/assets/images/slider-modal-icon.png" alt="arrow">
-                        <p>Еще проекты</p>
-                    </div>
-                </div>
-                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/boat10.jpg" alt="boat">
-                <p class="project-slider-item-bottom-text">Установить электро  мотор с функцией gps  якоря и автопилота</p>
-            </div>
-        </div>
-        <div class="project-slider-item">
-            <div class="project-slider-item-icon">
-                <div class="project-slider-modal">
-                    <div class="project-slider-modal-content">
-                        <img src="<?= get_template_directory_uri() ?>/dist/assets/images/slider-modal-icon.png" alt="arrow">
-                        <p>Еще проекты</p>
-                    </div>
-                </div>
-                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/boat2.jpg" alt="boat">
-                <p class="project-slider-item-bottom-text">Совсем скоро снимем  тент и покажем,  что внутри.</p>
-            </div>
-            <div class="project-slider-item-icon">
-                <div class="project-slider-modal">
-                    <div class="project-slider-modal-content">
-                        <img src="<?= get_template_directory_uri() ?>/dist/assets/images/slider-modal-icon.png" alt="arrow">
-                        <p>Еще проекты</p>
-                    </div>
-                </div>
-                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/boat3.jpg" alt="boat">
-                <p class="project-slider-item-bottom-text">Совсем скоро снимем  тент и покажем,  что внутри.</p>
-            </div>
-        </div>
-        <div class="project-slider-item">
-            <div class="project-slider-item-icon">
-                <div class="project-slider-modal">
-                    <div class="project-slider-modal-content">
-                        <img src="<?= get_template_directory_uri() ?>/dist/assets/images/slider-modal-icon.png" alt="arrow">
-                        <p>Еще проекты</p>
-                    </div>
-                </div>
-                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/boat1.jpg" alt="boat">
-                <p class="project-slider-item-bottom-text">Установить электро  мотор с функцией gps  якоря и автопилота</p>
-            </div>
-        </div>
-        <div class="project-slider-item">
-            <div class="project-slider-item-icon">
-                <div class="project-slider-modal">
-                    <div class="project-slider-modal-content">
-                        <img src="<?= get_template_directory_uri() ?>/dist/assets/images/slider-modal-icon.png" alt="arrow">
-                        <p>Еще проекты</p>
-                    </div>
-                </div>
-                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/car.jpg" alt="boat">
-                <p class="project-slider-item-bottom-text">Совсем скоро снимем  тент и покажем,  что внутри.</p>
-            </div>
-            <div class="project-slider-item-icon">
-                <div class="project-slider-modal">
-                    <div class="project-slider-modal-content">
-                        <img src="<?= get_template_directory_uri() ?>/dist/assets/images/slider-modal-icon.png" alt="arrow">
-                        <p>Еще проекты</p>
-                    </div>
-                </div>
-                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/boat3.jpg" alt="boat">
-                <p class="project-slider-item-bottom-text">Совсем скоро снимем  тент и покажем,  что внутри.</p>
-            </div>
-        </div>
-        <div class="project-slider-item">
-            <div class="project-slider-item-icon">
-                <div class="project-slider-modal">
-                    <div class="project-slider-modal-content">
-                        <img src="<?= get_template_directory_uri() ?>/dist/assets/images/slider-modal-icon.png" alt="arrow">
-                        <p>Еще проекты</p>
-                    </div>
-                </div>
-                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/boat10.jpg" alt="boat">
-                <p class="project-slider-item-bottom-text">Установить электро  мотор с функцией gps  якоря и автопилота</p>
-            </div>
-        </div>
-        <div class="project-slider-item">
-            <div class="project-slider-item-icon">
-                <div class="project-slider-modal">
-                    <div class="project-slider-modal-content">
-                        <img src="<?= get_template_directory_uri() ?>/dist/assets/images/slider-modal-icon.png" alt="arrow">
-                        <p>Еще проекты</p>
-                    </div>
-                </div>
-                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/boat2.jpg" alt="boat">
-                <p class="project-slider-item-bottom-text">Совсем скоро снимем  тент и покажем,  что внутри.</p>
-            </div>
-            <div class="project-slider-item-icon">
-                <div class="project-slider-modal">
-                    <div class="project-slider-modal-content">
-                        <img src="<?= get_template_directory_uri() ?>/dist/assets/images/slider-modal-icon.png" alt="arrow">
-                        <p>Еще проекты</p>
-                    </div>
-                </div>
-                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/boat3.jpg" alt="boat">
-                <p class="project-slider-item-bottom-text">Совсем скоро снимем  тент и покажем,  что внутри.</p>
-            </div>
-        </div>
-        <div class="project-slider-item">
-            <div class="project-slider-item-icon">
-                <div class="project-slider-modal">
-                    <div class="project-slider-modal-content">
-                        <img src="<?= get_template_directory_uri() ?>/dist/assets/images/slider-modal-icon.png" alt="arrow">
-                        <p>Еще проекты</p>
-                    </div>
-                </div>
-                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/boat10.jpg" alt="boat">
-                <p class="project-slider-item-bottom-text">Установить электро  мотор с функцией gps  якоря и автопилота</p>
-            </div>
-        </div>
-        <div class="project-slider-item">
-            <div class="project-slider-item-icon">
-                <div class="project-slider-modal">
-                    <div class="project-slider-modal-content">
-                        <img src="<?= get_template_directory_uri() ?>/dist/assets/images/slider-modal-icon.png" alt="arrow">
-                        <p>Еще проекты</p>
-                    </div>
-                </div>
-                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/car.jpg" alt="boat">
-                <p class="project-slider-item-bottom-text">Совсем скоро снимем  тент и покажем,  что внутри.</p>
-            </div>
-            <div class="project-slider-item-icon">
-                <div class="project-slider-modal">
-                    <div class="project-slider-modal-content">
-                        <img src="<?= get_template_directory_uri() ?>/dist/assets/images/slider-modal-icon.png" alt="arrow">
-                        <p>Еще проекты</p>
-                    </div>
-                </div>
-                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/boat3.jpg" alt="boat">
-                <p class="project-slider-item-bottom-text">Совсем скоро снимем  тент и покажем,  что внутри.</p>
-            </div>
-        </div>
-        <div class="project-slider-item">
-            <div class="project-slider-item-icon">
-                <div class="project-slider-modal">
-                    <div class="project-slider-modal-content">
-                        <img src="<?= get_template_directory_uri() ?>/dist/assets/images/slider-modal-icon.png" alt="arrow">
-                        <p>Еще проекты</p>
-                    </div>
-                </div>
-                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/boat10.jpg" alt="boat">
-                <p class="project-slider-item-bottom-text">Установить электро  мотор с функцией gps  якоря и автопилота</p>
-            </div>
-        </div>
-        <div class="project-slider-item">
-            <div class="project-slider-item-icon">
-                <div class="project-slider-modal">
-                    <div class="project-slider-modal-content">
-                        <img src="<?= get_template_directory_uri() ?>/dist/assets/images/slider-modal-icon.png" alt="arrow">
-                        <p>Еще проекты</p>
-                    </div>
-                </div>
-                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/boat2.jpg" alt="boat">
-                <p class="project-slider-item-bottom-text">Совсем скоро снимем  тент и покажем,  что внутри.</p>
-            </div>
-            <div class="project-slider-item-icon">
-                <div class="project-slider-modal">
-                    <div class="project-slider-modal-content">
-                        <img src="<?= get_template_directory_uri() ?>/dist/assets/images/slider-modal-icon.png" alt="arrow">
-                        <p>Еще проекты</p>
-                    </div>
-                </div>
-                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/boat3.jpg" alt="boat">
-                <p class="project-slider-item-bottom-text">Совсем скоро снимем  тент и покажем,  что внутри.</p>
-            </div>
-        </div>
+        </div> -->
+                
+        <?php
+            
+            $ourCurrentPage = get_query_var('paged');
+            $args = array(
+
+                'paged' => $ourCurrentPage,
+                'posts_per_page' => -1,      
+                'category__in' => array(33),            
+                'post_type' => 'project-post' );
+            $postslist = new WP_Query( $args );
+
+            $count = 1;
+            $previous = false;
+            $lastStep = false;
+            if ( $postslist->have_posts() ) :
+                while ( $postslist->have_posts() ) : $postslist->the_post();
+
+
+                    if ( $count == $postslist->post_count ){
+                        $lastStep = true;
+                    }
+                    $count++
+                     ?>
+
+                        <?php if( !$previous || $previous == 3 ): ?>
+                        <div class="project-slider-item">
+                            <div class="project-slider-item-icon">
+                                <div class="project-slider-modal">
+                                    <div class="project-slider-modal-content">
+                                        <img src="<?= get_template_directory_uri() ?>/dist/assets/images/slider-modal-icon.png" alt="arrow">
+                                        <p>Еще проекты</p>
+                                    </div>
+                                </div>
+                                <img src="<?=  get_field('front_page_img')['url']; ?>" alt="boat">
+                                <p class="project-slider-item-bottom-text"> <?php the_title(); ?></p>
+                            </div>
+                        </div>
+                            <?php 
+                                $previous = 1;
+                                continue;
+                            ?>
+                        
+                        <?php endif; ?>
+                      
+                        <?php if( $previous == 1 ): ?>
+                        <?php if($lastStep)  break; ?>
+                        <div class="project-slider-item">
+                            <div class="project-slider-item-icon">
+                                <div class="project-slider-modal">
+                                    <div class="project-slider-modal-content">
+                                        <img src="<?= get_template_directory_uri() ?>/dist/assets/images/slider-modal-icon.png" alt="arrow">
+                                        <p>Еще проекты</p>
+                                    </div>
+                                </div>
+                                <img src="<?=  get_field('front_page_img')['url']; ?>" alt="boat">
+                                <p class="project-slider-item-bottom-text"><?php the_title(); ?></p>
+                            </div>
+
+                            <?php
+                                $previous = 2;
+                                continue;
+                            ?>
+                        <?php endif; ?>
+
+                        <?php if( $previous == 2 ): ?>                          
+                            <div class="project-slider-item-icon">
+                                <div class="project-slider-modal">
+                                    <div class="project-slider-modal-content">
+                                        <img src="<?= get_template_directory_uri() ?>/dist/assets/images/slider-modal-icon.png" alt="arrow">
+                                        <p>Еще проекты</p>
+                                    </div>
+                                </div>
+                                <img src="<?=  get_field('front_page_img')['url']; ?>" alt="boat">
+                                <p class="project-slider-item-bottom-text"><?php the_title(); ?></p>
+                            </div>
+                        </div>
+
+
+                            <?php 
+                                $previous = 3;
+                                continue;
+                            ?>
+                        <?php endif; ?>
+                    <?php
+
+                endwhile;
+                wp_reset_postdata(); 
+            endif;
+        ?>
+
+
+
     </div>
 </div>
 </section>
@@ -982,84 +584,45 @@ get_header(); ?>
         <h3>Отзывы о нас</h3>
     </div>
     <div class="reviews-slider">
-    <div class="reviews-slider-content grid-x grid-padding-x">
-            <div class="reviews-slider-name cell medium-12 large-auto">
-                <p>Андрей Питерцов</p>
-                <p class="reviews-slogan">Чемпион по спортивной рыбалке</p>
-            </div>
-            <div class="reviews-slider-media cell medium-12 large-auto">
-                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/slider-example.jpg" alt="man">
-            </div>
-            <div class="reviews-slider-text cell medium-12 large-5">
-                <p>Добрый день! Искал электромотор Minn Kota ULTERRA 80 I-Pilot LINK 24 V/ Обращался во многие фирмы в разных городах, кто то отказал вообще, кто то обещал поставку весной, и никто не мог сказать точную цену на время поставки. Зашел на сайт BOATLAB.PRO, позвонил, мне ответил сотрудник фирмы Евгений, который конкретно сказал срок поставки и цену.</p>
-                <p>Советую обращаться в эту компанию по тюнингу и комплектующим для катеров и лодок. Всему коллективу спасибо!</p>  
-            </div>
-        </div>
-        <div class="reviews-slider-content grid-x grid-padding-x">
-            <div class="reviews-slider-name cell medium-12 large-auto">
-                <p>Андрей Питерцов</p>
-                <p class="reviews-slogan">Чемпион по спортивной рыбалке</p>
-            </div>
-            <div class="reviews-slider-media cell medium-12 large-auto">
-                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/slider-item.jpg" alt="man">
-            </div>
-            <div class="reviews-slider-text cell medium-12 large-5">
-                <p>Добрый день! Искал электромотор Minn Kota ULTERRA 80 I-Pilot LINK 24 V/ Обращался во многие фирмы в разных городах, кто то отказал вообще, кто то обещал поставку весной, и никто не мог сказать точную цену на время поставки. Зашел на сайт BOATLAB.PRO, позвонил, мне ответил сотрудник фирмы Евгений, который конкретно сказал срок поставки и цену.</p>
-                <p>Советую обращаться в эту компанию по тюнингу и комплектующим для катеров и лодок. Всему коллективу спасибо!</p>  
-            </div>
-        </div>
-        <div class="reviews-slider-content grid-x grid-padding-x">
-            <div class="reviews-slider-name cell medium-12 large-auto">
-                <p>Андрей Питерцов</p>
-                <p class="reviews-slogan">Чемпион по спортивной рыбалке</p>
-            </div>
-            <div class="reviews-slider-media cell medium-12 large-auto">
-                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/slider-example.jpg" alt="man">
-            </div>
-            <div class="reviews-slider-text cell medium-12 large-5">
-                <p>Добрый день! Искал электромотор Minn Kota ULTERRA 80 I-Pilot LINK 24 V/ Обращался во многие фирмы в разных городах, кто то отказал вообще, кто то обещал поставку весной, и никто не мог сказать точную цену на время поставки. Зашел на сайт BOATLAB.PRO, позвонил, мне ответил сотрудник фирмы Евгений, который конкретно сказал срок поставки и цену.</p>
-                <p>Советую обращаться в эту компанию по тюнингу и комплектующим для катеров и лодок. Всему коллективу спасибо!</p>  
-            </div>
-        </div>
-        <div class="reviews-slider-content grid-x grid-padding-x">
-            <div class="reviews-slider-name cell medium-12 large-auto">
-                <p>Андрей Питерцов</p>
-                <p class="reviews-slogan">Чемпион по спортивной рыбалке</p>
-            </div>
-            <div class="reviews-slider-media cell medium-12 large-auto">
-                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/slider-item.jpg" alt="man">
-            </div>
-            <div class="reviews-slider-text cell medium-12 large-5">
-                <p>Добрый день! Искал электромотор Minn Kota ULTERRA 80 I-Pilot LINK 24 V/ Обращался во многие фирмы в разных городах, кто то отказал вообще, кто то обещал поставку весной, и никто не мог сказать точную цену на время поставки. Зашел на сайт BOATLAB.PRO, позвонил, мне ответил сотрудник фирмы Евгений, который конкретно сказал срок поставки и цену.</p>
-                <p>Советую обращаться в эту компанию по тюнингу и комплектующим для катеров и лодок. Всему коллективу спасибо!</p>  
-            </div>
-        </div>
-        <div class="reviews-slider-content grid-x grid-padding-x">
-            <div class="reviews-slider-name cell medium-12 large-auto">
-                <p>Андрей Питерцов</p>
-                <p class="reviews-slogan">Чемпион по спортивной рыбалке</p>
-            </div>
-            <div class="reviews-slider-media cell medium-12 large-auto">
-                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/slider-example.jpg" alt="man">
-            </div>
-            <div class="reviews-slider-text cell medium-12 large-5">
-                <p>Добрый день! Искал электромотор Minn Kota ULTERRA 80 I-Pilot LINK 24 V/ Обращался во многие фирмы в разных городах, кто то отказал вообще, кто то обещал поставку весной, и никто не мог сказать точную цену на время поставки. Зашел на сайт BOATLAB.PRO, позвонил, мне ответил сотрудник фирмы Евгений, который конкретно сказал срок поставки и цену.</p>
-                <p>Советую обращаться в эту компанию по тюнингу и комплектующим для катеров и лодок. Всему коллективу спасибо!</p>  
-            </div>
-        </div>
-        <div class="reviews-slider-content grid-x grid-padding-x">
-            <div class="reviews-slider-name cell medium-12 large-auto">
-                <p>Андрей Питерцов</p>
-                <p class="reviews-slogan">Чемпион по спортивной рыбалке</p>
-            </div>
-            <div class="reviews-slider-media cell medium-12 large-auto">
-                <img src="<?= get_template_directory_uri() ?>/dist/assets/images/slider-item.jpg" alt="man">
-            </div>
-            <div class="reviews-slider-text cell medium-12 large-5">
-                <p>Добрый день! Искал электромотор Minn Kota ULTERRA 80 I-Pilot LINK 24 V/ Обращался во многие фирмы в разных городах, кто то отказал вообще, кто то обещал поставку весной, и никто не мог сказать точную цену на время поставки. Зашел на сайт BOATLAB.PRO, позвонил, мне ответил сотрудник фирмы Евгений, который конкретно сказал срок поставки и цену.</p>
-                <p>Советую обращаться в эту компанию по тюнингу и комплектующим для катеров и лодок. Всему коллективу спасибо!</p>  
-            </div>
-        </div>
+        
+        <?php
+            
+            $ourCurrentPage = get_query_var('paged');
+            $args = array(
+
+                'paged' => $ourCurrentPage,
+                'posts_per_page' => -1,
+                'category__in' => array(33),                 
+                'post_type' => 'reviews-post' );
+            $postslist = new WP_Query( $args );
+
+            if ( $postslist->have_posts() ) :
+                while ( $postslist->have_posts() ) : $postslist->the_post();
+                
+
+                    ?>
+
+                        <div class="reviews-slider-content grid-x grid-padding-x">
+                            <div class="reviews-slider-name cell medium-12 large-auto">
+                                <p><?php the_field('name') ?></p>
+                                <p class="reviews-slogan"><?php the_field('review_slogan'); ?> </p>
+                            </div>
+                            <div class="reviews-slider-media cell medium-12 large-auto">
+                                <?php echo wp_get_attachment_image((int)get_field('review_front_img')['id'], 'full'); ?> 
+                            </div>
+                            <div class="reviews-slider-text cell medium-12 large-5">
+                               <?php the_field('text') ?>
+                            </div>
+                        </div>
+
+                    <?php
+
+                        
+
+                endwhile;
+                wp_reset_postdata(); 
+            endif;
+        ?>
 
     </div>
     <div class="reviews-slider-buttons clearfix">
@@ -1093,42 +656,48 @@ get_header(); ?>
         </div>
         <div class="articles cell medium-12 large-6">
             <h3>Статьи</h3>
-            <div class="article-item">
-                <div class="clearfix">
-                    <div class="article-item-icon float-left">
-                        <img src="<?= get_template_directory_uri() ?>/dist/assets/images/boat4.jpg" alt="boat">
-                    </div>
-                    <div class="article-item-content float-left">
-                        <p >Тюнинг катеров в Ярославле! <br>
-                        Интересные проекты! Нам доверяют чемпионы!!!</p>
-                        <span>21 янв в 14:54</span>
-                    </div>
-                </div>
-            </div>
-            <div class="article-item">
-                <div class="clearfix">
-                    <div class="article-item-icon float-left">
-                        <img src="<?= get_template_directory_uri() ?>/dist/assets/images/boat4.jpg" alt="boat">
-                    </div>
-                    <div class="article-item-content float-left">
-                        <p >Тюнинг катеров в Ярославле! <br>
-                        Интересные проекты! Нам доверяют чемпионы!!!</p>
-                        <span>21 янв в 14:54</span>
-                    </div>
-                </div>
-            </div>
-            <div class="article-item">
-                <div class="clearfix">
-                    <div class="article-item-icon float-left">
-                        <img src="<?= get_template_directory_uri() ?>/dist/assets/images/boat4.jpg" alt="boat">
-                    </div>
-                    <div class="article-item-content float-left">
-                        <p >Тюнинг катеров в Ярославле! <br>
-                        Интересные проекты! Нам доверяют чемпионы!!!</p>
-                        <span>21 янв в 14:54</span>
-                    </div>
-                </div>
-            </div>
+
+            <?php
+            
+                $ourCurrentPage = get_query_var('paged');
+                $args = array(
+
+                    'paged' => $ourCurrentPage,
+                    'posts_per_page' => 4,
+                    'category__in' => array(33),                 
+                    'post_type' => 'articles-post' );
+                $postslist = new WP_Query( $args );
+
+                if ( $postslist->have_posts() ) :
+                    while ( $postslist->have_posts() ) : $postslist->the_post();
+                    
+
+                        ?>
+
+
+                            <a href="<?php the_permalink(); ?>">
+                            <div class="article-item">
+                                <div class="clearfix">
+                                    <div class="article-item-icon float-left">
+                                       <?php the_post_thumbnail(); ?>
+                                    </div>
+                                    <div class="article-item-content float-left">
+                                        <p> <?php the_title(); ?></p>
+                                        <span><?php  echo get_the_date('j F') . ' в ' . get_the_time();  ?></span>
+                                    </div>
+                                </div>
+                            </div>
+                            </a>
+                        <?php
+
+                            
+
+                    endwhile;
+                    wp_reset_postdata(); 
+                endif;
+            ?>
+
+
             <button type="button" class="button">Все статьи</button>
         </div>
     </div>

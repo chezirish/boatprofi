@@ -90,8 +90,9 @@
 			<div class="header-navigation-phone">
 				<div class="header-phone clearfix">
 					<p class="float-left"><img src="<?= get_template_directory_uri() ?>/dist/assets/images/phone_icon-header.png" alt="phone_icon"> +7 910 818 81 39</p>
-					<a href="">
-					<img class="float-right" src="<?= get_template_directory_uri() ?>/dist/assets/images/basket-icon2.png" alt="address_icon" alt="basket">
+					<a href="<?php echo esc_url( wc_get_cart_url() ); ?>">
+					<span class="count"><?php echo wp_kses_data( WC()->cart->get_cart_contents_count() ) ;?></span>
+					<img class="float-right" src="<?= get_template_directory_uri() ?>/dist/assets/images/basket-icon.png" alt="address_icon" alt="basket">
 					</a>
 				</div>
 				<a class="header-navigation-link-btn" href="/catalog-products">
@@ -169,9 +170,10 @@
 					<div class="woocommerce-data-wrapper  <?php echo  is_front_page() ? '' : 'svg-colors' ?>">
 						<img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png"  alt="heart">
 						<img class="scheme-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
-						<a href="/basket">
-						<img style="position: relative;bottom: 5px" src="<?= get_template_directory_uri() ?>/dist/assets/images/basket-icon2.png"  alt="basket">
-						</a>
+						<!-- <a target="_blank" href="<?php echo esc_url( wc_get_cart_url() ); ?>"> -->
+						<!-- <span class="count"><?php echo wp_kses_data( WC()->cart->get_cart_contents_count() ) ;?></span> -->
+						<img src="<?= get_template_directory_uri() ?>/dist/assets/images/basket-icon.png"  alt="basket">
+						<!-- </a> -->
 					</div>
 				</div>
 			</div>
@@ -182,12 +184,14 @@
 	</header>
 
 	<?php if(!is_front_page()): ?>
-	<div class="grid-container">
-		<div class="bread-crumbs">
-			<a href="">Каталог товаров</a>
-			<a href="">Электрические</a>
-			<p>троллинговые моторы</p>	
+		<div class="grid-container">
+			<!-- <div class="bread-crumbs">
+				<a href="">Каталог товаров</a>
+				<a href="">Электрические</a>
+				<p>троллинговые моторы</p>	
+			</div> -->
+			<?php if (function_exists('dimox_breadcrumbs')) dimox_breadcrumbs(); ?>
+
 		</div>
-	</div>
 	<?php endif; ?>
     

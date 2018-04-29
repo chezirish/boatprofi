@@ -12,81 +12,56 @@ get_header(); ?>
     
 
     <div class="project-list">
-        <div class="project-item">
-            <p class="project-item-date">18 марта</p>
-            <div class="project-item-icon" style="background-image:url(<?= get_template_directory_uri() ?>/dist/assets/images/boat7.jpg);background-size:cover;background-position:0">
-                <button type="button" class="button">Подробнее о проекте</button>
-            </div>
-            <p class="project-item-info">Консервация яхты.  Подготовка к зимней стоянке</p>
-            <a href="">ТО и зимняя консервация Монтаж электромоторов</a>
-        </div>
-        <div class="project-item">
-            <p class="project-item-date">18 марта</p>
-            <div class="project-item-icon" style="background-image:url(<?= get_template_directory_uri() ?>/dist/assets/images/boat7.jpg);background-size:cover;background-position:0">
-                <button type="button" class="button">Подробнее о проекте</button>
-            </div>
-            <p>Консервация яхты.  Подготовка к зимней стоянке</p>
-            <a href="">ТО и зимняя консервация Монтаж электромоторов</a>
-        </div>
-        <div class="project-item">
-            <p class="project-item-date">18 марта</p>
-            <div class="project-item-icon" style="background-image:url(<?= get_template_directory_uri() ?>/dist/assets/images/boat7.jpg);background-size:cover;background-position:0">
-                <button type="button" class="button">Подробнее о проекте</button>
-            </div>
-            <p>Консервация яхты.  Подготовка к зимней стоянке</p>
-            <a href="">ТО и зимняя консервация Монтаж электромоторов</a>
-        </div>
-        <div class="project-item">
-            <p class="project-item-date">18 марта</p>
-            <div class="project-item-icon" style="background-image:url(<?= get_template_directory_uri() ?>/dist/assets/images/boat7.jpg);background-size:cover;background-position:0">
-                <button type="button" class="button">Подробнее о проекте</button>
-            </div>
-            <p>Консервация яхты.  Подготовка к зимней стоянке</p>
-            <a href="">ТО и зимняя консервация Монтаж электромоторов</a>
-        </div>
-        <div class="project-item">
-            <p class="project-item-date">18 марта</p>
-            <div class="project-item-icon" style="background-image:url(<?= get_template_directory_uri() ?>/dist/assets/images/boat7.jpg);background-size:cover;background-position:0">
-                <button type="button" class="button">Подробнее о проекте</button>
-            </div>
-            <p>Консервация яхты.  Подготовка к зимней стоянке</p>
-            <a href="">ТО и зимняя консервация Монтаж электромоторов</a>
-        </div>
-        <div class="project-item">
-            <p class="project-item-date">18 марта</p>
-            <div class="project-item-icon" style="background-image:url(<?= get_template_directory_uri() ?>/dist/assets/images/boat7.jpg);background-size:cover;background-position:0">
-                <button type="button" class="button">Подробнее о проекте</button>
-            </div>
-            <p>Консервация яхты.  Подготовка к зимней стоянке</p>
-            <a href="">ТО и зимняя консервация Монтаж электромоторов</a>
-        </div>
-        <div class="project-item">
-            <p class="project-item-date">18 марта</p>
-            <div class="project-item-icon" style="background-image:url(<?= get_template_directory_uri() ?>/dist/assets/images/boat7.jpg);background-size:cover;background-position:0">
-                <button type="button" class="button">Подробнее о проекте</button>
-            </div>
-            <p>Консервация яхты.  Подготовка к зимней стоянке</p>
-            <a href="">ТО и зимняя консервация Монтаж электромоторов</a>
-        </div>
-        <div class="project-item">
-            <p class="project-item-date">18 марта</p>
-            <div class="project-item-icon" style="background-image:url(<?= get_template_directory_uri() ?>/dist/assets/images/boat7.jpg);background-size:cover;background-position:0">
-                <button type="button" class="button">Подробнее о проекте</button>
-            </div>
-            <p>Консервация яхты.  Подготовка к зимней стоянке</p>
-            <a href="">ТО и зимняя консервация Монтаж электромоторов</a>
-        </div>
-        <div class="project-item">
-            <p class="project-item-date">18 марта</p>
-            <div class="project-item-icon" style="background-image:url(<?= get_template_directory_uri() ?>/dist/assets/images/boat7.jpg);background-size:cover;background-position:0">
-                <button type="button" class="button">Подробнее о проекте</button>
-            </div>
-            <p>Консервация яхты.  Подготовка к зимней стоянке</p>
-            <a href="">ТО и зимняя консервация Монтаж электромоторов</a>
-        </div>
         
+        <?php
+            
+            $ourCurrentPage = get_query_var('paged');
+            $args = array(
+
+                'paged' => $ourCurrentPage,
+                'posts_per_page' => 9,                
+                'post_type' => 'project-post' );
+            $postslist = new WP_Query( $args );
+
+            if ( $postslist->have_posts() ) :
+                while ( $postslist->have_posts() ) : $postslist->the_post();
+
+
+
+                     ?>
+                    
+                        <div class="project-item">
+                        <a class="pojects-link-wrapper" href="<?php the_permalink(); ?>">
+                            <p class="project-item-date"><?php  echo get_the_date('j F Y'); ?></p>
+                            <div class="project-item-icon" style="background-image:url(<?= get_field('list_img')['url']; ?>);background-size:cover">
+                                <button type="button" class="button">Подробнее о проекте</button>
+                            </div>
+                            <p class="project-item-info"><?php the_title() ?> </p>
+                        </a>
+                            <!-- <a href="">ТО и зимняя консервация Монтаж электромоторов</a> -->
+                        </div>
+
+                    <?php
+
+                        
+
+                endwhile;
+                wp_reset_postdata(); 
+            endif;
+        ?>
 
     </div>
+
+    <div class="grid-container">
+        <div class="pagination-wrapper">
+            <div class="pagination"  role="navigation" aria-label="Pagination">
+                <?php echo paginate_links(array('total' => $postslist->max_num_pages));  ?>
+            </div>   
+        </div>
+    </div>
+
+
+
     <div class="grid-container">
         <section class="callout section-form" data-closable>
             <button class="close-button"  data-close aria-label="Dismiss alert" type="button">
