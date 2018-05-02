@@ -1,5 +1,6 @@
-$(function() {
-
+// $.noConflict();
+jQuery(document).ready(function($) {
+    
     var headerNav = document.getElementById("header-nav");
     
     function fixTopBar(){

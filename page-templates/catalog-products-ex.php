@@ -114,7 +114,6 @@ get_header(); ?>
 
 
             <div class="services-list">
-                <a class="sirvices-item-link-wrapper" href="">
                 <div class="sirvices-item clearfix ">
                     <div class="sirvices-item-modal-basket reveal" data-closable>
                         <button class="close-button"  data-close aria-label="Dismiss alert" type="button">
@@ -152,7 +151,7 @@ get_header(); ?>
                         </div>
                     </div>
                 </div>
-                </a>
+
                 <div class="sirvices-item clearfix ">
                     <div class="sirvices-item-modal-basket reveal" data-closable>
                         <button class="close-button"  data-close aria-label="Dismiss alert" type="button">
@@ -166,7 +165,6 @@ get_header(); ?>
                     </div>
                     <div class="sirvices-item-content">
                         <p>Зарядное устройство Dual Pro Professional SS1 220 В</p>
-                        <!--  -->
                         <p><span class="sirvices-item-costs">106600 руб.</span></p>
                         <div class="bottom-block">
                             <button type="button" class=" add-basket button">В корзину</button>

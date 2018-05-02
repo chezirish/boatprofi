@@ -49,7 +49,7 @@ require_once( 'library/custom-nav.php' );
 require_once( 'library/sticky-posts.php' );
 
 /** Woocommerce settings */
-// require_once( 'library/woocommerce.php' );
+require_once( 'library/woocommerce.php' );
 
 /** Configure responsive image sizes */
 require_once( 'library/responsive-images.php' );
