@@ -148,8 +148,8 @@ get_header(); ?>
                 <p class="project-slider-item-bottom-text">Совсем скоро снимем  тент и покажем,  что внутри.</p>
             </div>
         </div> -->
-                
-        <?php
+        
+        <?php 
             
             $ourCurrentPage = get_query_var('paged');
             $args = array(
@@ -175,6 +175,7 @@ get_header(); ?>
 
                         <?php if( !$previous || $previous == 3 ): ?>
                         <div class="project-slider-item">
+                            <a target="_blank" href="<?php the_permalink(); ?>" class="sirvices-item-link-wrapper">
                             <div class="project-slider-item-icon">
                                 <div class="project-slider-modal">
                                     <div class="project-slider-modal-content">
@@ -185,6 +186,7 @@ get_header(); ?>
                                 <img src="<?=  get_field('front_page_img')['url']; ?>" alt="boat">
                                 <p class="project-slider-item-bottom-text"> <?php the_title(); ?></p>
                             </div>
+                            </a>
                         </div>
                             <?php 
                                 $previous = 1;
@@ -196,6 +198,7 @@ get_header(); ?>
                         <?php if( $previous == 1 ): ?>
                         <?php if($lastStep)  break; ?>
                         <div class="project-slider-item">
+                            <a target="_blank" href="<?php the_permalink(); ?>" class="sirvices-item-link-wrapper">
                             <div class="project-slider-item-icon">
                                 <div class="project-slider-modal">
                                     <div class="project-slider-modal-content">
@@ -206,6 +209,7 @@ get_header(); ?>
                                 <img src="<?=  get_field('front_page_img')['url']; ?>" alt="boat">
                                 <p class="project-slider-item-bottom-text"><?php the_title(); ?></p>
                             </div>
+                            </a>
 
                             <?php
                                 $previous = 2;
@@ -213,7 +217,8 @@ get_header(); ?>
                             ?>
                         <?php endif; ?>
 
-                        <?php if( $previous == 2 ): ?>                          
+                        <?php if( $previous == 2 ): ?>   
+                            <a target="_blank" href="<?php the_permalink(); ?>" class="sirvices-item-link-wrapper">                       
                             <div class="project-slider-item-icon">
                                 <div class="project-slider-modal">
                                     <div class="project-slider-modal-content">
@@ -224,6 +229,7 @@ get_header(); ?>
                                 <img src="<?=  get_field('front_page_img')['url']; ?>" alt="boat">
                                 <p class="project-slider-item-bottom-text"><?php the_title(); ?></p>
                             </div>
+                            </a>
                         </div>
 
 
@@ -252,7 +258,7 @@ get_header(); ?>
     </div>
 
      <div class="services-list">
-        <div class="sirvices-item">
+        <!-- <div class="sirvices-item">
             <div class="sirvices-item-content">
                 <h5>Элетрические   <br> троллинговые моторы</h5>
                 <a href="#">Minn kota</a>
@@ -320,7 +326,52 @@ get_header(); ?>
             <div class="sirvices-item-icon">
                 <img src="<?= get_template_directory_uri() ?>/dist/assets/images/tool14.png" alt="icon">
             </div>
-        </div>
+        </div> -->
+
+
+          <?php 
+
+                $args = array(
+                    'taxonomy'   => "product_cat",
+                    'parent'  	 =>	0
+                    // 'fields' 	 => "names"
+                );
+                $product_categories = get_terms($args);
+
+                // var_dump($product_categories);
+
+                foreach( $product_categories as $cat ) { 
+                    $childs =  get_terms(array('taxonomy'   => "product_cat", 'parent' => $cat->term_id));
+                    // var_dump($childs);
+                    // var_dump($cat);
+
+                    $thumbnail_id = get_woocommerce_term_meta( $cat->term_id, 'thumbnail_id', true );
+
+                    ?>
+
+
+                            
+
+                            <a class="sirvices-item-link-wrapper" href="<?php echo get_term_link( $cat->term_id ,'product_cat'); ?>">
+                            <div class="sirvices-item">
+                                <div class="sirvices-item-content">
+                                    <h5><?php echo $cat->name ?></h5>
+                                    <?php if( !empty($childs) ): ?>
+                                        <?php foreach($childs as $child): ?>
+                                        <object>
+                                            <a href="<?php echo get_term_link( $child->term_id ,'product_cat'); ?>"><?php echo $child->name ?></a>
+                                        </object>
+                                        <?php endforeach; ?>
+                                    <?php endif; ?>
+                                </div>
+                                <div class="sirvices-item-icon">
+                                    <?php echo wp_get_attachment_image($thumbnail_id); ?>
+                                </div>
+                            </div> 
+                            </a>
+                <?php }
+
+            ?>
     </div>
 </section>
 

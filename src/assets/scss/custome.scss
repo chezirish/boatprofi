@@ -55,7 +55,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .dropdown-menu  li {
-    width: 200px;
+    // width: 200px;
     padding: 10px 30px;
     border-bottom: 1px solid #cacaca;
     border-right: 1px solid #cacaca;
@@ -1549,6 +1549,7 @@ width: 100%;
     background: #fff;
     min-width: auto;
     max-width: 270px;
+    min-width: 270px;
     position: relative;
 }
 

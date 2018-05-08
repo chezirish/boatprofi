@@ -93,11 +93,13 @@
 					<a href="<?php echo esc_url( wc_get_cart_url() ); ?>">
 
 						<div class="basket-wrapper basket-wrapper-phone">
+						<a href="<?php echo esc_url( wc_get_cart_url() ); ?>">
 							<?php wp_kses_data( WC()->cart->get_cart_contents_count()) != 0 ? $basket_count = wp_kses_data( WC()->cart->get_cart_contents_count() ) : $basket_count =  '';?>
 							<?php if($basket_count != 0): ?>
 							<span class="basket-count"><?php echo $basket_count; ?></span>
 							<?php endif; ?>
 							<img class="float-right" src="<?= get_template_directory_uri() ?>/dist/assets/images/basket-icon.png" alt="basket">
+							</a>
 						</div>
 					
 					</a>
@@ -133,7 +135,7 @@
 						</div>
 						<p>Каталог товаров</p>
 						<ul class="dropdown-menu">
-							<li><a href="">Электрические  троллинговые моторы</a></li>
+							<!-- <li><a href="">Электрические  троллинговые моторы</a></li>
 							<li><a href="">Эхолоты и картоплоттеры </a></li>
 							<li><a href="">Аккумуляторы и зарядные устройства </a></li>
 							<li><a href="">Моторы для лодок </a></li>
@@ -146,7 +148,38 @@
 									<li><a href="">защита </a></li>
 								</ul>
 							</li>
-							<li><a href="">Сопутствующие товары </a></li>
+							<li><a href="">Сопутствующие товары </a></li> -->
+
+							<?php 
+
+								$args = array(
+									'taxonomy'   => "product_cat",
+									'parent'  	 =>	0
+									// 'fields' 	 => "names"
+								);
+								$product_categories = get_terms($args);
+
+								// var_dump($product_categories);
+
+								foreach( $product_categories as $cat ) { 
+									$childs =  get_terms(array('taxonomy'   => "product_cat", 'parent' => $cat->term_id));
+									// var_dump($childs);
+
+									?>
+
+									<li <?php echo !empty($childs) ? 'class="dropdown-menu-have-nested"' : '' ?> ><a href="<?php echo get_term_link( $cat->term_id ,'product_cat'); ?>"><?php echo $cat->name ?></a>
+										<?php if( !empty($childs) ): ?>
+										<ul class="dropdown-menu dropdown-menu-nested">
+											<?php foreach($childs as $child): ?>
+												<li><a href="<?php echo get_term_link( $child->term_id ,'product_cat'); ?>"><?php echo $child->name ?></a></li>
+											<?php endforeach; ?>
+										</ul>
+										<?php endif; ?>
+									</li>
+									
+								<?php }
+
+							?>
 						</ul>
 					</div>
 				<!-- </a> -->
@@ -159,12 +192,38 @@
 						</div>
 						<p>Наши услуги</p>
 						<ul class="dropdown-menu">
-							<li><a href="">Монтаж  электромоторов</a></li>
+							<!-- <li><a href="">Монтаж  электромоторов</a></li>
 							<li><a href="">Установка эхолотов </a></li>
 							<li><a href="">Подиумы  из стеклопластика </a></li>
 							<li><a href="">Установка  картоплоттеров </a></li>
 							<li><a href="">Монтаж  электромоторов</a></li>
-							<li><a href="">ТО троллинговых моторов  </a></li>
+							<li><a href="">ТО троллинговых моторов  </a></li> -->
+							<?php
+                
+								$ourCurrentPage = get_query_var('paged');
+								$args = array(
+
+									'paged' => $ourCurrentPage,
+									// 'posts_per_page' => 9,
+									// 'category__in' => array(33),                
+									'post_type' => 'services-post' );
+								$postslist = new WP_Query( $args );
+
+								if ( $postslist->have_posts() ) :
+									while ( $postslist->have_posts() ) : $postslist->the_post();
+									
+
+										?>
+											<li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
+
+										<?php
+
+											
+
+									endwhile;
+									wp_reset_postdata(); 
+								endif;
+							?>
 						</ul>
 					</div>
 				<!-- </a> -->
@@ -177,13 +236,14 @@
 					<div class="woocommerce-data-wrapper  <?php echo  is_front_page() ? '' : 'svg-colors' ?>">
 						<img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png"  alt="heart">
 						<img class="scheme-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
-						<!-- <a target="_blank" href="<?php echo esc_url( wc_get_cart_url() ); ?>"> -->
 						<div class="basket-wrapper">
+						<a href="<?php echo esc_url( wc_get_cart_url() ); ?>">
 							<?php wp_kses_data( WC()->cart->get_cart_contents_count()) != 0 ? $basket_count = wp_kses_data( WC()->cart->get_cart_contents_count() ) : $basket_count =  '';?>
 							<?php if($basket_count != 0): ?>
 							<span class="basket-count"><?php echo $basket_count; ?></span>
 							<?php endif; ?>
 							<img src="<?= get_template_directory_uri() ?>/dist/assets/images/basket-icon.png"  alt="basket">
+							</a>
 						</div>
 						
 						<!-- </a> -->
