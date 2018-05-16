@@ -79,6 +79,8 @@ if ( ! function_exists( 'estore_woocommerce_header_cart' ) ) {
 // add custom styles
 
 
+
+
 add_action( 'woocommerce_before_main_content', 'boatprofi_output_content_wrapper', 10);
 function boatprofi_output_content_wrapper() {
 	echo '<div class="catalog-products_page-content">';
@@ -87,8 +89,10 @@ function boatprofi_output_content_wrapper() {
 
 }
 
+
 add_action( 'woocommerce_sidebar', 'boatprofi_sidebar', 10);
 function boatprofi_sidebar(){
+	foundationpress_catalog_products_nav();
 	echo '</div>';
 }
 
@@ -121,11 +125,14 @@ function boatprofi_output_content_wrapper_end() {
 }
 
 
-// add_filter('woocommerce_after_shop_loop_item', function($content){
-// 	return str_replace('class="', 'class=" add-basket', $content); 
-// });
 
+// add_action('boatprofi_before_main_content_product', 'boatprofi_before_main_content_product_wrapper_start', 10);
 
+function boatprofi_before_main_content_product_wrapper_start(){
+	echo '<div class="single-product-page">';
+	echo '<div class="single-product-page__content grid-x grid-padding-x">';
+	echo '<div class="single-product-page">';
+}
 
 
 
@@ -136,6 +143,7 @@ add_filter( 'woocommerce_enqueue_styles', '__return_false' );
 
 
 // remove actions
+remove_action( 'woocommerce_sidebar', 'woocommerce_get_sidebar', 10);
 remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10);
 // remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30);
 remove_action( 'woocommerce_before_main_content','woocommerce_breadcrumb', 20, 0); 

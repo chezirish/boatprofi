@@ -94,7 +94,62 @@ if ( have_posts() ) {
 	 *
 	 * @hooked woocommerce_pagination - 10
 	 */
-	do_action( 'woocommerce_after_shop_loop' );
+	// do_action( 'woocommerce_after_shop_loop' );
+	?>
+		<div class="pagination"  role="navigation" aria-label="Pagination">
+			<?php echo paginate_links();  ?>
+		</div>  
+
+	<section class="callout section-form small reveal"  id="exampleModal1" data-reveal>
+		<button class="close-button"  aria-label="Close modal" type="button"  data-close>
+			<span aria-hidden="true">&times;</span>
+		</button>
+		<h4 class="section-form-title-desktop">Подготовим ваш катер <br>  к любительской или спортивной рыбалке</h4>
+		<h4 class="section-form-title-tablet">Подготовим мой катер</h4>
+		<!-- <form action="">
+			<div class="form-inputs clearfix">
+				<div class="form-left float-left">
+					<label for="name">Ваше имя</label>
+					<input  require placeholder="Введите данные" id="name" type="text">
+				</div>
+				<div class="form-right float-left">
+					<label for="phone">Ваш телефон</label>
+					<input  require placeholder="Введите данные" id="phone" type="number">
+				</div>
+				<button class="desktop float-right section-title-submit" type="submit">Отправть заявку</button>
+			</div>
+
+			<div class="file-wrapper">
+				<input class="css-checkbox" id="checkbox7" type="checkbox">
+				<label for="checkbox7" class="css-label lite-x-green">Согласен с "политикой конфидециальности"</label>
+				<p class="file-return"></p>
+			</div>
+			<button class="section-title-submit section-title-submit-tablet" type="submit">Отправть заявку</button>
+		</form> -->
+		<?php echo do_shortcode('[contact-form-7 id="239" title="Каталог товаров форма: (сложно выбрать)"]'); ?>
+	</section>
+
+
+	<div class="grid-container">       
+		<div class="catalog-products_choose clearfix">
+			<h4 class="float-left">Сложно выбрать?</h4>
+			<button type="button" data-open="exampleModal1" class="float-right button">Записаться на консультацию</button>
+		</div>
+		<div class="catalog-products_question clearfix">
+			<h4 class="float-left">Остались вопросы?</h4>
+			<button type="button" class="float-right button">Звоните</button>
+		</div>
+		<div class="phone-tablet banner" style="background-image:url(<?= get_template_directory_uri() ?>/dist/assets/images/banner1.jpg);background-size:cover">
+			<h3>Разборный якорь  </h3>
+			<p>специальной формы литая, кованая или сварная конструкция, предназначенная для удержания корабля, подлодки, плота или другого плавающего объекта на одном месте за счёт сцепления с грунтом и связанная </p>
+			<button type="button" class="button">Подробнее</button>
+		</div>
+
+		<div class="seo-text">
+			<p>Профессиональная подготовка катеров для спортивной рыбалки - это не просто красивый маркетинговый слоган. За этими словами стоят десятки тысяч моточасов проведенных нашими спортсменами на водоемах, сотни нестандартных ситуаций и испытаний, которые выпадают на долю рыболова и его катера. Именно спорт дает стимул быть лучшим во всем. Самым быстрым на воде. Самым знающим в рыбопоисковой технике. Самым опытным в подготовке спортивных катеров.</p>
+		</div>
+	</div>
+	<?php
 } else {
 	/**
 	 * Hook: woocommerce_no_products_found.

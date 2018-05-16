@@ -69,3 +69,10 @@ if ( ! function_exists( 'foundationpress_scripts' ) ) :
 
 	add_action( 'wp_enqueue_scripts', 'foundationpress_scripts' );
 endif;
+
+
+
+function so30727367_enqueue_scripts() {
+    wp_enqueue_script( 'stackoverflow-scripts', get_template_directory_uri() . '/wpcf7.js', array('jquery'), null, true );
+}
+add_action( 'wpcf7_enqueue_scripts', 'so30727367_enqueue_scripts' );

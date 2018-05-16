@@ -68,7 +68,7 @@ get_header(); ?>
                 <span aria-hidden="true">&times;</span>
             </button>
             <h4>Не нашли подходящую услугу, <br>  отправте запрос нашему специалисту</h4>   
-            <form action="">
+            <!-- <form action="">
                 <div class="form-inputs clearfix">
                     <div class="form-left float-left">
                         <label for="name">Ваше имя</label>
@@ -90,7 +90,6 @@ get_header(); ?>
                 </div>
 
                 <div class="file-wrapper">
-                    <!-- <input type="file"> -->
                     <input class="input-file" id="my-file" type="file">
                     <label tabindex="0" for="my-file" class="input-file-trigger">+ Прикрепите фото катера</label>
 
@@ -99,7 +98,8 @@ get_header(); ?>
                     <p class="file-return"></p>
                 </div>
                 <button class="section-title-submit section-title-submit-tablet" type="submit">Отправть</button>
-            </form>
+            </form> -->
+            <?php echo do_shortcode('[contact-form-7 id="242" title="Форма на списке проектов"]'); ?>
         </section>
     </div>
     <div class="grid-container">

@@ -153,7 +153,7 @@ if( !empty(get_field('single_project_review')) ){
 
 <section class="callout section-form">
     <h4>Хочу также</h4>
-    <form action="">
+    <!-- <form action="">
         <div class="form-inputs clearfix">
             <div class="form-left float-left">
                 <label for="name">Ваше имя</label>
@@ -167,7 +167,6 @@ if( !empty(get_field('single_project_review')) ){
         </div>
 
         <div class="file-wrapper">
-            <!-- <input type="file"> -->
             <input class="input-file" id="my-file" type="file">
             <label tabindex="0" for="my-file" class="input-file-trigger">+ Прикрепите фото катера</label>
 
@@ -176,7 +175,8 @@ if( !empty(get_field('single_project_review')) ){
             <p class="file-return"></p>
         </div>
         <button class="section-title-submit section-title-submit-tablet" type="submit">Отправть заявку</button>
-    </form>
+    </form> -->
+    <?php echo do_shortcode('[contact-form-7 id="240" title="Форма на странице проекта"]'); ?>
 </section>
 
 <div class="portfolio-page__content">
@@ -279,6 +279,7 @@ if( !empty(get_field('single_project_review')) ){
                 $args = array(
 
                     'paged' => $ourCurrentPage,
+                    'post__not_in' => array( $post->ID ),
                     'posts_per_page' => 6,                
                     'post_type' => 'project-post' );
                 $postslist = new WP_Query( $args );

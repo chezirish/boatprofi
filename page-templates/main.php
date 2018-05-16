@@ -27,7 +27,7 @@ get_header(); ?>
         </button>
         <h4 class="section-form-title-desktop">Подготовим ваш катер <br>  к любительской или спортивной рыбалке</h4>
         <h4 class="section-form-title-tablet">Подготовим мой катер</h4>
-        <form action="">
+        <!-- <form action="">
             <div class="form-inputs clearfix">
                 <div class="form-left float-left">
                     <label for="name">Ваше имя</label>
@@ -41,7 +41,6 @@ get_header(); ?>
             </div>
 
             <div class="file-wrapper">
-                <!-- <input type="file"> -->
                 <input class="input-file" id="my-file" type="file">
                 <label tabindex="0" for="my-file" class="input-file-trigger">+ Прикрепите фото катера</label>
 
@@ -50,7 +49,8 @@ get_header(); ?>
                 <p class="file-return"></p>
             </div>
             <button class="section-title-submit section-title-submit-tablet" type="submit">Отправть заявку</button>
-        </form>
+        </form> -->
+        <?php echo do_shortcode('[contact-form-7 id="238" title="Контактная форма 1"]'); ?>
 </section>
 <!-- </div> -->
 <!-- </div> -->

@@ -33,6 +33,17 @@ jQuery(document).ready(function($) {
     });
 
 
+    // forms
+
+    // $('.wpcf7-form').on('submit', function(e){
+    //     if( !$('.wpcf7-form').find($('.css-checkbox')).prop( "checked" ) ){
+    //         e.preventDefault();
+    //         alert('Вам нужно согласиться с политикой конфидециальности');
+    //         return false;
+    //     }
+        
+    // })
+
 
     $('.products-filter p').click(function(){
         $('.products-filter p').css('border', "none");
@@ -167,34 +178,6 @@ jQuery(document).ready(function($) {
         // RemoveSlickDots();
     });
 
-    var heart = document.getElementsByClassName('heart-icon');
-    var scheme = document.getElementsByClassName('scheme-icon');
-
-    if(heart[0]){
-        for(var i=0; i<heart.length; i++){
-            heart[i].addEventListener('mouseover', function(){
-                this.src = this.src.replace("white", "red");
-            }.bind(heart[i]));
-    
-            heart[i].addEventListener('mouseout', function(){
-                this.src = this.src.replace("red", "white");
-            }.bind(heart[i]));
-        }
-    }
-
-    if(scheme[0]){
-        for(var i=0; i<scheme.length; i++){
-            scheme[i].addEventListener('mouseover', function(){
-                this.src = this.src.replace("icon", "hover");
-            }.bind(scheme[i]));
-    
-            scheme[i].addEventListener('mouseout', function(){
-                this.src = this.src.replace("hover", "icon");
-            }.bind(scheme[i]));
-        }
-    }
-
-
     
     var previewIconArr = document.getElementsByClassName('single-product-page__preview-icon');
 
@@ -266,6 +249,15 @@ jQuery(document).ready(function($) {
     
 
     // catalog-products
+
+    
+    $('.catalog-products_sidebar-nav .menu-item').removeClass('is-active');
+    $('.add_to_cart_button').addClass('add-basket');
+
+
+    $('.tinvwl_add_to_wishlist-text').empty();
+    $('.single-product-page__product-nav .tinvwl_add_to_wishlist-text').html('В избранное');
+
     // $(this).parent().parent().parent().find( $('.sirvices-item-modal-basket') ).css('display', 'block');
     $('.catalog-products_page-content .catalog-products_content .sirvices-item').mouseenter(function(){
         var sirvicesItemClone = $( this ).clone();
@@ -275,10 +267,13 @@ jQuery(document).ready(function($) {
         sirvicesItemClone.find( $('.add-basket') ).click(function(){
             sirvicesItemClone.find( $('.sirvices-item-modal-basket') ).css('display', 'block');
         });
+
+           
+        var permalink = sirvicesItemClone.find($('a[href*="product"]')).attr('href');
         
         sirvicesItemClone.css('border', "none");
         sirvicesItemClone.addClass('sirvices-item-modal-over');
-        var sirvicesBtn = '<button type="button" class="button catalog-products_button-modal">Побробнее о товаре</button>';
+        var sirvicesBtn = '<a href="' + permalink + '"><button type="button" class="button catalog-products_button-modal">Побробнее о товаре</button></a>';
         $('.sirvices-item-modal-over .sirvices-item-content p:first-child').after(sirvicesBtn);
         $('.sirvices-item-modal-over .sirvices-item-content-gorizontal').append(sirvicesBtn);
         $('.sirvices-item-modal-over .heart-icon').mouseenter(function(){
@@ -294,7 +289,44 @@ jQuery(document).ready(function($) {
         $('.sirvices-item-modal-over .scheme-icon').mouseleave(function(){
             this.src = this.src.replace("hover", "icon");
         });
+
+
+        $('.tinvwl_add_to_wishlist_button img').attr('class', 'heart-icon');
+        $('.tinvwl_add_to_wishlist_button img').attr('data-tooltip', '');
+        $('.tinvwl_add_to_wishlist_button img').attr('tabindex', '1');
+        $('.tinvwl_add_to_wishlist_button img').attr('title', 'В избранное');
+        $('.tinvwl_add_to_wishlist_button img').attr('data-position', 'bottom');
+        $('.tinvwl_add_to_wishlist_button img').attr('data-alignment', 'center');
+
+
+        
+        sirvicesItemClone.find($('.scheme-icon')).attr('class', 'scheme-icon');
+        sirvicesItemClone.find($('.scheme-icon')).attr('data-tooltip', '');
+        sirvicesItemClone.find($('.scheme-icon')).attr('tabindex', '1');
+        sirvicesItemClone.find($('.scheme-icon')).attr('title', 'В сравнение');
+        sirvicesItemClone.find($('.scheme-icon')).attr('data-position', 'bottom');
+        sirvicesItemClone.find($('.scheme-icon')).attr('data-alignment', 'center');
+
+        // $('.tinvwl_add_to_wishlist_button').mouseenter(function(){
+        //     var elem = $(this).find($('img'));
+        //     elem.attr('src', elem.attr('src').replace("white", "red")); 
+        // });
+        // $('.tinvwl_add_to_wishlist_button').mouseleave(function(){
+        //     var elem = $(this).find($('img'));
+        //     elem.attr('src', elem.attr('src').replace("red", "white")); 
+        // });
     });
+
+
+    
+    $('.tinvwl_add_to_wishlist_button img').attr('class', 'heart-icon');
+    $('.tinvwl_add_to_wishlist_button img').attr('data-tooltip', '');
+    $('.tinvwl_add_to_wishlist_button img').attr('tabindex', '1');
+    $('.tinvwl_add_to_wishlist_button img').attr('title', 'В избранное');
+    $('.tinvwl_add_to_wishlist_button img').attr('data-position', 'bottom');
+    $('.tinvwl_add_to_wishlist_button img').attr('data-alignment', 'center');
+
+    
 
     $('.sirvices-item').mouseleave(function(){
         $('.sirvices-item-modal-over').remove(); 
@@ -514,6 +546,35 @@ if(fileInput && button && the_return){
     fileInput.addEventListener( "change", function( event ) {  
         the_return.innerHTML = this.value;  
     });  
+}
+
+
+
+var heart = document.getElementsByClassName('heart-icon');
+var scheme = document.getElementsByClassName('scheme-icon');
+
+if(heart[0]){
+    for(var i=0; i<heart.length; i++){
+        heart[i].addEventListener('mouseover', function(){
+            this.src = this.src.replace("white", "red");
+        }.bind(heart[i]));
+
+        heart[i].addEventListener('mouseout', function(){
+            this.src = this.src.replace("red", "white");
+        }.bind(heart[i]));
+    }
+}
+
+if(scheme[0]){
+    for(var i=0; i<scheme.length; i++){
+        scheme[i].addEventListener('mouseover', function(){
+            this.src = this.src.replace("icon", "hover");
+        }.bind(scheme[i]));
+
+        scheme[i].addEventListener('mouseout', function(){
+            this.src = this.src.replace("hover", "icon");
+        }.bind(scheme[i]));
+    }
 }
 
    

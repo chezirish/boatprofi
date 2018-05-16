@@ -12,6 +12,11 @@
 
 get_header(); ?>
 
+<?php if( is_cart() ): ?>
+	<?php echo do_shortcode('[woocommerce_cart]'); ?>
+<?php get_footer();
+else: ?>
+
 <?php get_template_part( 'template-parts/featured-image' ); ?>
 <div class="main-container">
 	<div class="main-grid">
@@ -26,3 +31,5 @@ get_header(); ?>
 </div>
 <?php
 get_footer();
+
+endif; ?>

@@ -11,7 +11,7 @@ get_header(); ?>
     <div class="catalog-products_page-grid-container grid-x grid-margin-x">
         <div class="catalog-products_sidebar-nav desktop cell medium-3 large-3">
             <ul class="vertical menu accordion-menu" data-accordion-menu data-multi-open="false">
-                <li class="accordion-menu-container">
+                <li class="">
                     <a href="#">Электрические троллинговыемоторы</a>        
                     <ul class="menu vertical nested">
                     <li><a href="#">Lowrance</a></li>

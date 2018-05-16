@@ -70,14 +70,14 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 	 
 	
 	?>
-	
+
 		<div class="sirvices-item-modal-basket reveal" data-closable>
 			<button class="close-button"  data-close aria-label="Dismiss alert" type="button">
 				<span aria-hidden="true">&times;</span>
 			</button>
 			<h4>Товар оправлен в корзину!</h4>
 			<object data="" type="">
-			<a href="">перейти в корзину</a>
+				<a href="<?php echo esc_url( wc_get_cart_url() ); ?>">перейти в корзину</a>
 			</object>
 			<p>Список будет очищен по завершению сессии</p>
 		</div>
@@ -94,8 +94,8 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 				<button type="button" class=" add-basket button">В корзину</button>
 			</a> -->
 			<?php do_action( 'woocommerce_after_shop_loop_item' ); ?>
-			
-				<img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart"  data-tooltip tabindex="1" title="В избранное" data-position="bottom" data-alignment="center">
+				<?php  echo do_shortcode('[ti_wishlists_addtowishlist product_id="' . $product->get_id() . '" ]'); ?>
+				<!-- <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart"  data-tooltip tabindex="1" title="В избранное" data-position="bottom" data-alignment="center"> -->
 				<img class="scheme-icon" data-tooltip tabindex="1" title="В сравнение" data-position="bottom" data-alignment="center" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
 			</div>
 		</div>
@@ -107,10 +107,12 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 		<div class="bottom-block-gorizontal-wrapper">
 			<div class="bottom-block bottom-block-gorizontal">
 				<p><span class="sirvices-item-costs"><?php echo $product->get_price(); ?> руб.</span></p>
-				<a href="<?php echo get_permalink( wc_get_page_id( 'shop' ) ) . '?add-to-cart=' . get_the_ID(); ?>">
+				<!-- <a href="<?php echo get_permalink( wc_get_page_id( 'shop' ) ) . '?add-to-cart=' . get_the_ID(); ?>">
 					<button type="button" class=" add-basket button">В корзину</button>
-				</a>
-					<img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart"  data-tooltip tabindex="1" title="В избранное" data-position="bottom" data-alignment="center">
+				</a> -->
+				<?php do_action( 'woocommerce_after_shop_loop_item' ); ?>
+					<?php  echo do_shortcode('[ti_wishlists_addtowishlist product_id="' . $product->get_id() . '" ]'); ?>
+					<!-- <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart"  data-tooltip tabindex="1" title="В избранное" data-position="bottom" data-alignment="center"> -->
 				<img class="scheme-icon" data-tooltip tabindex="1" title="В сравнение" data-position="bottom" data-alignment="center" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
 			</div>
 		</div>

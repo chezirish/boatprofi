@@ -274,6 +274,7 @@ get_header(); ?>
                     $args = array(
 
                         'paged' => $ourCurrentPage,
+                        'post__not_in' => array( $post->ID ),
                         'posts_per_page' => 3,                
                         'post_type' => 'services-post' );
                     $postslist = new WP_Query( $args );

@@ -20,145 +20,111 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-wc_print_notices();
+?>
 
-do_action( 'woocommerce_before_cart' ); ?>
-
-<form class="woocommerce-cart-form" action="<?php echo esc_url( wc_get_cart_url() ); ?>" method="post">
-	<?php do_action( 'woocommerce_before_cart_table' ); ?>
-
-	<table class="shop_table shop_table_responsive cart woocommerce-cart-form__contents" cellspacing="0">
-		<thead>
-			<tr>
-				<th class="product-remove">&nbsp;</th>
-				<th class="product-thumbnail">&nbsp;</th>
-				<th class="product-name"><?php esc_html_e( 'Product', 'woocommerce' ); ?></th>
-				<th class="product-price"><?php esc_html_e( 'Price', 'woocommerce' ); ?></th>
-				<th class="product-quantity"><?php esc_html_e( 'Quantity', 'woocommerce' ); ?></th>
-				<th class="product-subtotal"><?php esc_html_e( 'Total', 'woocommerce' ); ?></th>
-			</tr>
-		</thead>
-		<tbody>
-			<?php do_action( 'woocommerce_before_cart_contents' ); ?>
-
-			<?php
-			foreach ( WC()->cart->get_cart() as $cart_item_key => $cart_item ) {
-				$_product   = apply_filters( 'woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key );
-				$product_id = apply_filters( 'woocommerce_cart_item_product_id', $cart_item['product_id'], $cart_item, $cart_item_key );
-
-				if ( $_product && $_product->exists() && $cart_item['quantity'] > 0 && apply_filters( 'woocommerce_cart_item_visible', true, $cart_item, $cart_item_key ) ) {
-					$product_permalink = apply_filters( 'woocommerce_cart_item_permalink', $_product->is_visible() ? $_product->get_permalink( $cart_item ) : '', $cart_item, $cart_item_key );
-					?>
-					<tr class="woocommerce-cart-form__cart-item <?php echo esc_attr( apply_filters( 'woocommerce_cart_item_class', 'cart_item', $cart_item, $cart_item_key ) ); ?>">
-
-						<td class="product-remove">
-							<?php
-								// @codingStandardsIgnoreLine
-								echo apply_filters( 'woocommerce_cart_item_remove_link', sprintf(
-									'<a href="%s" class="remove" aria-label="%s" data-product_id="%s" data-product_sku="%s">&times;</a>',
-									esc_url( wc_get_cart_remove_url( $cart_item_key ) ),
-									__( 'Remove this item', 'woocommerce' ),
-									esc_attr( $product_id ),
-									esc_attr( $_product->get_sku() )
-								), $cart_item_key );
-							?>
-						</td>
-
-						<td class="product-thumbnail"><?php
-						$thumbnail = apply_filters( 'woocommerce_cart_item_thumbnail', $_product->get_image(), $cart_item, $cart_item_key );
-
-						if ( ! $product_permalink ) {
-							echo $thumbnail;
-						} else {
-							printf( '<a href="%s">%s</a>', esc_url( $product_permalink ), $thumbnail );
-						}
-						?></td>
-
-						<td class="product-name" data-title="<?php esc_attr_e( 'Product', 'woocommerce' ); ?>"><?php
-						if ( ! $product_permalink ) {
-							echo apply_filters( 'woocommerce_cart_item_name', $_product->get_name(), $cart_item, $cart_item_key ) . '&nbsp;';
-						} else {
-							echo apply_filters( 'woocommerce_cart_item_name', sprintf( '<a href="%s">%s</a>', esc_url( $product_permalink ), $_product->get_name() ), $cart_item, $cart_item_key );
-						}
-
-						// Meta data.
-						echo wc_get_formatted_cart_item_data( $cart_item );
-
-						// Backorder notification.
-						if ( $_product->backorders_require_notification() && $_product->is_on_backorder( $cart_item['quantity'] ) ) {
-							echo '<p class="backorder_notification">' . esc_html__( 'Available on backorder', 'woocommerce' ) . '</p>';
-						}
-						?></td>
-
-						<td class="product-price" data-title="<?php esc_attr_e( 'Price', 'woocommerce' ); ?>">
-							<?php
-								echo apply_filters( 'woocommerce_cart_item_price', WC()->cart->get_product_price( $_product ), $cart_item, $cart_item_key );
-							?>
-						</td>
-
-						<td class="product-quantity" data-title="<?php esc_attr_e( 'Quantity', 'woocommerce' ); ?>"><?php
-						if ( $_product->is_sold_individually() ) {
-							$product_quantity = sprintf( '1 <input type="hidden" name="cart[%s][qty]" value="1" />', $cart_item_key );
-						} else {
-							$product_quantity = woocommerce_quantity_input( array(
-								'input_name'    => "cart[{$cart_item_key}][qty]",
-								'input_value'   => $cart_item['quantity'],
-								'max_value'     => $_product->get_max_purchase_quantity(),
-								'min_value'     => '0',
-								'product_name'  => $_product->get_name(),
-							), $_product, false );
-						}
-
-						echo apply_filters( 'woocommerce_cart_item_quantity', $product_quantity, $cart_item_key, $cart_item );
-						?></td>
-
-						<td class="product-subtotal" data-title="<?php esc_attr_e( 'Total', 'woocommerce' ); ?>">
-							<?php
-								echo apply_filters( 'woocommerce_cart_item_subtotal', WC()->cart->get_product_subtotal( $_product, $cart_item['quantity'] ), $cart_item, $cart_item_key );
-							?>
-						</td>
-					</tr>
-					<?php
-				}
-			}
-			?>
-
-			<?php do_action( 'woocommerce_cart_contents' ); ?>
-
-			<tr>
-				<td colspan="6" class="actions">
-
-					<?php if ( wc_coupons_enabled() ) { ?>
-						<div class="coupon">
-							<label for="coupon_code"><?php esc_html_e( 'Coupon:', 'woocommerce' ); ?></label> <input type="text" name="coupon_code" class="input-text" id="coupon_code" value="" placeholder="<?php esc_attr_e( 'Coupon code', 'woocommerce' ); ?>" /> <input type="submit" class="button" name="apply_coupon" value="<?php esc_attr_e( 'Apply coupon', 'woocommerce' ); ?>" />
-							<?php do_action( 'woocommerce_cart_coupon' ); ?>
-						</div>
-					<?php } ?>
-
-					<button type="submit" class="button" name="update_cart" value="<?php esc_attr_e( 'Update cart', 'woocommerce' ); ?>"><?php esc_html_e( 'Update cart', 'woocommerce' ); ?></button>
-
-					<?php do_action( 'woocommerce_cart_actions' ); ?>
-
-					<?php wp_nonce_field( 'woocommerce-cart' ); ?>
-				</td>
-			</tr>
-
-			<?php do_action( 'woocommerce_after_cart_contents' ); ?>
-		</tbody>
-	</table>
-	<?php do_action( 'woocommerce_after_cart_table' ); ?>
-</form>
-
-<div class="cart-collaterals">
-	<?php
-		/**
-		 * Cart collaterals hook.
-		 *
-		 * @hooked woocommerce_cross_sell_display
-		 * @hooked woocommerce_cart_totals - 10
-		 */
-		do_action( 'woocommerce_cart_collaterals' );
-	?>
+<div class="grid-container">
+    <?php   wc_print_notices(); ?>
 </div>
 
-<?php do_action( 'woocommerce_after_cart' ); ?>
+<div class="basket-page__content">
+    
+    <div class="grid-container">
+    <h3>Корзина</h3>
+        <form class="woocommerce-cart-form" action="<?php echo esc_url( wc_get_cart_url() ); ?>" method="post">
+        <div class="basket-page__content-products-wrapper">
+            <div class="basket-page__content-product clearfix">
+                <p class="basket-page__content-product-title-name">Наименование товара</p>
+                <img class="float-left" src="<?= get_template_directory_uri() ?>/dist/assets/images/tool4.png" alt="tool">
+                <div class="basket-page__content-product-name-block float-left">
+                    <p class="basket-page__content-product-name float-left" >Эхолот-картплоттер  Humminbird HELIX 10 SI GPS</p>
+                    <p class="single-service-page__add"><img class="heart" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png"  alt="heart"><span>В избранное</span></p>
+                    <p class="single-service-page__add"><img class="scheme" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png"  alt="scheme"><span>Сравнить</span></p>
+                </div>
+                <div class="basket-page__content-product-nav clearfix float-right">
+                <div class="basket-page__content-product-count clearfix">
+                    <p class="basket-page__content-product-title-count">Количество</p>
+                        <button class="basket-page__content-product-name-input-plus float-right">+</button>
+                        <input class="basket-page__content-product-name-input float-right" type="number">
+                        <button class="basket-page__content-product-name-input-minus float-right">-</button>
+                    </div>
+                    <div class="basket-page__content-product-price float-right">
+                        <p class="basket-page__content-product-title-price">Стоимость</p>
+                        <p class="basket-page__content-product-price-number">106 600 руб.</p>
+                    </div>
+                    <div class="basket-page__content-product-cross float-right">&times;</div>
+                </div>
+                <div class="basket-page__content-product-cross basket-page__content-product-cross-tablet float-right">&times;</div>
+            </div>
+
+            <div class="basket-page__content-product clearfix">
+                <img class="float-left" src="<?= get_template_directory_uri() ?>/dist/assets/images/tool4.png" alt="tool">
+                <div class="basket-page__content-product-name-block float-left">
+                    <p class="basket-page__content-product-name float-left" >Эхолот-картплоттер  Humminbird HELIX 10 SI GPS</p>
+                    <p class="single-service-page__add"><img class="heart" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png"  alt="heart"><span>В избранное</span></p>
+                    <p class="single-service-page__add"><img class="scheme" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png"  alt="scheme"><span>Сравнить</span></p>
+                </div>
+                <div class="basket-page__content-product-nav clearfix float-right">
+                <div class="basket-page__content-product-count clearfix">
+                        <button class="basket-page__content-product-name-input-plus float-right">+</button>
+                        <input class="basket-page__content-product-name-input float-right" type="number">
+                        <button class="basket-page__content-product-name-input-minus float-right">-</button>
+                    </div>
+                    <div class="basket-page__content-product-price float-right">
+                        <p class="basket-page__content-product-price-number">106 600 руб.</p>
+                    </div>
+                    <div class="basket-page__content-product-cross float-right">&times;</div>
+                </div>
+                <div class="basket-page__content-product-cross basket-page__content-product-cross-tablet float-right">&times;</div>
+            </div>
+        </div>
+       
+    <p class="basket-page__content-total"><span>Итого:</span> 203 200 руб.</p>
+    </form>
+    </div>
+
+     <div class="grid-container">
+        <section class="callout section-form">
+
+            <h4>Оформление заказа</h4>   
+            <form action="" class="clearfix">
+                <div class="form-inputs grid-x grid-margin-x">
+                    <div class="form-left cell medium-6 large-4">
+                        <label for="name">Ваше ФИО (полностью)</label>
+                        <input  require placeholder="Введите данные" id="name" type="text">
+                    </div>
+                    <div class="form-right cell medium-6 large-4">
+                        <label for="phone">E-mail</label>
+                        <input  require placeholder="Введите данные" id="phone" type="number">
+                    </div>
+                    <div class="form-right form-last cell medium-6 large-4">
+                        <label for="desc">Контактный телефон</label>
+                        <input  require placeholder="Введите данные" id="desc" type="text">
+                    </div>
+                    <div class="form-left cell medium-6 large-8">
+                        <label for="name">Адрес доставки</label>
+                        <input  require placeholder="Введите данные" id="name" type="text">
+                    </div>
+                    <div class="form-right form-right-get cell medium-4 large-4">
+                        <label for="phone">Способ доставки</label>
+                        <select value="выберите">
+                            <option disabled selected>Выберите способ доставки</option>
+                            <option id="phone" name="" id="">1</option>
+                            <option name="" id="">2</option>
+                            <option name="" id="">3</option>
+                            <option name="" id="">4</option>
+                        </select>
+                    </div>
+                    <div class="form-right form-desktop cell medium-12 large-12">
+                        <label for="phone">Комментарий</label>
+                        <input  require placeholder="Текст комментария" id="phone" type="number">
+                    </div>
+                    <div class="form-last-phone form-right form-last cell medium-12 large-12">
+                        <label for="desc">Комментарий</label>
+                        <textarea require placeholder="Текст комментария"  id="desc" cols="20" rows="7"></textarea>
+                    </div>
+                </div>
+                <button class="button basket-form-button float-right" type="submit">Оформить заказ</button>
+            </form>
+        </section>
+    </div>
+</div>

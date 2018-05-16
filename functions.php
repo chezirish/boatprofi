@@ -70,7 +70,19 @@ function boatprofi_ul_style($content) {
     return $content;
 }
 
+function new_submenu_class($menu) {    
+    $menu = preg_replace('/ class="sub-menu"/','/ class="menu vertical nested" /',$menu);        
+    return $menu;      
+}
 
+add_filter('wp_nav_menu','new_submenu_class'); 
+
+
+
+// function wp_nav_menu_remove_attributes( $menu ){
+//     return $menu = preg_replace('/ id=\"(.*)\" class=\"(.*)\"/iU', '', $menu );
+// }
+// add_filter( 'wp_nav_menu', 'wp_nav_menu_remove_attributes' );
 
 /** If your site requires protocol relative url's for theme assets, uncomment the line below */
 // require_once( 'library/class-foundationpress-protocol-relative-theme-assets.php' );

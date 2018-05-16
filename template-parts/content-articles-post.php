@@ -32,6 +32,7 @@
                     $args = array(
 
                         'paged' => $ourCurrentPage,
+                        'post__not_in' => array( $post->ID ),
                         'posts_per_page' => 4,   
                         'post_type' => 'articles-post' );
                     $postslist = new WP_Query( $args );

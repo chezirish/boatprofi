@@ -12,10 +12,29 @@ register_nav_menus(
 		'top-bar-r'  => esc_html__( 'Top Bar', 'foundationpress' ),
 		'mobile-nav' => esc_html__( 'Mobile', 'foundationpress' ),
 		'footer-nav' => esc_html__( 'Footer menu', 'foundationpress' ),
-		'services-nav' => esc_html__( 'Меню услуг', 'foundationpress' )
+		'services-nav' => esc_html__( 'Меню услуг', 'foundationpress' ),
+		'catalog-products-nav' => esc_html__( 'Меню категорий', 'foundationpress' )
 	)
 );
 
+
+
+
+if ( ! function_exists( 'foundationpress_catalog_products_nav' ) ) {
+	function foundationpress_catalog_products_nav() {
+		wp_nav_menu(
+			array(
+				'container'      => false,
+				// 'menu_class'     => 'dropdown menu',
+				'items_wrap'     => '<ul id="%1$s" class="vertical menu accordion-menu" data-accordion-menu data-multi-open="false">%3$s</ul>',
+				'theme_location' => 'catalog-products-nav',
+				'depth'          => 0,
+				'fallback_cb'    => false,
+				// 'walker'         => new Foundationpress_Top_Bar_Walker(),
+			)
+		);
+	}
+}
 
 
 /**
