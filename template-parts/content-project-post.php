@@ -51,7 +51,12 @@ $below_img3 =  get_field( "below_img3" )['url'];
                         }
                         echo '</ul>';
                     ?>
-                <img class="kruchok" src="<?= get_template_directory_uri() ?>/dist/assets/images/kruchok.png">
+                    <?php   if( get_the_ID() == 250 ):  ?>
+                        <img class="fish" src="<?= get_template_directory_uri() ?>/dist/assets/images/fish1.png">
+                    <?php  else: ?>
+                        <img class="kruchok" src="<?= get_template_directory_uri() ?>/dist/assets/images/kruchok.png">
+                    <?php  endif; ?>
+                
             </div>
             <?php endif; ?> 
         </div>
@@ -153,30 +158,12 @@ if( !empty(get_field('single_project_review')) ){
 
 <section class="callout section-form">
     <h4>Хочу также</h4>
-    <!-- <form action="">
-        <div class="form-inputs clearfix">
-            <div class="form-left float-left">
-                <label for="name">Ваше имя</label>
-                <input  require placeholder="Введите данные" id="name" type="text">
-            </div>
-            <div class="form-right float-left">
-                <label for="phone">Ваш телефон</label>
-                <input  require placeholder="Введите данные" id="phone" type="number">
-            </div>
-            <button class="desktop float-right section-title-submit" type="submit">Отправть заявку</button>
-        </div>
-
-        <div class="file-wrapper">
-            <input class="input-file" id="my-file" type="file">
-            <label tabindex="0" for="my-file" class="input-file-trigger">+ Прикрепите фото катера</label>
-
-            <input class="css-checkbox" id="checkbox7" type="checkbox">
-            <label for="checkbox7" class="css-label lite-x-green">Согласен с "политикой конфидециальности"</label>
-            <p class="file-return"></p>
-        </div>
-        <button class="section-title-submit section-title-submit-tablet" type="submit">Отправть заявку</button>
-    </form> -->
     <?php echo do_shortcode('[contact-form-7 id="240" title="Форма на странице проекта"]'); ?>
+
+    <?php $politics = carbon_get_theme_option( 'crb_politics' ); ?>
+    <?php if($politics != ''): ?>
+        <a target="_blank" href="<?php echo $politics;  ?>">Пользовательское соглашение</a>
+    <?php endif; ?>	
 </section>
 
 <div class="portfolio-page__content">
@@ -190,78 +177,35 @@ if( !empty(get_field('single_project_review')) ){
                 <img src="<?= get_template_directory_uri() ?>/dist/assets/images/slick-slider-icon.svg" alt="scheme">
             </div>
         </div>
+
+        <?php if(!empty(get_field('project_used_produtcs'))): 
+            $products_arr = get_field('project_used_produtcs'); 
+        ?>
         <div class="products-slider">
-            <div class="sirvices-item">
-                <div class="sirvices-item-icon" <div class="sirvices-item-icon"  style="background-image:url(<?= get_template_directory_uri() ?>/dist/assets/images/tool3.png);background-size:contain;background-position:center;background-repeat:no-repeat">
-                <?php /* <img  src="<?= get_template_directory_uri() ?>/dist/assets/images/tool2.png" alt="tool"> */ ?>
-                </div>
-                <div class="sirvices-item-content">
-                    <p>Зарядное устройство Dual Pro Professional SS1 220 В</p>
-                    <p><span class="sirvices-item-costs">106600 руб.</span></p>
-                    <div class="bottom-block">
-                        <button type="button" class="button">Заказать</button>
-                        <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart">
-                        <img class="scheme-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
+            <?php foreach ($products_arr as &$value): $product = wc_get_product($value); ?>
+            <?php $image = wp_get_attachment_image_src( get_post_thumbnail_id($value ), 'single-post-thumbnail' ); ?>
+                <div class="sirvices-item">
+                    <a href="<?=  $product->get_permalink( ) ?>">
+                    <div class="sirvices-item-icon" style="background-image:url(<?= $image[0]; ?>);background-size:contain;background-position:center;background-repeat:no-repeat">
+                    </div>
+                    </a>
+                    <div class="sirvices-item-content">
+                        <p><?php echo $product->get_title(); ?></p>
+                        <p><span class="sirvices-item-costs"><?php echo $product->get_price() != '' ? $product->get_price() . ' руб.' : ''; ?> </span></p>
+                        <div class="bottom-block">
+                            <a class=" add_to_cart_button ajax_add_to_cart" rel="nofollow" data-product_id="<?= $product->get_id() ?>" href="<?php echo $product->add_to_cart_url( ); ?>">
+                                <button type="button" class="button"><?= $product->add_to_cart_text( ); ?></button>
+                            </a>
+                            <?php  echo do_shortcode('[ti_wishlists_addtowishlist product_id="' . $product->get_id() . '" ]'); ?>
+                            <!-- <img class="scheme-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme"> -->
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="sirvices-item">
-                <div class="sirvices-item-icon" <div class="sirvices-item-icon"  style="background-image:url(<?= get_template_directory_uri() ?>/dist/assets/images/tool3.png);background-size:contain;background-position:center;background-repeat:no-repeat">
-                <?php /* <img  src="<?= get_template_directory_uri() ?>/dist/assets/images/tool2.png" alt="tool"> */ ?>
-                </div>
-                <div class="sirvices-item-content">
-                    <p>Зарядное устройство Dual Pro Professional SS1 220 В</p>
-                    <p><span class="sirvices-item-costs">106600 руб.</span></p>
-                    <div class="bottom-block">
-                        <button type="button" class="button">Заказать</button>
-                        <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart">
-                        <img class="scheme-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
-                    </div>
-                </div>
-            </div>
-            <div class="sirvices-item">
-                <div class="sirvices-item-icon" <div class="sirvices-item-icon"  style="background-image:url(<?= get_template_directory_uri() ?>/dist/assets/images/tool3.png);background-size:contain;background-position:center;background-repeat:no-repeat">
-                <?php /* <img  src="<?= get_template_directory_uri() ?>/dist/assets/images/tool2.png" alt="tool"> */ ?>
-                </div>
-                <div class="sirvices-item-content">
-                    <p>Зарядное устройство Dual Pro Professional SS1 220 В</p>
-                    <p><span class="sirvices-item-costs">106600 руб.</span></p>
-                    <div class="bottom-block">
-                        <button type="button" class="button">Заказать</button>
-                        <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart">
-                        <img class="scheme-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
-                    </div>
-                </div>
-            </div>
-            <div class="sirvices-item">
-                <div class="sirvices-item-icon" <div class="sirvices-item-icon"  style="background-image:url(<?= get_template_directory_uri() ?>/dist/assets/images/tool3.png);background-size:contain;background-position:center;background-repeat:no-repeat">
-                <?php /* <img  src="<?= get_template_directory_uri() ?>/dist/assets/images/tool2.png" alt="tool"> */ ?>
-                </div>
-                <div class="sirvices-item-content">
-                    <p>Зарядное устройство Dual Pro Professional SS1 220 В</p>
-                    <p><span class="sirvices-item-costs">106600 руб.</span></p>
-                    <div class="bottom-block">
-                        <button type="button" class="button">Заказать</button>
-                        <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart">
-                        <img class="scheme-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
-                    </div>
-                </div>
-            </div>
-            <div class="sirvices-item">
-                <div class="sirvices-item-icon" <div class="sirvices-item-icon"  style="background-image:url(<?= get_template_directory_uri() ?>/dist/assets/images/tool3.png);background-size:contain;background-position:center;background-repeat:no-repeat">
-                <?php /* <img  src="<?= get_template_directory_uri() ?>/dist/assets/images/tool2.png" alt="tool"> */ ?>
-                </div>
-                <div class="sirvices-item-content">
-                    <p>Зарядное устройство Dual Pro Professional SS1 220 В</p>
-                    <p><span class="sirvices-item-costs">106600 руб.</span></p>
-                    <div class="bottom-block">
-                        <button type="button" class="button">Заказать</button>
-                        <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart">
-                        <img class="scheme-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
-                    </div>
-                </div>
-            </div>
+
+            <?php endforeach; ?>
+
         </div>
+        <?php endif; ?>
 
         <div class="slider-nav clearfix">
             <h3 class="float-left">Другие проекты</h3>

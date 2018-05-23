@@ -93,6 +93,12 @@ get_header(); ?>
                 <button class="section-title-submit section-title-submit-tablet" type="submit">Отправть</button>
             </form> -->
             <?php echo do_shortcode('[contact-form-7 id="241" title="Форма на списке услуг"]'); ?>
+
+
+            <?php $politics = carbon_get_theme_option( 'crb_politics' ); ?>
+            <?php if($politics != ''): ?>
+                <a target="_blank" href="<?php echo $politics;  ?>">Пользовательское соглашение</a>
+            <?php endif; ?>	
         </section>
     </div>
 

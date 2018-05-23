@@ -70,7 +70,17 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 	 
 	
 	?>
+		<?php $brands = wp_get_post_terms( get_the_ID(), 'pwb-brand' );
+		if(!empty($brands)){
+			$brand_name = $brands[0]->name;
+		}
+		// var_dump($brand_name);
 
+		 ?>
+		<?php echo has_term( 'Новинка', 'product_tag' ) ? '<p class="sirvices-item-tag">Новинка</p>' : ''; ?>
+		<?php echo has_term( 'аукционный', 'product_tag' ) ? '<p class="sirvices-item-tag">Акция</p>' : ''; ?>
+		<?php echo has_term( 'хит продаж', 'product_tag' ) ? '<p class="sirvices-item-tag">Хит продаж</p>' : ''; ?>
+		<?php do_action( 'woocommerce_before_shop_loop_item_title' ); ?>
 		<div class="sirvices-item-modal-basket reveal" data-closable>
 			<button class="close-button"  data-close aria-label="Dismiss alert" type="button">
 				<span aria-hidden="true">&times;</span>
@@ -87,33 +97,37 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 		</a>
 		<div class="sirvices-item-content">
 			<p> <?php echo $product->get_title(); ?></p>
+			<?php if($brand_name != null) : ?>
+				<!-- <p class="sirvices-item-content-developer">Производитель: <object data="" type=""><a href="javascript:void(0)"><?= $brand_name ?></a></object> </p> -->
+			<?php endif; ?>
 			
-			<p><span class="sirvices-item-costs"><?php echo $product->get_price(); ?> руб.</span></p>
+			<p><span class="sirvices-item-costs"><?php echo $product->get_price() != '' ? $product->get_price() . ' руб.' : ''; ?> </span></p>
 			<div class="bottom-block">
-			<!-- <a class="ajax_add_to_cart"  rel="nofollow" data-product_id="<?php echo get_the_ID(); ?>" data-quantity="1" href="<?php echo get_permalink( wc_get_page_id( 'shop' ) ) . '?add-to-cart=' . get_the_ID(); ?>">
+			<!-- <a class="ajax_add_to_cart"  rel="nofollow" data-product_id="<?php echo get_the_ID(); ?>" data-quantity="1" href="<?php echo $product->add_to_cart_url( ); ?>">
 				<button type="button" class=" add-basket button">В корзину</button>
 			</a> -->
 			<?php do_action( 'woocommerce_after_shop_loop_item' ); ?>
 				<?php  echo do_shortcode('[ti_wishlists_addtowishlist product_id="' . $product->get_id() . '" ]'); ?>
-				<!-- <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart"  data-tooltip tabindex="1" title="В избранное" data-position="bottom" data-alignment="center"> -->
-				<img class="scheme-icon" data-tooltip tabindex="1" title="В сравнение" data-position="bottom" data-alignment="center" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
+				<!-- <img class="scheme-icon" data-tooltip tabindex="1" title="В сравнение" data-position="bottom" data-alignment="center" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme"> -->
 			</div>
 		</div>
 		<div class="sirvices-item-content-gorizontal">
 			<p><?php echo $product->get_title(); ?></p>
-			<p class="sirvices-item-content-developer">Производитель: <object data="" type=""><a href="">Humminbird</a></object> </p>
+			<?php if($brand_name != null) : ?>
+				<!-- <p class="sirvices-item-content-developer">Производитель: <object data="" type=""><a href="javascript:void(0)"><?= $brand_name ?></a></object> </p> -->
+			<?php endif; ?>
 			
 		</div>
 		<div class="bottom-block-gorizontal-wrapper">
 			<div class="bottom-block bottom-block-gorizontal">
-				<p><span class="sirvices-item-costs"><?php echo $product->get_price(); ?> руб.</span></p>
-				<!-- <a href="<?php echo get_permalink( wc_get_page_id( 'shop' ) ) . '?add-to-cart=' . get_the_ID(); ?>">
+				<p><span class="sirvices-item-costs"><?php echo $product->get_price() != '' ? $product->get_price() . ' руб.' : ''; ?></p>
+				<!-- <a href="<?php echo $product->add_to_cart_url( ); ?>">
 					<button type="button" class=" add-basket button">В корзину</button>
 				</a> -->
 				<?php do_action( 'woocommerce_after_shop_loop_item' ); ?>
 					<?php  echo do_shortcode('[ti_wishlists_addtowishlist product_id="' . $product->get_id() . '" ]'); ?>
 					<!-- <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart"  data-tooltip tabindex="1" title="В избранное" data-position="bottom" data-alignment="center"> -->
-				<img class="scheme-icon" data-tooltip tabindex="1" title="В сравнение" data-position="bottom" data-alignment="center" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
+				<!-- <img class="scheme-icon" data-tooltip tabindex="1" title="В сравнение" data-position="bottom" data-alignment="center" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme"> -->
 			</div>
 		</div>
 

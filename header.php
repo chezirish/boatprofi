@@ -28,9 +28,20 @@
 			<!-- <div class="title-bar-left"> -->
 				<button aria-label="<?php _e( 'Main Menu', 'foundationpress' ); ?>" class="menu-icon" type="button" data-toggle="<?php foundationpress_mobile_menu_id(); ?>"></button>
 				<div class="top-bar-social-icons-mobile">
-					<img src="<?= get_template_directory_uri() ?>/dist/assets/images/in2.svg" alt="icon">
-					<img src="<?= get_template_directory_uri() ?>/dist/assets/images/fb2.svg" alt="icon">
-					<img src="<?= get_template_directory_uri() ?>/dist/assets/images/vk.svg" alt="icon">
+				<?php 
+					$link_in = carbon_get_theme_option( 'crb_in' );
+					$link_fb = carbon_get_theme_option( 'crb_fb' );
+					$link_vk = carbon_get_theme_option( 'crb_vk' );
+				?>
+					<?php if($link_in != ''): ?>
+						<a target="_blank" href="<?php echo $link_in ?>"><img src="<?= get_template_directory_uri() ?>/dist/assets/images/in2.svg" alt="icon"></a>
+					<?php endif; ?>
+					<?php if($link_fb != ''): ?>
+						<a target="_blank" href="<?php echo $link_fb ?>"><img src="<?= get_template_directory_uri() ?>/dist/assets/images/fb2.svg" alt="icon"></a>
+						<?php endif; ?>
+					<?php if($link_vk != ''): ?>
+						<a target="_blank" class="vk_social" href="<?php echo $link_vk ?>"><img src="<?= get_template_directory_uri() ?>/dist/assets/images/vk.svg" alt="icon"></a>
+					<?php endif; ?>
 				</div>
 				<!-- <span class="site-mobile-title title-bar-title">
 					<p><a href="<?php //echo esc_url( home_url( '/' ) ); ?>" rel="home">Главная</a></p>
@@ -51,9 +62,15 @@
 					<?php get_template_part( 'template-parts/mobile-top-bar' ); ?>
 				<?php endif; ?>
 				<div class="top-bar-social-icons <?php echo  is_front_page() ? '' : 'svg-colors' ?>">
-					<img src="<?= get_template_directory_uri() ?>/dist/assets/images/in2.svg" alt="icon">
-					<img src="<?= get_template_directory_uri() ?>/dist/assets/images/fb2.svg" alt="icon">
-					<img src="<?= get_template_directory_uri() ?>/dist/assets/images/vk.svg" alt="icon">
+					<?php if($link_in != ''): ?>
+						<a target="_blank" href="<?php echo $link_in ?>"><img src="<?= get_template_directory_uri() ?>/dist/assets/images/in2.svg" alt="icon"></a>
+					<?php endif; ?>
+					<?php if($link_fb != ''): ?>
+						<a target="_blank" href="<?php echo $link_fb ?>"><img src="<?= get_template_directory_uri() ?>/dist/assets/images/fb2.svg" alt="icon"></a>
+						<?php endif; ?>
+					<?php if($link_vk != ''): ?>
+						<a target="_blank" class="vk_social" href="<?php echo $link_vk ?>"><img src="<?= get_template_directory_uri() ?>/dist/assets/images/vk.svg" alt="icon"></a>
+					<?php endif; ?>
 				</div>
 			</div>
 		</nav>
@@ -66,17 +83,27 @@
 					</a>
 				</div>
 				<div class="header-tagline">
-					<p>Подготовим ваш <br> катер к рыбалке.</p>
+				<?php $phrase = carbon_get_theme_option( 'crb_header_phrase' ); ?>
+					<?php if($phrase != ''): ?>
+						<p><?php echo $phrase;  ?></p>
+					<?php endif; ?>				
 				</div>
 				<div class="header-phone tablet">
-					<a class="header-phone-number" href="tel:79108188139">
-					<p><img src="<?= get_template_directory_uri() ?>/dist/assets/images/phone_icon-header.png" alt="phone_icon"> +7 910 818 81 39</p>
-					</a>
-					<a href="" class="tablet">обратный звонок</a>
+					<?php $phone = carbon_get_theme_option( 'crb_phone' ); ?>
+					<?php if($phone != ''): $tel_href = trim($phone, '+');  $tel_href = str_replace(' ', '', $tel_href );?>
+						<a class="header-phone-number" href="tel:<?= $tel_href ?>">
+							<p><img src="<?= get_template_directory_uri() ?>/dist/assets/images/phone_icon-header.png" alt="phone_icon"><?= ' ' . $phone; ?></p>
+						</a>
+					<?php endif; ?>
+					<a data-open="header__callback" aria-controls="header__callback" aria-haspopup="true" tabindex="0" href="javascript:void(0)" class="tablet">обратный звонок</a>
+					
 				</div>
 				<div class="header-address desktop">
-					<p><img src="<?= get_template_directory_uri() ?>/dist/assets/images/address_icon-header.png" alt="address_icon" > г. Ярославль, ул. Республиканская д.7. ТЦ «Флагман»</p>
-					<a href="">показать на карте</a>
+					<?php $address = carbon_get_theme_option( 'crb_address' ); ?>
+					<?php if($address != ''): ?>					
+						<p><img src="<?= get_template_directory_uri() ?>/dist/assets/images/address_icon-header.png" alt="address_icon" ><?= ' ' . $address; ?> </p>
+                    <?php endif; ?>
+					<a target="_blank"href="<?= get_page_link(18); ?>">показать на карте</a>
 					<div class="header-address-city">
 						<a href="">изменить город</a>	
 						<div class="header-address-city-modal">
@@ -89,7 +116,11 @@
 			</div>
 			<div class="header-navigation-phone">
 				<div class="header-phone clearfix">
-					<p class="float-left"><img src="<?= get_template_directory_uri() ?>/dist/assets/images/phone_icon-header.png" alt="phone_icon"> +7 910 818 81 39</p>
+					<?php if($phone != ''): $tel_href = trim($phone, '+');  $tel_href = str_replace(' ', '', $tel_href );?>
+					<a class="header-phone-number" href="tel:<?= $tel_href ?>">
+						<p class="float-left"><img src="<?= get_template_directory_uri() ?>/dist/assets/images/phone_icon-header.png" alt="phone_icon"> <?= ' ' . $phone; ?></p>
+					</a>
+					<?php endif; ?>
 					<a href="<?php echo esc_url( wc_get_cart_url() ); ?>">
 
 						<div class="basket-wrapper basket-wrapper-phone">
@@ -228,8 +259,8 @@
 					</div>
 				<!-- </a> -->
 				<div class="search cell medium-5 large-6">
-					<form action="">
-						<input placeholder="Введите название товара" type="text">
+					<form action="<?php echo get_home_url(); ?>">
+						<input name='s' placeholder="Введите название товара" type="text">
 					</form>
 				</div>
 				<div class="woocommerce-data medium-3 large-2">
@@ -263,10 +294,45 @@
 				<a href="">Электрические</a>
 				<p>троллинговые моторы</p>	
 			</div> -->
-			<?php if (function_exists('dimox_breadcrumbs')) dimox_breadcrumbs(); ?>
+			<?php //if (function_exists('dimox_breadcrumbs')) dimox_breadcrumbs(); ?>
+			<?php do_action('boatprofi_breadcrumb'); ?>
 
 		</div>
 	<?php endif; ?>
 
 
+
+	        <!-- modal form -->
+	<section class="callout section-form small reveal"  id="header__callback" data-reveal>
+		<button class="close-button"  aria-label="Close modal" type="button"  data-close>
+			<span aria-hidden="true">&times;</span>
+		</button>
+		<h4 class="section-form-title-desktop">Мы вам перезвоним</h4>
+		<h4 class="section-form-title-tablet">Мы вам перезвоним</h4>
+		<?php echo do_shortcode('[contact-form-7 id="414" title="Формы на сайте"]'); ?>
+		<?php //echo do_shortcode('[contact-form-7 id="249" title="Формы на сайте"]'); ?>
+
+		<?php $politics = carbon_get_theme_option( 'crb_politics' ); ?>
+		<?php if($politics != ''): ?>
+			<a target="_blank" href="<?php echo $politics;  ?>">Пользовательское соглашение</a>
+		<?php endif; ?>	
+	</section>
+
+
+		<!-- modal form -->
+	<section class="callout section-form small reveal"  id="footer__callback" data-reveal>
+		<button class="close-button"  aria-label="Close modal" type="button"  data-close>
+			<span aria-hidden="true">&times;</span>
+		</button>
+		<h4 class="section-form-title-desktop">Мы вам перезвоним</h4>
+		<h4 class="section-form-title-tablet">Мы вам перезвоним</h4>
+		<?php echo do_shortcode('[contact-form-7 id="414" title="Формы на сайте"]'); ?>
+		<?php //echo do_shortcode('[contact-form-7 id="249" title="Формы на сайте"]'); ?>
+
+		<?php $politics = carbon_get_theme_option( 'crb_politics' ); ?>
+		<?php if($politics != ''): ?>
+			<a target="_blank" href="<?php echo $politics;  ?>">Пользовательское соглашение</a>
+		<?php endif; ?>	
+	</section>
+    
     

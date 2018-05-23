@@ -64,6 +64,12 @@ require_once( 'library/remove-elements.php' );
 require_once( 'library/bread-crumbs.php'  );
 require_once( 'library/carbon-fields.php'  );
 
+
+require_once( 'library/ajax.php'  );
+
+
+// some changes
+
 add_filter( 'the_content', 'boatprofi_ul_style' );
 function boatprofi_ul_style($content) {
     $content = str_replace("<ul>", "<ul class='custome-ul-style'>", $content);
@@ -77,6 +83,12 @@ function new_submenu_class($menu) {
 
 add_filter('wp_nav_menu','new_submenu_class'); 
 
+
+function remove_short_description() {
+    remove_meta_box( 'postexcerpt', 'product', 'normal');
+}
+
+add_action('add_meta_boxes', 'remove_short_description', 999);
 
 
 // function wp_nav_menu_remove_attributes( $menu ){

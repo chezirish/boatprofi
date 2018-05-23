@@ -12,10 +12,15 @@ Template Name: Главная
 <?php
 get_header(); ?>
 
+
+
 <section class="section-title">
     <h1>Подготовим  Ваш катер к рыбалке</h1>
     <p>За этими словами стоят десятки тысяч моточасов проведенных нашими спортсменами на водоемах, сотни нестандартных ситуаций и испытаний, которые выпадают на долю рыболова и его катера. </p>
 </section>
+
+
+
 
 <!-- <div class="section-form-wrapper"> -->
 
@@ -50,7 +55,15 @@ get_header(); ?>
             </div>
             <button class="section-title-submit section-title-submit-tablet" type="submit">Отправть заявку</button>
         </form> -->
-        <?php echo do_shortcode('[contact-form-7 id="238" title="Контактная форма 1"]'); ?>
+        <?php echo do_shortcode('[contact-form-7 id="335" title="Форма на главной"]'); ?>
+        <?php //echo do_shortcode('[contact-form-7 id="238" title="Контактная форма 1"]'); ?>
+
+
+        <?php $politics = carbon_get_theme_option( 'crb_politics' ); ?>
+        <?php if($politics != ''): ?>
+            <a target="_blank" href="<?php echo $politics;  ?>">Пользовательское соглашение</a>
+        <?php endif; ?>	
+        
 </section>
 <!-- </div> -->
 <!-- </div> -->
@@ -175,7 +188,7 @@ get_header(); ?>
 
                         <?php if( !$previous || $previous == 3 ): ?>
                         <div class="project-slider-item">
-                            <a target="_blank" href="<?php the_permalink(); ?>" class="sirvices-item-link-wrapper">
+                            <a href="<?php the_permalink(); ?>" class="sirvices-item-link-wrapper">
                             <div class="project-slider-item-icon">
                                 <div class="project-slider-modal">
                                     <div class="project-slider-modal-content">
@@ -198,7 +211,7 @@ get_header(); ?>
                         <?php if( $previous == 1 ): ?>
                         <?php if($lastStep)  break; ?>
                         <div class="project-slider-item">
-                            <a target="_blank" href="<?php the_permalink(); ?>" class="sirvices-item-link-wrapper">
+                            <a href="<?php the_permalink(); ?>" class="sirvices-item-link-wrapper">
                             <div class="project-slider-item-icon">
                                 <div class="project-slider-modal">
                                     <div class="project-slider-modal-content">
@@ -218,7 +231,7 @@ get_header(); ?>
                         <?php endif; ?>
 
                         <?php if( $previous == 2 ): ?>   
-                            <a target="_blank" href="<?php the_permalink(); ?>" class="sirvices-item-link-wrapper">                       
+                            <a href="<?php the_permalink(); ?>" class="sirvices-item-link-wrapper">                       
                             <div class="project-slider-item-icon">
                                 <div class="project-slider-modal">
                                     <div class="project-slider-modal-content">
@@ -365,7 +378,7 @@ get_header(); ?>
                                     <?php endif; ?>
                                 </div>
                                 <div class="sirvices-item-icon">
-                                    <?php echo wp_get_attachment_image($thumbnail_id); ?>
+                                    <?php echo wp_get_attachment_image($thumbnail_id, array(200,200)); ?>
                                 </div>
                             </div> 
                             </a>
@@ -383,19 +396,19 @@ get_header(); ?>
     <div class="grid-container">
         <nav class="clearfix">
             <div class="products-filter float-left">
-                <p>Акционные</p>
-                <p>Новинки</p>
-                <p>Хиты продаж</p>
+                <p class="share">Акционные</p>
+                <p class="new">Новинки</p>
+                <p class="hit">Хиты продаж</p>
             </div>
             <div class="linkto-catalog float-right">
-                <a href="">Перейти в каталог</a>
+                <a href="<?= get_permalink( woocommerce_get_page_id( 'shop' ) );?>">Перейти в каталог</a>
             </div>
         </nav>
     </div>
 
 
     <div class="services-list">
-        <div class="sirvices-item">
+        <!-- <div class="sirvices-item">
             <div class="sirvices-item-modal-basket reveal" data-closable>
                 <button class="close-button"  data-close aria-label="Dismiss alert" type="button">
                     <span aria-hidden="true">&times;</span>
@@ -416,8 +429,8 @@ get_header(); ?>
                     <img class="scheme-icon" data-tooltip tabindex="1" title="В сравнение" data-position="bottom" data-alignment="center" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
                 </div>
             </div>
-        </div>
-        <div class="sirvices-item">
+        </div> -->
+        <!-- <div class="sirvices-item">
             <p class="sirvices-item-tag">Хит продаж</p>
             <p class="sirvices-item-tag">Новинка</p>
             <div class="sirvices-item-modal-basket reveal" data-closable>
@@ -441,8 +454,8 @@ get_header(); ?>
                     <img class="scheme-icon" data-tooltip tabindex="1" title="В сравнение" data-position="bottom" data-alignment="center" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
                 </div>
             </div>
-        </div>
-        <div class="sirvices-item">
+        </div> -->
+        <!-- <div class="sirvices-item">
             <div class="sirvices-item-modal-basket reveal" data-closable>
                 <button class="close-button"  data-close aria-label="Dismiss alert" type="button">
                     <span aria-hidden="true">&times;</span>
@@ -624,7 +637,70 @@ get_header(); ?>
                     <img class="scheme-icon" data-tooltip tabindex="1" title="В сравнение" data-position="bottom" data-alignment="center" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
                 </div>
             </div>
-        </div>
+        </div> -->
+
+
+
+        	<?php
+                $args = array(
+                    'post_type' => 'product',
+                    'posts_per_page' => 10
+                    );
+                $loop = new WP_Query( $args );
+                $count = 0;
+                if ( $loop->have_posts() ) {
+                    while ( $loop->have_posts() ) : $loop->the_post();
+                    //var_dump($count);
+                        if($count == 6){
+                            ?>
+                            <div class="banner" style="background-image:url(<?= get_template_directory_uri() ?>/dist/assets/images/banner1.jpg);background-size:cover">
+                                <h3>Разборный якорь  </h3>
+                                <p>специальной формы литая, кованая или сварная конструкция, предназначенная для удержания корабля, подлодки, плота или другого плавающего объекта на одном месте за счёт сцепления с грунтом и связанная </p>
+                                <button type="button" class="button">Подробнее</button>
+                            </div>
+                            <?php
+                        }
+
+                        ?>
+                        <?php //echo has_term( 'Новинка', 'product_tag' ); ?>
+                        <div class="sirvices-item">
+                            <?php echo has_term( 'Новинка', 'product_tag' ) ? '<p class="sirvices-item-tag">Новинка</p>' : ''; ?>
+                            <?php echo has_term( 'аукционный', 'product_tag' ) ? '<p class="sirvices-item-tag">Акция</p>' : ''; ?>
+                            <?php echo has_term( 'хит продаж', 'product_tag' ) ? '<p class="sirvices-item-tag">Хит продаж</p>' : ''; ?>
+                            <?php do_action( 'woocommerce_before_shop_loop_item_title' ); ?>
+                            <div class="sirvices-item-modal-basket reveal" data-closable>
+                                <button class="close-button"  data-close aria-label="Dismiss alert" type="button">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <h4>Товар оправлен в корзину!</h4>
+                                <object data="" type="">
+                                    <a href="<?php echo esc_url( wc_get_cart_url() ); ?>">перейти в корзину</a>
+                                </object>
+                                <p>Список будет очищен по завершению сессии</p>
+                            </div>
+                            <a href="<?php the_permalink(); ?>">
+                                <div class="sirvices-item-icon" <div class="sirvices-item-icon"  style="background-image:url(<?php the_post_thumbnail_url( ); ?>);background-size:contain;background-position:center;background-repeat:no-repeat">
+                                </div>
+                            </a>
+                            <div class="sirvices-item-content">
+                                <p><?php echo $product->get_title(); ?></p>
+                                <p><span class="sirvices-item-costs"><?php echo $product->get_price() != '' ? $product->get_price() . ' руб.' : ''; ?></span></p>
+                                <div class="bottom-block">
+                                    <!-- <button type="button" class="button add-basket">В корзину</button> -->
+                                    <?php do_action( 'woocommerce_after_shop_loop_item' ); ?>
+                                    <?php  echo do_shortcode('[ti_wishlists_addtowishlist product_id="' . $product->get_id() . '" ]'); ?>
+                                    <img class="scheme-icon" data-tooltip tabindex="1" title="В сравнение" data-position="bottom" data-alignment="center" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
+                                </div>
+                            </div>
+                        </div>
+                        <?php
+                        $count++;
+                    endwhile;
+                } else {
+                    echo __( 'No products found' );
+                }
+                wp_reset_postdata();
+            ?>
     </div>
 </div>
 </section>
@@ -690,7 +766,9 @@ get_header(); ?>
             </a>
             <p class="reviews-slider-count-sliders"><span class="current-slider"></span> из <span class="total-sliders"></span></p>
         </div>
-        <button type="button" class="button">Все отзывы</button>
+        <a class="reviews-slider-link" href="<?= get_page_link(45); ?>">
+            <button type="button" class="button">Все отзывы</button>
+        </a>
     </div>
 
 </div>
@@ -703,7 +781,9 @@ get_header(); ?>
             <h3>Коротко о нас</h3>
             <p>Профессиональная подготовка катеров для рыбалке - это не просто красивый маркетинговый слоган. За этими словами стоят десятки тысяч моточасов проведенных нашими спортсменами на водоемах, сотни нестандартных ситуаций и испытаний, которые выпадают на долю рыболова и его катера.</p>
             <p>Именно спорт дает стимул быть лучшим во всем. Самым быстрым на воде. Самым знающим в рыбопоисковой технике. Самым опытным в подготовке спортивных катеров.  Именно спорт дает стимул быть лучшим во всем. Самым быстрым на воде. Самым знающим в рыбопоисковой технике </p>
-            <button type="button" class="button">Подробнее</button>
+            <a href="<?= get_page_link(18); ?>">
+                <button type="button" class="button">Подробнее</button>
+            </a>
         </div>
         <div class="articles cell medium-12 large-6">
             <h3>Статьи</h3>
@@ -748,10 +828,12 @@ get_header(); ?>
                 endif;
             ?>
 
-
+            <a href="<?= get_page_link(12); ?>"> 
             <button type="button" class="button">Все статьи</button>
+            </a>
         </div>
     </div>
-</section>
 
+
+</section>
 <?php get_footer();

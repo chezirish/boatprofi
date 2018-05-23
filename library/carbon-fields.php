@@ -3,9 +3,51 @@
 use Carbon_Fields\Container;
 use Carbon_Fields\Field;
 
+add_action( 'carbon_fields_register_fields', 'crb_attach_fields_options' );
 add_action( 'carbon_fields_register_fields', 'crb_attach_theme_options' );
-function crb_attach_theme_options() {
 
+// add_action('admin_menu', 'crb_attach_theme_options', 11);
+
+
+function crb_attach_theme_options(){
+
+    $parent_options_container = Container::make( 'theme_options', 'Настройки темы' )
+    ->set_icon( 'dashicons-admin-customizer' )
+    ->set_page_menu_position( 5 )
+    ->add_tab( 'Соц сети', array(
+        Field::make( 'text', 'crb_in', 'Ссылка на instagram') ,
+        Field::make( 'text', 'crb_fb', 'Ссылка на facebook' ),
+        Field::make( 'text', 'crb_vk', 'Ссылка на vk' )
+    ) )
+    ->add_tab( 'Прочее', array(
+        Field::make( 'text', 'crb_address', 'Адрес') ,
+        Field::make( 'text', 'crb_phone', 'Телефон' )
+        ->set_help_text( 'В формате  +7 910 818 81 39' ),
+        Field::make( 'file', 'crb_politics', 'Пользовательское соглашение (PDF)' )
+        ->set_type( 'image' )
+        ->set_value_type( 'url' )
+    ) );
+
+
+
+    Container::make( 'theme_options', 'Хедер' )
+    ->set_page_parent( $parent_options_container ) // reference to a top level container
+    ->add_fields( array(
+        Field::make( 'text', 'crb_header_phrase', 'Слоган' )
+    ) );
+
+
+    Container::make( 'theme_options', 'Футер' )
+    ->set_page_parent( $parent_options_container ) // reference to a top level container
+    ->add_fields( array(
+        Field::make( 'rich_text', 'crb_footer_info', 'Информация' ),
+        Field::make( 'text', 'crb_footer_phrase', 'Слоган и права' ),
+        Field::make( 'text', 'crb_company_link', 'Ссылка на компанию разработчиков' )
+    ) );
+}
+
+
+function crb_attach_fields_options() {
 
     Container::make( 'post_meta', 'Пункты зеленого блока' )
         ->where( 'post_type', '=', 'project-post' )

@@ -42,43 +42,31 @@ get_header( 'shop' ); ?>
             <!-- <p class="p-order"><span class="span-order">Под заказ </span> (Предполагаемый срок поставки: 25 марта)</p> -->
                 <?php if( !empty($gallery) ): ?>
                 <div class="single-product-page__preview-icons-wrapper">
-                    <?php if( !empty($gallery[0]) ): ?>
+
                     <div class="single-product-page__preview-icon single-product-page__preview-icon-is-active">
-                        <?php echo wp_get_attachment_image($gallery[0], array(50,50)); ?>
+                        <?php echo wp_get_attachment_image($product->get_image_id()); ?>
                     </div>
-                    <?php endif; ?>
-                    <?php if( !empty($gallery[1]) ): ?>
-                    <div class="single-product-page__preview-icon">
-                        <?php echo wp_get_attachment_image($gallery[1], array(50,50)); ?>
-                    </div>
-                    <?php endif; ?>
-                    <?php if( !empty($gallery[2]) ): ?>
-                    <div class="single-product-page__preview-icon">
-                        <?php echo wp_get_attachment_image($gallery[2], array(50,50)); ?>
-                    </div>
-                    <?php endif; ?>
+                    <?php foreach ($gallery as &$value): ?>
+                        <div class="single-product-page__preview-icon">
+                            <?php echo wp_get_attachment_image($value); ?>
+                        </div>
+                    <?php endforeach; ?>
+
                 </div>
                 <?php endif; ?>
                 <div class="single-product-page__preview-avatar">
-                    <?php echo wp_get_attachment_image($product->get_image_id(), array('auto', '270')); ?>
+                    <?php echo wp_get_attachment_image($product->get_image_id(), array('300', '270')); ?>
                 </div>
                 <?php if( !empty($gallery) ): ?>
                 <div class="single-product-page__preview-icons-tablet">
-                <?php if( !empty($gallery[0]) ): ?>
                     <div class="single-product-page__preview-icon single-product-page__preview-icon-is-active">
-                        <?php echo wp_get_attachment_image($gallery[0], array(50,50)); ?>
+                        <?php echo wp_get_attachment_image($product->get_image_id()); ?>
                     </div>
-                    <?php endif; ?>
-                    <?php if( !empty($gallery[1]) ): ?>
-                    <div class="single-product-page__preview-icon">
-                        <?php echo wp_get_attachment_image($gallery[1], array(50,50)); ?>
-                    </div>
-                    <?php endif; ?>
-                    <?php if( !empty($gallery[2]) ): ?>
-                    <div class="single-product-page__preview-icon">
-                        <?php echo wp_get_attachment_image($gallery[2], array(50,50)); ?>
-                    </div>
-                <?php endif; ?>
+                    <?php foreach ($gallery as &$value): ?>
+                        <div class="single-product-page__preview-icon">
+                            <?php echo wp_get_attachment_image($value); ?>
+                        </div>
+                    <?php endforeach; ?>
                 </div>
                 <?php endif; ?>
 
@@ -89,7 +77,7 @@ get_header( 'shop' ); ?>
                 <?php if( !empty($product->get_price()) ): ?>
                 <p class="single-service-page__price"><?= $product->get_price() . " руб." ?></p>
                 <?php endif; ?>
-                    <!-- <a data-product_id="<?= get_the_ID() ?>" data-product_sku="<?= $product->get_sku(); ?>" rel="nofollow" class="product_type_simple add_to_cart_button ajax_add_to_cart" href="<?php echo '?add-to-cart=' . get_the_ID(); ?>"> -->
+                    <!-- <a data-product_id="<?= get_the_ID() ?>" data-product_sku="<?= $product->get_sku(); ?>" rel="nofollow" class="product_type_simple add_to_cart_button ajax_add_to_cart" href="<?php echo $product->add_to_cart_url( ); ?>"> -->
                     <form class="cart single-service-page__form" method="post" enctype="multipart/form-data">
                         <button type="submit" name="add-to-cart" value="<?= $product->get_id() ?>" class="single-service-page__button single_add_to_cart_button button alt"><?php echo esc_html( $product->single_add_to_cart_text() ); ?></button>
                     </form>
@@ -98,12 +86,12 @@ get_header( 'shop' ); ?>
                 <!-- <p class="single-service-page__add"><img class="heart" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png"  alt="heart"><span>В избранное</span></p> -->
                 <!-- <p class="single-service-page__add"> <span>В избранное</span></p> -->
                 <?php  echo do_shortcode('[ti_wishlists_addtowishlist product_id="' . $product->get_id() . '" ]'); ?>
-                <p class="single-service-page__add"><img class="scheme" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png"  alt="scheme"><span>Сравнить</span></p>
-                <div class="footer-social-icons">
+                <!-- <p class="single-service-page__add"><img class="scheme" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png"  alt="scheme"><span>Сравнить</span></p> -->
+                <!-- <div class="footer-social-icons">
                     <img src="<?= get_template_directory_uri() ?>/dist/assets/images/in2.svg" alt="icon">
                     <img src="<?= get_template_directory_uri() ?>/dist/assets/images/fb2.svg" alt="icon">
                     <img src="<?= get_template_directory_uri() ?>/dist/assets/images/vk.svg" alt="icon">
-                </div>
+                </div> -->
 
                 
             </div>
@@ -112,10 +100,15 @@ get_header( 'shop' ); ?>
         <div class="single-product-page__left-content cell medium-12 large-6">
             <div class="single-product-page-product-desc">
                 <h4>Описание товара</h4>
-                <p class="line-height"><?= $product->get_description() ?></p>
+                <div class="single-product-page__content-wrapper-trim">
+                    <p class="line-height"><?= wp_trim_words( $product->get_description(), 100 );  ?></p>
+                </div>
+                <div class="single-product-page__content-wrapper">
+                    <p class="line-height"><?= $product->get_description() ?></p>
+                </div>   
             </div>
             <div class="price float-left">
-                <a href="">Показать подробнее</a>
+                <a id="line-height-full" href="javascript:void(0)">Показать подробнее</a>
                 <!-- <div class="price-modal">
                     <a>По возрастанию</a>
                     <a>По убыванию</a>
@@ -127,7 +120,7 @@ get_header( 'shop' ); ?>
             <h4>Характеристики товара</h4>
             <table>
                 <tbody>                                                         
-                    <tr>
+                    <!-- <tr>
                         <td>Тип</td>
                         <td>эхолт</td>
                     </tr>  
@@ -150,15 +143,75 @@ get_header( 'shop' ); ?>
                     <tr>
                         <td>Подключение внешнего источника питания (12 В) </td>
                         <td>есть</td>
-                    </tr>  
-                    <tr>
+                    </tr>   -->
+                    <!-- <tr>
                         <td>Питание от батареек/аккумулятора	</td>
                         <td>есть</td>
-                    </tr>                                                                                                                   
+                    </tr>    -->
+
+                                <?php
+                global $product;
+                $attributes = $product->get_attributes();
+                if ( ! $attributes ) {
+                    return;
+                }
+            
+                foreach ( $attributes as $attribute ) {
+            
+            
+                    if ( $attribute->get_variation() ) {
+                        continue;
+                    }
+
+                    $name = $attribute->get_name();
+                    $value = $attribute->get_options()[0];
+
+
+                    ?>
+
+                        <tr>
+                            <td><?= $name ?></td>
+                            <td><?= $value ?></td>
+                        </tr>  
+
+                    <?php
+                    // if ( $attribute->is_taxonomy() ) {
+            
+                    //     $terms = wp_get_post_terms( $product->get_id(), $name, 'all' );
+            
+                    //     $cwtax = $terms[0]->taxonomy;
+            
+                    //     $cw_object_taxonomy = get_taxonomy($cwtax);
+            
+                    //     if ( isset ($cw_object_taxonomy->labels->singular_name) ) {
+                    //         $tax_label = $cw_object_taxonomy->labels->singular_name;
+                    //     } elseif ( isset( $cw_object_taxonomy->label ) ) {
+                    //         $tax_label = $cw_object_taxonomy->label;
+                    //         if ( 0 === strpos( $tax_label, 'Product ' ) ) {
+                    //             $tax_label = substr( $tax_label, 8 );
+                    //         }
+                    //     }
+                    //     $display_result .= $tax_label . ': ';
+                    //     $tax_terms = array();
+                    //     foreach ( $terms as $term ) {
+                    //         $single_term = esc_html( $term->name );
+                    //         array_push( $tax_terms, $single_term );
+                    //     }
+                    //     $display_result .= implode(', ', $tax_terms) .  '<br />';
+            
+                    // } else {
+                        // $display_result .= $name . ': ';
+                        // $display_result .= esc_html( implode( ', ', $attribute->get_options() ) ) ;
+                    // }
+                    
+                }
+            
+            ?>
                 </tbody>
             </table>
+
             <div class="price float-left">
-                <a href="">Показать подробнее</a>
+                <a id="table-show" href="javascript:void(0)">Показать подробнее</a>
                 <!-- <div class="price-modal">
                     <a>По возрастанию</a>
                     <a>По убыванию</a>
@@ -215,6 +268,41 @@ get_header( 'shop' ); ?>
                         }
                         wp_reset_postdata();
                     ?>
+
+                    <?php /*
+
+                        $crosssell_ids = get_post_meta( get_the_ID(), '_crosssell_ids' );
+                        $crosssell_ids=$crosssell_ids[0];
+
+                        if(count($crosssell_ids)>0){
+
+                            $args = array(
+                            'post_type' => 'product',
+                            'ignore_sticky_posts' => 1,
+                            'no_found_rows' => 1,
+                            'post__in' => $crosssell_ids
+                            );
+
+                            $products = new WP_Query( $args );
+
+                            $woocommerce_loop['columns'] = apply_filters( 'woocommerce_cross_sells_columns', $columns );
+
+                            if ( $products->have_posts() ) : ?>
+
+                                <?php 
+
+                                    while ( $loop->have_posts() ) : $loop->the_post();
+            
+                                        wc_get_template_part( 'content', 'product' );
+                                    endwhile;
+
+                                    ?>
+
+                            <?php endif;
+
+                        }
+
+                        wp_reset_query(); */?>
                 
 
             </div>
@@ -233,7 +321,7 @@ get_header( 'shop' ); ?>
 		// do_action( 'woocommerce_before_main_content' );
 	?>
 
-		<?php //while ( have_posts() ) : the_post(); ?>
+		<?php // while ( have_posts() ) : the_post(); ?>
 			<?php //wc_get_template_part( 'content', 'single-product' ); ?>
 
 		<?php //endwhile; // end of the loop. ?>

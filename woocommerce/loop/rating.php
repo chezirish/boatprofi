@@ -21,7 +21,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 global $product;
-
 if ( get_option( 'woocommerce_enable_review_rating' ) === 'no' ) {
 	return;
 }

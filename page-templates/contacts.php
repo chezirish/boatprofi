@@ -10,11 +10,21 @@ get_header(); ?>
     <div class="contacts_page-map">
         <div class="contacts_page-map-info-block">
             <div class="header-phone">
-                <p><img src="<?= get_template_directory_uri() ?>/dist/assets/images/phone_icon-header.png" alt="phone_icon"> +7 910 818 81 39</p>
-                <a href="">обратный звонок</a>
+                <?php $phone = carbon_get_theme_option( 'crb_phone' ); ?>
+                        <?php if($phone != ''): $tel_href = trim($phone, '+');  $tel_href = str_replace(' ', '', $tel_href );?>					
+                        <a href="tel:<?= $tel_href ?>">
+                            <p><img src="<?= get_template_directory_uri() ?>/dist/assets/images/phone_icon-header.png" alt="phone_icon"><?= ' ' . $phone; ?> </p>
+                        </a>
+                <?php endif; ?>
+               
+                <a data-open="header__callback" aria-controls="header__callback" aria-haspopup="true" tabindex="0" href="javascript:void(0)">обратный звонок</a>
             </div>
             <div class="header-address">
-                <p><img src="<?= get_template_directory_uri() ?>/dist/assets/images/address_icon-header.png" alt="address_icon" > г. Ярославль, <br> ул. Республиканская д.7. ТЦ «Флагман»</p>
+                <?php $address = carbon_get_theme_option( 'crb_address' ); ?>
+                <?php if($address != ''): ?>					
+                    <p><img src="<?= get_template_directory_uri() ?>/dist/assets/images/address_icon-header.png" alt="address_icon" ><?= ' ' . $address; ?> </p>
+                <?php endif; ?>
+                
                 <a href="">показать на карте</a>
                 <div class="header-address-city">
                     <a href="">изменить город</a>	

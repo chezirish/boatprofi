@@ -14,15 +14,26 @@
         <div class="footer-grid grid-x grid-margin-x">  
             <div class="footer-boatprofi cell medium-6 large-6">
                 <img class="boatprofi-logo-footer" src="<?= get_template_directory_uri() ?>/dist/assets/images/boatprofi_logo_footer2.png" alt="logo">
-                <p class="company-info">Профессиональная подготовка катеров для спортивной рыбалки - это не просто красивый маркетинговый слоган. За этими словами стоят десятки тысяч моточасов проведенных нашими спортсменами на водоемах, сотни нестандартных ситуаций и испытаний, которые выпадают на долю рыболова и его катера.</p>
-                <p class="footer-slogan">2018 © BoatProfi <br> Ремонт и тюнинг лодок и катеров</p>
+                <?php 
+                $footer_info = carbon_get_theme_option( 'crb_footer_info' );
+                $footer_phrase = carbon_get_theme_option( 'crb_footer_phrase' );
+                $footer_link = carbon_get_theme_option( 'crb_company_link' );
+                $footer_politics = carbon_get_theme_option( 'crb_politics' );    
+                if($footer_info != ''): ?>					       
+                    <p class="company-info"><?=  $footer_info ?></p>
+                <?php endif; ?>
+                <?php if($footer_phrase != ''): ?>	
+                    <p class="footer-slogan"><?=  $footer_phrase ?></p>
+                <?php endif; ?>
                 <nav class="footer-nav-menu">
-                    <a href="#">Пользовательское соглашение</a>
-                    <span>Разработано в:</span>
-                    <a href="#"> Папинсайт</a>
+                <?php if($footer_politics != ''): ?>	
+                    <a target="_blank" href="<?= $footer_politics; ?>">Пользовательское соглашение</a>
+                <?php endif; ?>
+                    <?php if($footer_link != ''): ?>
+                        <span>Разработано в:</span>
+                        <a target="_blank" href="<?=  $footer_link ?>"> Папинсайт</a>
+                    <?php endif; ?>
                 </nav>
-                <!-- <span>Пользовательское соглашение</span>
-                <span>Разработано в: Папинсайт</span> -->
             </div>  
             <div class="footer-menu cell medium-3 large-3">
                 <h6>МЕНЮ САЙТА</h6>
@@ -31,19 +42,36 @@
             <div class="footer-contacts cell medium-3 large-3">
                 <h6>НАШИ КОНТАКТЫ</h6>
                 <div class="footer-contacts-phone">
-                    <a href="tel:79108188139">
-                    <p><img src="<?= get_template_directory_uri() ?>/dist/assets/images/phone_icon.png" alt="phone_icon"> +7 910 818 81 39</p>
+                    <?php $phone = carbon_get_theme_option( 'crb_phone' ); ?>
+					<?php if($phone != ''): $tel_href = trim($phone, '+');  $tel_href = str_replace(' ', '', $tel_href );?>					
+                    <a href="tel:<?= $tel_href ?>">
+                        <p><img src="<?= get_template_directory_uri() ?>/dist/assets/images/phone_icon.png" alt="phone_icon"> <?= ' ' . $phone; ?> </p>
                     </a>
-                    <a href="#">обратный звонок</a>
+                    <?php endif; ?>
+                    <a data-open="footer__callback" aria-controls="footer__callback" aria-haspopup="true" tabindex="0" href="javascript:void(0)">обратный звонок</a>
                 </div>
                 <div class="footer-contacts-address">
-                    <p><img src="<?= get_template_directory_uri() ?>/dist/assets/images/address-icon.png" alt="address_icon" > г. Ярославль, ул. Республиканская д.7. ТЦ «Флагман»</p>
-                    <a href="#">показать на карте</a>
+                    <?php $address = carbon_get_theme_option( 'crb_address' ); ?>
+					<?php if($address != ''): ?>					
+                        <p><img src="<?= get_template_directory_uri() ?>/dist/assets/images/address-icon.png" alt="address_icon" ><?= ' ' . $address; ?> </p>
+                    <?php endif; ?>
+                    <a target="_blank"href="<?= get_page_link(18); ?>">показать на карте</a>
                 </div>
                 <div class="footer-social-icons">
-                    <img src="<?= get_template_directory_uri() ?>/dist/assets/images/in2.svg" alt="icon">
-					<img src="<?= get_template_directory_uri() ?>/dist/assets/images/fb2.svg" alt="icon">
-					<img src="<?= get_template_directory_uri() ?>/dist/assets/images/vk.svg" alt="icon">
+                    <?php 
+                        $link_in = carbon_get_theme_option( 'crb_in' );
+                        $link_fb = carbon_get_theme_option( 'crb_fb' );
+                        $link_vk = carbon_get_theme_option( 'crb_vk' );
+				    ?>
+                    <?php if($link_in != ''): ?>
+						<a target="_blank" href="<?php echo $link_in ?>"><img src="<?= get_template_directory_uri() ?>/dist/assets/images/in2.svg" alt="icon"></a>
+					<?php endif; ?>
+					<?php if($link_fb != ''): ?>
+						<a target="_blank" href="<?php echo $link_fb ?>"><img src="<?= get_template_directory_uri() ?>/dist/assets/images/fb2.svg" alt="icon"></a>
+						<?php endif; ?>
+					<?php if($link_vk != ''): ?>
+						<a class="vk_social_footer" target="_blank" class="vk_social" href="<?php echo $link_vk ?>"><img src="<?= get_template_directory_uri() ?>/dist/assets/images/vk.svg" alt="icon"></a>
+					<?php endif; ?>
                 </div>
             </div>
         </div>

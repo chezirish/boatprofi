@@ -2,6 +2,25 @@
 
 get_header(); ?>
 
+
+
+
+		<!-- modal form -->
+    <section class="callout section-form small reveal"  id="service-send" data-reveal>
+		<button class="close-button"  aria-label="Close modal" type="button"  data-close>
+			<span aria-hidden="true">&times;</span>
+		</button>
+		<h4 class="section-form-title-desktop">Отправить заявку</h4>
+		<h4 class="section-form-title-tablet">Отправить заявку</h4>
+		<?php //echo do_shortcode('[contact-form-7 id="250" title="Услуга подробно форма: (отправить заявку)"]'); ?>
+		<?php echo do_shortcode('[contact-form-7 id="250" title="Услуга подробно форма: (отправить заявку)"]'); ?>
+
+		<?php $politics = carbon_get_theme_option( 'crb_politics' ); ?>
+		<?php if($politics != ''): ?>
+			<a target="_blank" href="<?php echo $politics;  ?>">Пользовательское соглашение</a>
+		<?php endif; ?>	
+	</section>
+
 <div class="single-service-page__content">
 
     <div class="single-service-page__content-grid grid-x grid-margin-x">
@@ -44,7 +63,7 @@ get_header(); ?>
                 <?php endif; ?>
                 <div class="single-service-page__info float-left">
                     <p class="single-service-page__price"><?php the_field('service_price') ?></p>
-                    <button type="button" class="single-service-page__button button">Отправить заявку</button>
+                    <button data-open="service-send" aria-controls="service-send" aria-haspopup="true" tabindex="0" type="button" class="single-service-page__button button">Отправить заявку</button>
                     <?php if( !empty( carbon_get_the_post_meta( 'crb_service-links' ) ) ): ?> 
                         <?php $items = carbon_get_the_post_meta( 'crb_service-links' ); ?>
                         <?php  foreach ( $items as $item ):  ?>
@@ -76,7 +95,7 @@ get_header(); ?>
             <div class="single-service-page__icon-phone" style="background-image:url(<?= get_template_directory_uri() ?>/dist/assets/images/single-service.jpg);background-size:cover"></div>
             <div class="single-service-page__info-phone">
                 <p class="single-service-page__price"><?php the_field('service_price') ?></p>
-                <button type="button" class="single-service-page__button button">Отправить заявку</button>
+                <button data-open="service-send" aria-controls="service-send" aria-haspopup="true" tabindex="0" type="button" class="single-service-page__button button">Отправить заявку</button>
                 <p class="single-service-page__add"><img class="heart" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png"  alt="heart"> В избранное</p>
                 <?php if( !empty( carbon_get_the_post_meta( 'crb_service-links' ) ) ): ?> 
                     <?php $items = carbon_get_the_post_meta( 'crb_service-links' ); ?>
@@ -104,6 +123,8 @@ get_header(); ?>
                         <?php endif; ?>
                 </div>
             </div>
+
+            <hr>
             <div class="single-service-page__info-wrapper clearfix">
                 <div class="single-service-page__icon-desc float-left">
                     <?php the_content(); ?>
@@ -153,10 +174,12 @@ get_header(); ?>
                 <?php endif; ?>
                 <?php if(!empty($service_post_meta)): ?>
                     <div class="single-service-page__project float-left">
-                    <a class="pojects-link-wrapper" href="<?php get_permalink($service_post_meta['ID']); ?>">
+                     <?php   // var_dump($service_post_meta); ?>
+                    <a class="pojects-link-wrapper" href="<?php echo get_permalink($service_post_meta['ID']); ?>">              
                         <h3>Проект</h3>
                         <p><?php echo $service_post_date; ?></p>
                         <img src="<?= $service_project_img['url'] ?>" alt="boat">
+                        <button type="button" class="button">Подробнее о проекте</button>
                         <p class="single-service-page__projec-text"><?php echo $service_post_meta['post_title']; ?></p>
                         <!-- <a href="">Подробнее</a> -->
                     </a>
@@ -174,6 +197,10 @@ get_header(); ?>
     </div>
 <div class="grid-container">
 <div class="portfolio-page__content">
+    <?php if(!empty(get_field('single_service_engines'))): 
+        $products_arr = get_field('single_service_engines'); 
+    ?>
+
     <div class="slider-wrapper">
         <div class="slider-nav clearfix">
                 <h3 class="float-left">Электромоторы и комплектующие</h3>
@@ -185,78 +212,31 @@ get_header(); ?>
                 </div>
             </div>
             <div class="products-slider">
-                <div class="sirvices-item">
-                    <div class="sirvices-item-icon" <div class="sirvices-item-icon"  style="background-image:url(<?= get_template_directory_uri() ?>/dist/assets/images/tool3.png);background-size:contain;background-position:center;background-repeat:no-repeat">
-                    <?php /* <img  src="<?= get_template_directory_uri() ?>/dist/assets/images/tool2.png" alt="tool"> */ ?>
-                    </div>
-                    <div class="sirvices-item-content">
-                        <p>Зарядное устройство Dual Pro Professional SS1 220 В</p>
-                        <p><span class="sirvices-item-costs">106600 руб.</span></p>
-                        <div class="bottom-block">
-                            <button type="button" class="button">Заказать</button>
-                            <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart">
-                            <img class="scheme-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
+                <?php foreach ($products_arr as &$value): $product = wc_get_product($value); ?>
+                <?php $image = wp_get_attachment_image_src( get_post_thumbnail_id($value ), 'single-post-thumbnail' ); ?>
+                    <div class="sirvices-item">
+                        <a href="<?=  $product->get_permalink( ) ?>">
+                        <div class="sirvices-item-icon" style="background-image:url(<?= $image[0]; ?>);background-size:contain;background-position:center;background-repeat:no-repeat">
+                        </div>
+                        </a>
+                        <div class="sirvices-item-content">
+                            <p><?php echo $product->get_title(); ?></p>
+                            <p><span class="sirvices-item-costs"><?php echo $product->get_price() != '' ? $product->get_price() . ' руб.' : ''; ?> </span></p>
+                            <div class="bottom-block">
+                                <a class=" add_to_cart_button ajax_add_to_cart" rel="nofollow" data-product_id="<?= $product->get_id() ?>" href="<?php echo $product->add_to_cart_url( ); ?>">
+                                <button type="button" class="button"><?= $product->add_to_cart_text( ); ?></button>
+                                </a>
+                                <?php  echo do_shortcode('[ti_wishlists_addtowishlist product_id="' . $product->get_id() . '" ]'); ?>
+                                <!-- <img class="scheme-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme"> -->
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="sirvices-item">
-                    <div class="sirvices-item-icon" <div class="sirvices-item-icon"  style="background-image:url(<?= get_template_directory_uri() ?>/dist/assets/images/tool3.png);background-size:contain;background-position:center;background-repeat:no-repeat">
-                    <?php /* <img  src="<?= get_template_directory_uri() ?>/dist/assets/images/tool2.png" alt="tool"> */ ?>
-                    </div>
-                    <div class="sirvices-item-content">
-                        <p>Зарядное устройство Dual Pro Professional SS1 220 В</p>
-                        <p><span class="sirvices-item-costs">106600 руб.</span></p>
-                        <div class="bottom-block">
-                            <button type="button" class="button">Заказать</button>
-                            <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart">
-                            <img class="scheme-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
-                        </div>
-                    </div>
-                </div>
-                <div class="sirvices-item">
-                    <div class="sirvices-item-icon" <div class="sirvices-item-icon"  style="background-image:url(<?= get_template_directory_uri() ?>/dist/assets/images/tool3.png);background-size:contain;background-position:center;background-repeat:no-repeat">
-                    <?php /* <img  src="<?= get_template_directory_uri() ?>/dist/assets/images/tool2.png" alt="tool"> */ ?>
-                    </div>
-                    <div class="sirvices-item-content">
-                        <p>Зарядное устройство Dual Pro Professional SS1 220 В</p>
-                        <p><span class="sirvices-item-costs">106600 руб.</span></p>
-                        <div class="bottom-block">
-                            <button type="button" class="button">Заказать</button>
-                            <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart">
-                            <img class="scheme-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
-                        </div>
-                    </div>
-                </div>
-                <div class="sirvices-item">
-                    <div class="sirvices-item-icon" <div class="sirvices-item-icon"  style="background-image:url(<?= get_template_directory_uri() ?>/dist/assets/images/tool3.png);background-size:contain;background-position:center;background-repeat:no-repeat">
-                    <?php /* <img  src="<?= get_template_directory_uri() ?>/dist/assets/images/tool2.png" alt="tool"> */ ?>
-                    </div>
-                    <div class="sirvices-item-content">
-                        <p>Зарядное устройство Dual Pro Professional SS1 220 В</p>
-                        <p><span class="sirvices-item-costs">106600 руб.</span></p>
-                        <div class="bottom-block">
-                            <button type="button" class="button">Заказать</button>
-                            <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart">
-                            <img class="scheme-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
-                        </div>
-                    </div>
-                </div>
-                <div class="sirvices-item">
-                    <div class="sirvices-item-icon" <div class="sirvices-item-icon"  style="background-image:url(<?= get_template_directory_uri() ?>/dist/assets/images/tool3.png);background-size:contain;background-position:center;background-repeat:no-repeat">
-                    <?php /* <img  src="<?= get_template_directory_uri() ?>/dist/assets/images/tool2.png" alt="tool"> */ ?>
-                    </div>
-                    <div class="sirvices-item-content">
-                        <p>Зарядное устройство Dual Pro Professional SS1 220 В</p>
-                        <p><span class="sirvices-item-costs">106600 руб.</span></p>
-                        <div class="bottom-block">
-                            <button type="button" class="button">Заказать</button>
-                            <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart">
-                            <img class="scheme-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
-                        </div>
-                    </div>
-                </div>
+
+                <?php endforeach; ?>
+
             </div>
         </div>
+        <?php endif; ?>
     </div>
 </div>
 </div>

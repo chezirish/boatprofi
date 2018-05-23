@@ -65,6 +65,12 @@ if ( ! function_exists( 'foundationpress_scripts' ) ) :
 			wp_enqueue_script( 'comment-reply' );
 		}
 
+		wp_localize_script( 'foundation', 'myajax', 
+			array(
+				'url' => admin_url('admin-ajax.php')
+			)
+		);  
+
 	}
 
 	add_action( 'wp_enqueue_scripts', 'foundationpress_scripts' );
