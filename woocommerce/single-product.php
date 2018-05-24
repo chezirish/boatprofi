@@ -152,9 +152,9 @@ get_header( 'shop' ); ?>
                                 <?php
                 global $product;
                 $attributes = $product->get_attributes();
-                if ( ! $attributes ) {
-                    return;
-                }
+                if ( $attributes ) {
+
+                
             
                 foreach ( $attributes as $attribute ) {
             
@@ -205,6 +205,7 @@ get_header( 'shop' ); ?>
                     // }
                     
                 }
+            }
             
             ?>
                 </tbody>
@@ -221,128 +222,63 @@ get_header( 'shop' ); ?>
     </div>
 </div>
 
+
+<?php 
+
+$crosssell_ids = get_post_meta( get_the_ID(), '_crosssell_ids' );
+$crosssell_ids=$crosssell_ids[0];
+
+if(count($crosssell_ids)>0){
+
+    $args = array(
+    'post_type' => 'product',
+    'ignore_sticky_posts' => 1,
+    'no_found_rows' => 1,
+    'post__in' => $crosssell_ids
+    );
+
+    $products = new WP_Query( $args );
+
+    $woocommerce_loop['columns'] = apply_filters( 'woocommerce_cross_sells_columns', $columns );
+
+    if ( $products->have_posts() ) :?>
+
 <div class="portfolio-page__content">
 <div class="grid-container">
     <div class="slider-wrapper">
         <div class="slider-nav clearfix">
                 <h3 class="float-left">С этим товаров покупают</h3>
-                <div class="slider-products-right slider-products-next float-right">
-                    <img src="<?= get_template_directory_uri() ?>/dist/assets/images/slick-slider-icon.svg" alt="scheme">
-                </div>
-                <div class="slider-products-left slider-products-prev float-right">
-                    <img src="<?= get_template_directory_uri() ?>/dist/assets/images/slick-slider-icon.svg" alt="scheme">
-                </div>
+                <?php if($products->post_count > 4): ?>
+                    <div class="slider-products-right slider-products-next float-right">
+                        <img src="<?= get_template_directory_uri() ?>/dist/assets/images/slick-slider-icon.svg" alt="scheme">
+                    </div>
+                    <div class="slider-products-left slider-products-prev float-right">
+                        <img src="<?= get_template_directory_uri() ?>/dist/assets/images/slick-slider-icon.svg" alt="scheme">
+                    </div>
+                <?php endif; ?>
             </div>
             <div class="products-slider">
-                <!-- <div class="sirvices-item">
-                    <div class="sirvices-item-icon" <div class="sirvices-item-icon"  style="background-image:url(<?= get_template_directory_uri() ?>/dist/assets/images/tool3.png);background-size:contain;background-position:center;background-repeat:no-repeat">
-                    <?php /* <img  src="<?= get_template_directory_uri() ?>/dist/assets/images/tool2.png" alt="tool"> */ ?>
-                    </div>
-                    <div class="sirvices-item-content">
-                        <p>Зарядное устройство Dual Pro Professional SS1 220 В</p>
-                        <p><span class="sirvices-item-costs">106600 руб.</span></p>
-                        <div class="bottom-block">
-                            <button type="button" class="button">Заказать</button>
-                            <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart">
-                            <img class="scheme-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
-                        </div>
-                    </div>
-                </div> -->
 
-                    <?php
-                    
-                        $args = array(
-                            'post_type' => 'product',
-                            'post__in'=> $related,
-                            'post__not_in' => array( $post->ID ),
-                            'posts_per_page' => 6
-                            );
-                        $loop = new WP_Query( $args );
-                        if ( $loop->have_posts() ) {
-                            while ( $loop->have_posts() ) : $loop->the_post();
-                                
-                                wc_get_template_part( 'content', 'product' );
-                            endwhile;
-                        } else {
-                            echo __( 'No products found' );
-                        }
-                        wp_reset_postdata();
+                <?php 
+
+                    while ( $products->have_posts() ) : $products->the_post();
+
+                        wc_get_template_part( 'content', 'product' );
+
+                    endwhile;
+
                     ?>
-
-                    <?php /*
-
-                        $crosssell_ids = get_post_meta( get_the_ID(), '_crosssell_ids' );
-                        $crosssell_ids=$crosssell_ids[0];
-
-                        if(count($crosssell_ids)>0){
-
-                            $args = array(
-                            'post_type' => 'product',
-                            'ignore_sticky_posts' => 1,
-                            'no_found_rows' => 1,
-                            'post__in' => $crosssell_ids
-                            );
-
-                            $products = new WP_Query( $args );
-
-                            $woocommerce_loop['columns'] = apply_filters( 'woocommerce_cross_sells_columns', $columns );
-
-                            if ( $products->have_posts() ) : ?>
-
-                                <?php 
-
-                                    while ( $loop->have_posts() ) : $loop->the_post();
-            
-                                        wc_get_template_part( 'content', 'product' );
-                                    endwhile;
-
-                                    ?>
-
-                            <?php endif;
-
-                        }
-
-                        wp_reset_query(); */?>
-                
-
             </div>
         </div>
     </div>
-    </div>
+</div>
 </div>
 
-	<?php
-		/**
-		 * woocommerce_before_main_content hook.
-		 *
-		 * @hooked woocommerce_output_content_wrapper - 10 (outputs opening divs for the content)
-		 * @hooked woocommerce_breadcrumb - 20
-		 */
-		// do_action( 'woocommerce_before_main_content' );
-	?>
+<?php endif;
 
-		<?php // while ( have_posts() ) : the_post(); ?>
-			<?php //wc_get_template_part( 'content', 'single-product' ); ?>
+}
 
-		<?php //endwhile; // end of the loop. ?>
-
-	<?php
-		/**
-		 * woocommerce_after_main_content hook.
-		 *
-		 * @hooked woocommerce_output_content_wrapper_end - 10 (outputs closing divs for the content)
-		 */
-		// do_action( 'woocommerce_after_main_content' );
-	?>
-
-	<?php
-		/**
-		 * woocommerce_sidebar hook.
-		 *
-		 * @hooked woocommerce_get_sidebar - 10
-		 */
-		// do_action( 'woocommerce_sidebar' );
-	?>
+wp_reset_query(); ?>
 
 <?php get_footer( 'shop' );
 

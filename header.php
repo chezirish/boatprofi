@@ -135,7 +135,7 @@
 					
 					</a>
 				</div>
-				<a class="header-navigation-link-btn" href="/catalog-products">
+				<a class="header-navigation-link-btn" href="<?php echo get_permalink( wc_get_page_id( 'shop' ) ); ?>">
 					<div class="products-btn">
 						<div class="menu-wrapper">
 							<span class="menu-icon-span"></span>
@@ -145,7 +145,7 @@
 						<p>Каталог товаров</p>
 					</div>
 				</a>
-				<a class="header-navigation-link-btn" href="/services">
+				<a class="header-navigation-link-btn" href="<?= get_page_link(188); ?>">
 				<div class="services-btn">
 					<div class="menu-wrapper">
 						<span class="menu-icon-span"></span>
@@ -157,14 +157,16 @@
 				</a>
 			</div>
 			<div class="header-navigation grid-x">
-				<!-- <a class="header-navigation-link-btn" href="/catalog-products"> -->
+				
 					<div class="products-btn medium-2 large-2">
+						<a class="header-navigation-link-btn" href="<?php echo get_permalink( wc_get_page_id( 'shop' ) ); ?>">
 						<div class="menu-wrapper">
 							<span class="menu-icon-span"></span>
 							<span class="menu-icon-span"></span>
 							<span class="menu-icon-span"></span>
 						</div>
 						<p>Каталог товаров</p>
+						</a>
 						<ul class="dropdown-menu">
 							<!-- <li><a href="">Электрические  троллинговые моторы</a></li>
 							<li><a href="">Эхолоты и картоплоттеры </a></li>
@@ -213,15 +215,17 @@
 							?>
 						</ul>
 					</div>
-				<!-- </a> -->
-				<!-- <a class="header-navigation-link-btn" href="/services"> -->
+				
+					
 					<div class="services-btn medium-2 large-2">
+						<a class="header-navigation-link-btn" href="<?= get_page_link(188); ?>">
 						<div class="menu-wrapper"> 
 							<span class="menu-icon-span"></span>
 							<span class="menu-icon-span"></span>
 							<span class="menu-icon-span"></span>
 						</div>
 						<p>Наши услуги</p>
+						</a>
 						<ul class="dropdown-menu">
 							<!-- <li><a href="">Монтаж  электромоторов</a></li>
 							<li><a href="">Установка эхолотов </a></li>
@@ -257,7 +261,7 @@
 							?>
 						</ul>
 					</div>
-				<!-- </a> -->
+				
 				<div class="search cell medium-5 large-6">
 					<form action="<?php echo get_home_url(); ?>">
 						<input name='s' placeholder="Введите название товара" type="text">
@@ -265,8 +269,10 @@
 				</div>
 				<div class="woocommerce-data medium-3 large-2">
 					<div class="woocommerce-data-wrapper  <?php echo  is_front_page() ? '' : 'svg-colors' ?>">
+						<a style="margin-right: 30px;display: inline-block" href="<?= get_page_link(308); ?>"> 
 						<img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png"  alt="heart">
-						<img class="scheme-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
+						</a>
+						<!-- <img class="scheme-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme"> -->
 						<div class="basket-wrapper">
 						<a href="<?php echo esc_url( wc_get_cart_url() ); ?>">
 							<?php wp_kses_data( WC()->cart->get_cart_contents_count()) != 0 ? $basket_count = wp_kses_data( WC()->cart->get_cart_contents_count() ) : $basket_count =  '';?>

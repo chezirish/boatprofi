@@ -51,11 +51,11 @@ $below_img3 =  get_field( "below_img3" )['url'];
                         }
                         echo '</ul>';
                     ?>
-                    <?php   if( get_the_ID() == 250 ):  ?>
+
                         <img class="fish" src="<?= get_template_directory_uri() ?>/dist/assets/images/fish1.png">
-                    <?php  else: ?>
-                        <img class="kruchok" src="<?= get_template_directory_uri() ?>/dist/assets/images/kruchok.png">
-                    <?php  endif; ?>
+
+                        <!-- <img class="kruchok" src="<?= get_template_directory_uri() ?>/dist/assets/images/kruchok.png"> -->
+
                 
             </div>
             <?php endif; ?> 
@@ -167,20 +167,24 @@ if( !empty(get_field('single_project_review')) ){
 </section>
 
 <div class="portfolio-page__content">
+
     <div class="slider-wrapper">
+        <?php if(!empty(get_field('project_used_produtcs'))): 
+                $products_arr = get_field('project_used_produtcs'); 
+        ?>
         <div class="slider-nav clearfix">
             <h3 class="float-left">Используемые товары</h3>
+            <?php if(count($products_arr) > 4) : ?>
             <div class="slider-products-right slider-products-next float-right">
                 <img src="<?= get_template_directory_uri() ?>/dist/assets/images/slick-slider-icon.svg" alt="scheme">
             </div>
             <div class="slider-products-left slider-products-prev float-right">
                 <img src="<?= get_template_directory_uri() ?>/dist/assets/images/slick-slider-icon.svg" alt="scheme">
             </div>
+            <?php endif; ?>
         </div>
 
-        <?php if(!empty(get_field('project_used_produtcs'))): 
-            $products_arr = get_field('project_used_produtcs'); 
-        ?>
+
         <div class="products-slider">
             <?php foreach ($products_arr as &$value): $product = wc_get_product($value); ?>
             <?php $image = wp_get_attachment_image_src( get_post_thumbnail_id($value ), 'single-post-thumbnail' ); ?>

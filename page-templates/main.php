@@ -231,7 +231,11 @@ get_header(); ?>
                         <?php endif; ?>
 
                         <?php if( $previous == 2 ): ?>   
-                            <a href="<?php the_permalink(); ?>" class="sirvices-item-link-wrapper">                       
+                            <?php if( ($count - 1) % 6 == 0):  ?>
+                                <a href="<?= get_page_link(45); ?>" class="sirvices-item-link-wrapper">                                                   
+                            <?php else:  ?> 
+                                <a href="<?php the_permalink(); ?>" class="sirvices-item-link-wrapper">  
+                            <?php endif;  ?>                     
                             <div class="project-slider-item-icon">
                                 <div class="project-slider-modal">
                                     <div class="project-slider-modal-content">
@@ -689,7 +693,7 @@ get_header(); ?>
                                     <!-- <button type="button" class="button add-basket">В корзину</button> -->
                                     <?php do_action( 'woocommerce_after_shop_loop_item' ); ?>
                                     <?php  echo do_shortcode('[ti_wishlists_addtowishlist product_id="' . $product->get_id() . '" ]'); ?>
-                                    <img class="scheme-icon" data-tooltip tabindex="1" title="В сравнение" data-position="bottom" data-alignment="center" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
+                                    <!-- <img class="scheme-icon" data-tooltip tabindex="1" title="В сравнение" data-position="bottom" data-alignment="center" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme"> -->
                                 </div>
                             </div>
                         </div>

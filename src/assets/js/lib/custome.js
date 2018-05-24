@@ -293,6 +293,7 @@ jQuery(document).ready(function($) {
 
     $('.tinvwl_add_to_wishlist-text').empty();
     $('.single-product-page__product-nav .tinvwl_add_to_wishlist-text').html('В избранное');
+    $('.basket-page__content-product-name-block .tinvwl_add_to_wishlist-text').html('В избранное');
 
     // $(this).parent().parent().parent().find( $('.sirvices-item-modal-basket') ).css('display', 'block');
     $('.catalog-products_page-content .catalog-products_content .sirvices-item').mouseenter(function(){
@@ -315,6 +316,8 @@ jQuery(document).ready(function($) {
         var sirvicesBtn = '<a href="' + permalink + '"><button type="button" class="button catalog-products_button-modal">Побробнее о товаре</button></a>';
         // $('.sirvices-item-modal-over .sirvices-item-content p:first-child').after(sirvicesBtn);
         // $('.sirvices-item-modal-over .sirvices-item-content-gorizontal').append(sirvicesBtn);
+
+        
         $('.sirvices-item-modal-over .heart-icon').mouseenter(function(){
             this.src = this.src.replace("white", "red");
         });
@@ -354,6 +357,16 @@ jQuery(document).ready(function($) {
         //     var elem = $(this).find($('img'));
         //     elem.attr('src', elem.attr('src').replace("red", "white")); 
         // });
+    });
+
+
+    $('.tinvwl_add_to_wishlist-text').mouseenter(function(){
+        var wishImg = $(this).parent().find($('img'));
+        wishImg.attr('src', wishImg.attr('src').replace("white", "red"));
+    });
+    $('.tinvwl_add_to_wishlist-text').mouseleave(function(){
+        var wishImg = $(this).parent().find($('img'));
+        wishImg.attr('src', wishImg.attr('src').replace("red", "white"));
     });
 
 

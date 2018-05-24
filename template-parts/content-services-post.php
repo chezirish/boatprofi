@@ -3,7 +3,7 @@
 get_header(); ?>
 
 
-
+    <?php if( !empty(get_field('service_main_img')) ){ $has_main_img = true; } ?>
 
 		<!-- modal form -->
     <section class="callout section-form small reveal"  id="service-send" data-reveal>
@@ -58,10 +58,11 @@ get_header(); ?>
             </ul> 
             <h3><?php the_title(); ?></h3>
             <div class="single-service-page__info-wrapper single-service-page__info-wrapper-first clearfix">
-                <?php if( !empty(get_field('service_main_img')) ):  ?>
+                <?php if( !empty(get_field('service_main_img')) ): ?>
                 <div class="single-service-page__icon float-left" style="background-image:url(<?= get_field('service_main_img')['url'] ?>);background-size:cover"></div>
                 <?php endif; ?>
-                <div class="single-service-page__info float-left">
+                <!-- <div class="single-service-page__info <?php echo $has_main_img == true ? 'float-right' : 'float-left'; ?>"> -->
+                <div class="single-service-page__info  float-left">
                     <p class="single-service-page__price"><?php the_field('service_price') ?></p>
                     <button data-open="service-send" aria-controls="service-send" aria-haspopup="true" tabindex="0" type="button" class="single-service-page__button button">Отправить заявку</button>
                     <?php if( !empty( carbon_get_the_post_meta( 'crb_service-links' ) ) ): ?> 
@@ -124,7 +125,7 @@ get_header(); ?>
                 </div>
             </div>
 
-            <hr>
+            
             <div class="single-service-page__info-wrapper clearfix">
                 <div class="single-service-page__icon-desc float-left">
                     <?php the_content(); ?>
@@ -140,7 +141,7 @@ get_header(); ?>
                 <?php endif; ?>
                 </div>
             </div>
-
+            <hr>
             <div class="single-service-page__info-wrapper clearfix">
             <?php 
                 if( !empty(get_field('service_review')) ){
@@ -161,6 +162,7 @@ get_header(); ?>
             ?>
                 <?php if(!empty($review_post_meta)): ?>
                 <div class="single-service-page__review float-left">
+                    <!-- <h3 class="review-title <?php echo $has_main_img == true ? 'style="text-align:right"' : ''; ?>">Отзыв</h3> -->
                     <h3 class="review-title">Отзыв</h3>
                     <div class="portfolio-page__review-content clearfix">
                         <p class="portfolio-page__review-date float-left"><?php  echo $review_post_date; ?></p>
@@ -204,12 +206,14 @@ get_header(); ?>
     <div class="slider-wrapper">
         <div class="slider-nav clearfix">
                 <h3 class="float-left">Электромоторы и комплектующие</h3>
+                <?php if(count($products_arr) > 4) : ?>
                 <div class="slider-products-right slider-products-next float-right">
                     <img src="<?= get_template_directory_uri() ?>/dist/assets/images/slick-slider-icon.svg" alt="scheme">
                 </div>
                 <div class="slider-products-left slider-products-prev float-right">
                     <img src="<?= get_template_directory_uri() ?>/dist/assets/images/slick-slider-icon.svg" alt="scheme">
                 </div>
+                <?php endif; ?>
             </div>
             <div class="products-slider">
                 <?php foreach ($products_arr as &$value): $product = wc_get_product($value); ?>
