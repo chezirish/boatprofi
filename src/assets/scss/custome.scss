@@ -2835,9 +2835,13 @@ footer {
 //___________________________ Корзина  ___________________________//
 
 .basket-page__content-product {
+    min-width: 366px;
     margin-bottom: 1rem;
     border: 1px solid #cacaca; 
     padding: 3rem;
+    & a {
+        text-decoration: none;
+    }
     & .basket-page__content-product-icon{
         margin-right: 2rem;
     }
@@ -2859,6 +2863,7 @@ footer {
     & .basket-page__content-product-name {
         margin-bottom: 3rem;
         font-weight: 600;
+        width: 100%;
     }
 }
 
@@ -2916,7 +2921,7 @@ footer {
 
 
 .basket-page__content-product-name-input {
-    width: 50px;
+    width: 61px;
     border-width: 1px;
     border-left: none;
     border-right: none;
@@ -3487,7 +3492,7 @@ html .basket-page__content .basket-form-button:hover {
         flex-direction: column;
         margin-top: 0;
         & .basket-page__content-product-count {
-            max-width: 130px;
+            // max-width: 130px;
             margin: 0 auto;
         }
     }
@@ -3510,10 +3515,17 @@ html .basket-page__content .basket-form-button:hover {
     }
 
     .header-tagline p {
-        max-width: none;
+        max-width: auto;
     }
-
-    
+    .basket-page__content-product {
+        min-width: auto;
+    }
+    .basket-page__content-product .basket-page__content-product-name {
+        margin-bottom: 20px;
+    }   
+    .basket-page__content-product-name-block .tinv-wraper  {
+        margin-bottom: 20px;
+    }
 
 }
 
@@ -3717,6 +3729,7 @@ html .basket-page__content .basket-form-button:hover {
     }
     .basket-page__content-products-wrapper {
         display: flex;
+        flex-wrap: wrap;
         justify-content: space-around;
     }
     .basket-page__content-product  {

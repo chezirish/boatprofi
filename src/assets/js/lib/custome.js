@@ -599,6 +599,32 @@ jQuery(document).ready(function($) {
    }
 
 
+   // baset
+
+
+
+
+   $('.update__cart').removeAttr('disabled');
+
+    var min = 1;
+    $('body').on('click', '.plus', function (e) {
+        e.preventDefault();
+        var input = $(this).parent().find('input');
+        var current = parseInt($(input).val());
+        $(input).val(current + 1).trigger("change");
+        $(".update__cart").trigger("click");
+    }).on('click', '.minus', function (e) {
+        e.preventDefault();
+        var input = $(this).parent().find('input');
+        var current = parseInt($(input).val());
+        if (current > min) {
+            $(input).val(current - 1).trigger("change");
+        }
+        $(".update__cart").trigger("click");
+    });
+
+
+
 
 // custome input file
 

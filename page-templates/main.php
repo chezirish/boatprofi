@@ -232,7 +232,7 @@ get_header(); ?>
 
                         <?php if( $previous == 2 ): ?>   
                             <?php if( ($count - 1) % 6 == 0):  ?>
-                                <a href="<?= get_page_link(45); ?>" class="sirvices-item-link-wrapper">                                                   
+                                <a href="<?= get_page_link(151); ?>" class="sirvices-item-link-wrapper">                                                   
                             <?php else:  ?> 
                                 <a href="<?php the_permalink(); ?>" class="sirvices-item-link-wrapper">  
                             <?php endif;  ?>                     

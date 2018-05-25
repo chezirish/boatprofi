@@ -23,20 +23,47 @@ if ( ! defined( 'ABSPATH' ) ) {
 /** @global WC_Checkout $checkout */
 
 ?>
-<div class="woocommerce-billing-fields">
-	<?php if ( wc_ship_to_billing_address_only() && WC()->cart->needs_shipping() ) : ?>
-
-		<h3><?php _e( 'Billing &amp; Shipping', 'woocommerce' ); ?></h3>
-
-	<?php else : ?>
-
-		<h3><?php _e( 'Billing details', 'woocommerce' ); ?></h3>
-
-	<?php endif; ?>
 
 	<?php do_action( 'woocommerce_before_checkout_billing_form', $checkout ); ?>
 
-	<div class="woocommerce-billing-fields__field-wrapper">
+	<!-- <div class="form-left cell medium-6 large-4">
+		<label for="billing_first_name">Ваше ФИО (полностью)</label>
+		<input  require placeholder="Введите данные" autocomplete="<?= $fields['billing_first_name']['autocomplete'] ?>" value="<?= $checkout->get_value( 'billing_first_name' ) ?>" name="billing_first_name" id="billing_first_name" type="text"> 
+	</div>
+	<div class="form-right cell medium-6 large-4">
+		<label for="billing_email">E-mail</label> 
+		<input  require name="billing_email" autocomplete="<?= $fields['billing_email']['autocomplete'] ?>" value="<?= $checkout->get_value( 'billing_email' ) ?>" placeholder="Введите данные" id="billing_email" type="email" maxlength="32"> 
+	</div>
+	<div class="form-right form-last cell medium-6 large-4">
+		<label for="billing_phone">Контактный телефон</label>
+		<input  require  name="billing_phone" placeholder="Введите данные" autocomplete="<?= $fields['billing_phone']['autocomplete'] ?>" id="billing_phone" type="number" value="<?= $checkout->get_value( 'billing_phone' ) ?>">
+	</div>
+	<div class="form-left cell medium-6 large-8">
+		<label for="billing_address_1">Адрес доставки</label>
+		<input  require autocomplete="<?= $fields['billing_address_1']['autocomplete'] ?>" value="<?= $checkout->get_value( 'billing_address_1' ) ?>" name="billing_address_1" id="billing_address_1" placeholder="Введите данные" type="text">
+	</div>
+	<div class="form-right form-right-get cell medium-4 large-4">
+		<label for="ship">Способ доставки</label>
+		<select value="выберите" id="ship">
+			<option disabled selected>Выберите способ доставки</option>
+			<option id="ship" name="" id="">1</option>
+			<option name="" id="">2</option>
+			<option name="" id="">3</option>
+			<option name="" id="">4</option>
+		</select>
+	</div>
+	<div class="form-right form-desktop cell medium-12 large-12">
+		<label for="order_comments">Комментарий</label>
+		<input  require  name="order_comments" placeholder="Текст комментария" id="order_comments" type="text">
+	</div>
+	<div class="form-last-phone form-right form-last cell medium-12 large-12">
+		<label for="descmob">Комментарий</label>
+		<textarea require  name="order_comments" placeholder="Текст комментария"  id="descmob" cols="20" rows="7"></textarea>
+	</div> -->
+
+
+
+
 		<?php
 			$fields = $checkout->get_checkout_fields( 'billing' );
 
@@ -47,36 +74,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 				woocommerce_form_field( $key, $field, $checkout->get_value( $key ) );
 			}
 		?>
-	</div>
+
 
 	<?php do_action( 'woocommerce_after_checkout_billing_form', $checkout ); ?>
-</div>
 
-<?php if ( ! is_user_logged_in() && $checkout->is_registration_enabled() ) : ?>
-	<div class="woocommerce-account-fields">
-		<?php if ( ! $checkout->is_registration_required() ) : ?>
 
-			<p class="form-row form-row-wide create-account">
-				<label class="woocommerce-form__label woocommerce-form__label-for-checkbox checkbox">
-					<input class="woocommerce-form__input woocommerce-form__input-checkbox input-checkbox" id="createaccount" <?php checked( ( true === $checkout->get_value( 'createaccount' ) || ( true === apply_filters( 'woocommerce_create_account_default_checked', false ) ) ), true ) ?> type="checkbox" name="createaccount" value="1" /> <span><?php _e( 'Create an account?', 'woocommerce' ); ?></span>
-				</label>
-			</p>
 
-		<?php endif; ?>
-
-		<?php do_action( 'woocommerce_before_checkout_registration_form', $checkout ); ?>
-
-		<?php if ( $checkout->get_checkout_fields( 'account' ) ) : ?>
-
-			<div class="create-account">
-				<?php foreach ( $checkout->get_checkout_fields( 'account' ) as $key => $field ) : ?>
-					<?php woocommerce_form_field( $key, $field, $checkout->get_value( $key ) ); ?>
-				<?php endforeach; ?>
-				<div class="clear"></div>
-			</div>
-
-		<?php endif; ?>
-
-		<?php do_action( 'woocommerce_after_checkout_registration_form', $checkout ); ?>
-	</div>
-<?php endif; ?>

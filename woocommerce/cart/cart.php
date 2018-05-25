@@ -73,24 +73,25 @@ if ( ! defined( 'ABSPATH' ) ) {
                             <?php if($count == 0): ?>
                             <p class="basket-page__content-product-title-count">Количество</p>
                             <?php endif; ?>
+
+                                <!-- <button class="basket-page__content-product-name-input-plus float-right">+</button>
+                                <input class="basket-page__content-product-name-input float-right" type="number">
+                                <button class="basket-page__content-product-name-input-minus float-right">-</button> -->
+
+                            <button class="plus basket-page__content-product-name-input-plus float-right" type="button">+</button>
                             <?php
-                            if ( $_product->is_sold_individually() ) {
-                                $product_quantity = sprintf( '1 <input type="hidden" name="cart[%s][qty]" value="1" />', $cart_item_key );
-                            } else {
+                                
                                 $product_quantity = woocommerce_quantity_input( array(
                                     'input_name'    => "cart[{$cart_item_key}][qty]",
                                     'input_value'   => $cart_item['quantity'],
                                     'max_value'     => $_product->get_max_purchase_quantity(),
                                     'min_value'     => '0',
                                     'product_name'  => $_product->get_name(),
-                                ), $_product, false );
-                            }
+                                ), $_product, false );                       
 
                             echo apply_filters( 'woocommerce_cart_item_quantity', $product_quantity, $cart_item_key, $cart_item );
                             ?>
-                                <button class="basket-page__content-product-name-input-plus float-right">+</button>
-                                <input class="basket-page__content-product-name-input float-right" type="number">
-                                <button class="basket-page__content-product-name-input-minus float-right">-</button>
+                            <button class="minus basket-page__content-product-name-input-minus float-right" type="reset">-</button>
                             </div>
                             <div class="basket-page__content-product-price float-right">
                                 <?php if($count == 0): ?>
@@ -100,7 +101,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 								// echo  WC()->cart->get_product_price( $_product );
                                 $price = get_post_meta($cart_item['product_id'] , '_price', true);
 							    ?>
-                                <p class="basket-page__content-product-price-number"><?= $price . ' руб.' ?></p>
+                                <!-- <p class="basket-page__content-product-price-number"><?= $price . ' руб.' ?></p> -->
+                                <p class="basket-page__content-product-price-number"><?= $cart_item['quantity'] * $_product->get_price()  . ' руб.' ?></p>
+
+                                
                             </div>
                             <?php
 								// @codingStandardsIgnoreLine
@@ -159,55 +163,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 
             
         </div>
-       
-    <p class="basket-page__content-total"><span>Итого:</span> <?php echo WC()->cart->total . ' руб.' ?> </p>
+        <button type="submit" class=" update__cart button" name="update_cart" value="<?php esc_attr_e( 'Update cart', 'woocommerce' ); ?>"><?php esc_html_e( 'Update cart', 'woocommerce' ); ?></button>   
 
+				<?php do_action( 'woocommerce_cart_actions' ); ?>
+				<?php wp_nonce_field( 'woocommerce-cart' ); ?>
+    <p class="basket-page__content-total"><span>Итого:</span> <?php echo WC()->cart->total . ' руб.' ?> </p>
     </form>
     </div>
 
-     <div class="grid-container">
-        <section class="callout section-form">
+    
 
-            <h4>Оформление заказа</h4>   
-            <form action="" class="clearfix">
-                <div class="form-inputs grid-x grid-margin-x">
-                    <div class="form-left cell medium-6 large-4">
-                        <label for="name">Ваше ФИО (полностью)</label>
-                        <input  require placeholder="Введите данные" id="name" type="text">
-                    </div>
-                    <div class="form-right cell medium-6 large-4">
-                        <label for="phone">E-mail</label>
-                        <input  require placeholder="Введите данные" id="phone" type="number">
-                    </div>
-                    <div class="form-right form-last cell medium-6 large-4">
-                        <label for="desc">Контактный телефон</label>
-                        <input  require placeholder="Введите данные" id="desc" type="text">
-                    </div>
-                    <div class="form-left cell medium-6 large-8">
-                        <label for="name">Адрес доставки</label>
-                        <input  require placeholder="Введите данные" id="name" type="text">
-                    </div>
-                    <div class="form-right form-right-get cell medium-4 large-4">
-                        <label for="phone">Способ доставки</label>
-                        <select value="выберите">
-                            <option disabled selected>Выберите способ доставки</option>
-                            <option id="phone" name="" id="">1</option>
-                            <option name="" id="">2</option>
-                            <option name="" id="">3</option>
-                            <option name="" id="">4</option>
-                        </select>
-                    </div>
-                    <div class="form-right form-desktop cell medium-12 large-12">
-                        <label for="phone">Комментарий</label>
-                        <input  require placeholder="Текст комментария" id="phone" type="number">
-                    </div>
-                    <div class="form-last-phone form-right form-last cell medium-12 large-12">
-                        <label for="desc">Комментарий</label>
-                        <textarea require placeholder="Текст комментария"  id="desc" cols="20" rows="7"></textarea>
-                    </div>
-                </div>
-                <button class="button basket-form-button float-right" type="submit">Оформить заказ</button>
-            </form>
-        </section>
-    </div>
+    <?php echo do_shortcode('[woocommerce_checkout]');  ?>
 </div>
