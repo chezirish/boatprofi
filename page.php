@@ -14,6 +14,9 @@ get_header(); ?>
 
 <?php if( is_cart() ): ?>
 	<?php echo do_shortcode('[woocommerce_cart]'); ?>
+	<div class="basket-page__content">
+	<?php echo do_shortcode('[woocommerce_checkout]');  ?>
+	</div>
 <?php get_footer();
 else: ?>
 

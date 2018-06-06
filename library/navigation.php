@@ -13,11 +13,31 @@ register_nav_menus(
 		'mobile-nav' => esc_html__( 'Mobile', 'foundationpress' ),
 		'footer-nav' => esc_html__( 'Footer menu', 'foundationpress' ),
 		'services-nav' => esc_html__( 'Меню услуг', 'foundationpress' ),
+		'city-nav' => esc_html__( 'Меню городов', 'foundationpress' ),
 		'catalog-products-nav' => esc_html__( 'Меню категорий', 'foundationpress' )
 	)
 );
 
 
+
+if ( ! function_exists( 'foundationpress_city_nav' ) ) {
+	function foundationpress_city_nav() {
+		wp_nav_menu(
+			array(
+				// 'before' 		 => 1,
+				// 'after' 		 => 2,
+				// 'echo'           => false,
+				'container'      => 'div',
+				'container_class' => 'header-address-city',
+				// 'menu_class'     => 'dropdown menu',
+				'items_wrap'     => '<a href="">изменить город</a><div id="%1$s" class="header-address-city-modal">%3$s</div>',
+				'theme_location' => 'city-nav',
+				'depth'          => 0,
+				'fallback_cb'    => false,
+			)
+		);
+	}
+}
 
 
 if ( ! function_exists( 'foundationpress_catalog_products_nav' ) ) {

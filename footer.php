@@ -48,7 +48,7 @@
                         <p><img src="<?= get_template_directory_uri() ?>/dist/assets/images/phone_icon.png" alt="phone_icon"> <?= ' ' . $phone; ?> </p>
                     </a>
                     <?php endif; ?>
-                    <a data-open="footer__callback" aria-controls="footer__callback" aria-haspopup="true" tabindex="0" href="javascript:void(0)">обратный звонок</a>
+                    <a  data-open="header__callback" aria-controls="header__callback"  aria-haspopup="true" tabindex="0" href="javascript:void(0)">обратный звонок</a>
                 </div>
                 <div class="footer-contacts-address">
                     <?php $address = carbon_get_theme_option( 'crb_address' ); ?>

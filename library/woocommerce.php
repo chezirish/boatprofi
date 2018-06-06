@@ -170,3 +170,75 @@ remove_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_l
 
 
 
+
+// unset fields
+
+add_filter( 'woocommerce_billing_fields', 'boatprofi_unrequire_fields' );
+
+function boatprofi_unrequire_fields( $fields ) {
+
+    $fields['billing_country']['required'] = false;
+    $fields['billing_last_name']['required'] = false;
+    $fields['billing_city']['required'] = false;
+    $fields['billing_state']['required'] = false;
+	$fields['billing_postcode']['required'] = false;
+	$fields['postcode']['required'] = false;
+
+
+    return $fields;
+}
+
+
+add_filter( 'woocommerce_checkout_fields' , 'x_custom_override_default_address_fields', 100 );
+function x_custom_override_default_address_fields( $fields ) {
+	 $fields['shipping']['shipping_first_name']['required']  = false;
+	 $fields['shipping']['shipping_last_name']['required']  = false;
+	 $fields['shipping']['shipping_postcode']['required']  = false;
+	 $fields['shipping']['shipping_state']['required']  = false;
+	 $fields['shipping']['shipping_city']['required']  = false;
+	 $fields['shipping']['shipping_address_1']['required']  = false;
+	 $fields['shipping']['shipping_country']['required']  = false;
+
+
+	$fields['billing']['billing_country']['required'] = false;
+	$fields['billing']['billing_last_name']['required'] = false;
+	$fields['billing']['billing_city']['required'] = false;
+	$fields['billing']['billing_state']['required'] = false;
+	$fields['billing']['billing_postcode']['required'] = false;
+
+	$fields['billing']['postcode']['required'] = false;
+
+     return $fields;
+}
+
+
+function sv_require_wc_company_field( $fields ) {
+	$fields['last_name']['required'] = false;
+	$fields['city']['required'] = false;
+	$fields['country']['required'] = false;
+	$fields['state']['required'] = false;
+	$fields['postcode']['required'] = false;
+	
+	return $fields;
+	
+}
+add_filter( 'woocommerce_default_address_fields', 'sv_require_wc_company_field' );
+
+
+
+// function boatprofi_remove_cart_notice_on_checkout() {
+// 	if ( function_exists( 'wc_cart_notices' ) ) {
+// 		remove_action( 'woocommerce_before_checkout_form', array( wc_cart_notices(), 'add_cart_notice' ) );
+// 	}
+// }
+// add_action( 'init', 'boatprofi_remove_cart_notice_on_checkout' );
+
+
+add_action( 'pre_get_posts', 'boatprofi_search_woocommerce_only' );
+
+function boatprofi_search_woocommerce_only( $query ) {
+  if( ! is_admin() && is_search() && $query->is_main_query() ) {
+	$query->set( 'post_type', array( 'product' ) );
+  }
+}
+

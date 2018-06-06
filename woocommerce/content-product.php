@@ -28,7 +28,7 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 }
 ?>
 
-<div  class="sirvices-item clearfix" >
+<div  class="sirvices-item " >
 	<?php
 	/**
 	 * woocommerce_before_shop_loop_item hook.
@@ -74,7 +74,8 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 		if(!empty($brands)){
 			$brand_name = $brands[0]->name;
 		}
-		// var_dump($brand_name);
+		// var_dump( get_term_link($brands[0]->term_id) );
+		
 
 		 ?>
 		<?php echo has_term( 'Новинка', 'product_tag' ) ? '<p class="sirvices-item-tag">Новинка</p>' : ''; ?>
@@ -99,6 +100,7 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 			<p> <?php echo $product->get_title(); ?></p>
 			<?php if($brand_name != null) : ?>
 				<!-- <p class="sirvices-item-content-developer">Производитель: <object data="" type=""><a href="javascript:void(0)"><?= $brand_name ?></a></object> </p> -->
+				<p class="sirvices-item-content-developer">Производитель: <a href="<?=  get_term_link($brands[0]->term_id) ?>"><?= $brand_name ?></a> </p>
 			<?php endif; ?>
 			
 			<p><span class="sirvices-item-costs"><?php echo $product->get_price() != '' ? $product->get_price() . ' руб.' : ''; ?> </span></p>
@@ -114,7 +116,7 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 		<div class="sirvices-item-content-gorizontal">
 			<p><?php echo $product->get_title(); ?></p>
 			<?php if($brand_name != null) : ?>
-				<!-- <p class="sirvices-item-content-developer">Производитель: <object data="" type=""><a href="javascript:void(0)"><?= $brand_name ?></a></object> </p> -->
+				<p class="sirvices-item-content-developer">Производитель: <a href="<?=  get_term_link($brands[0]->term_id) ?>"><?= $brand_name ?></a></p>
 			<?php endif; ?>
 			
 		</div>

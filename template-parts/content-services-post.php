@@ -97,7 +97,7 @@ get_header(); ?>
             <div class="single-service-page__info-phone">
                 <p class="single-service-page__price"><?php the_field('service_price') ?></p>
                 <button data-open="service-send" aria-controls="service-send" aria-haspopup="true" tabindex="0" type="button" class="single-service-page__button button">Отправить заявку</button>
-                <p class="single-service-page__add"><img class="heart" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png"  alt="heart"> В избранное</p>
+                <!-- <p class="single-service-page__add"><img class="heart" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png"  alt="heart"> В избранное</p> -->
                 <?php if( !empty( carbon_get_the_post_meta( 'crb_service-links' ) ) ): ?> 
                     <?php $items = carbon_get_the_post_meta( 'crb_service-links' ); ?>
                     <?php  foreach ( $items as $item ):  ?>
@@ -297,6 +297,12 @@ get_header(); ?>
         </section>
     </div>
 </div>
+
+
+	<div class="grid-container">
+        <?php  the_field('seo-text'); ?>
+    </div>
+
 <?php get_footer();
 
 

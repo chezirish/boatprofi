@@ -26,7 +26,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	<?php do_action( 'woocommerce_before_checkout_billing_form', $checkout ); ?>
 
-	<!-- <div class="form-left cell medium-6 large-4">
+	<div class="form-left cell medium-6 large-4">
 		<label for="billing_first_name">Ваше ФИО (полностью)</label>
 		<input  require placeholder="Введите данные" autocomplete="<?= $fields['billing_first_name']['autocomplete'] ?>" value="<?= $checkout->get_value( 'billing_first_name' ) ?>" name="billing_first_name" id="billing_first_name" type="text"> 
 	</div>
@@ -36,7 +36,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	</div>
 	<div class="form-right form-last cell medium-6 large-4">
 		<label for="billing_phone">Контактный телефон</label>
-		<input  require  name="billing_phone" placeholder="Введите данные" autocomplete="<?= $fields['billing_phone']['autocomplete'] ?>" id="billing_phone" type="number" value="<?= $checkout->get_value( 'billing_phone' ) ?>">
+		<input  require  name="billing_phone" placeholder="Введите данные" autocomplete="<?= $fields['billing_phone']['autocomplete'] ?>" id="billing_phone" type="tel" value="<?= $checkout->get_value( 'billing_phone' ) ?>">
 	</div>
 	<div class="form-left cell medium-6 large-8">
 		<label for="billing_address_1">Адрес доставки</label>
@@ -59,9 +59,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<div class="form-last-phone form-right form-last cell medium-12 large-12">
 		<label for="descmob">Комментарий</label>
 		<textarea require  name="order_comments" placeholder="Текст комментария"  id="descmob" cols="20" rows="7"></textarea>
-	</div> -->
+	</div>
 
+	
 
+		<select name="billing_country" id="billing_country"
+                class="country_to_state country_select select2-hidden-accessible d-none" autocomplete="country"
+                tabindex="-1"
+                aria-hidden="true">
+            <option value="RU" selected="selected">Россия</option>
+        </select>
 
 
 		<?php
@@ -71,7 +78,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				if ( isset( $field['country_field'], $fields[ $field['country_field'] ] ) ) {
 					$field['country'] = $checkout->get_value( $field['country_field'] );
 				}
-				woocommerce_form_field( $key, $field, $checkout->get_value( $key ) );
+				//woocommerce_form_field( $key, $field, $checkout->get_value( $key ) );
 			}
 		?>
 

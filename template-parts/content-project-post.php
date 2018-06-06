@@ -9,8 +9,8 @@ $below_img3 =  get_field( "below_img3" )['url'];
 <div class="portfolio-page__content">
     <div class="grid-container">
     <div class="portfolio-page__title">
-        <h2 class="portfolio-page__title-name"><?php the_title(); ?></h2>
-        <h2 class="portfolio-page__title-name-tablet"><?php the_title(); ?></h2>
+        <h1 class="portfolio-page__title-name"><?php the_title(); ?></h1>
+        <h1 class="portfolio-page__title-name-tablet"><?php the_title(); ?></h1>
         <div class="portfolio-page__title-main-avatar" style="background-image:url(<?= $main_img ?>);background-size:cover;background-repeat:no-repeat"></div>
         <!-- <img class="portfolio-page__title-main-avatar" src="<?= get_template_directory_uri() ?>/dist/assets/images/boat5.jpg" alt="boat"> -->
         <div class="portfolio-page__title-small-avatars-wrapper">

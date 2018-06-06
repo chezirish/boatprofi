@@ -53,7 +53,7 @@ if ( have_posts() ) {
 
 	echo '<div class="catalog-products_content cell medium-9 large-9">';
 	echo '<div class="grid-container">';
-	echo '<h3>Каталог товаров</h3>';
+	echo '<h1 class="catalog-products_content-title">Каталог товаров</h1>';
 	echo '<div class="catalog-products_products-filter clearfix">';
 		echo '<div class="catalog-products_sort float-left">';
 			do_action( 'woocommerce_before_shop_loop' );
@@ -143,7 +143,7 @@ if ( have_posts() ) {
 		</div>
 		<div class="catalog-products_question clearfix">
 			<h4 class="float-left">Остались вопросы?</h4>
-			<button type="button" class="float-right button">Звоните</button>
+			<button data-open="header__callback" aria-controls="header__callback"  aria-haspopup="true" tabindex="0" type="button" class="float-right button">Звоните</button>
 		</div>
 		<div class="phone-tablet banner" style="background-image:url(<?= get_template_directory_uri() ?>/dist/assets/images/banner1.jpg);background-size:cover">
 			<h3>Разборный якорь  </h3>
@@ -152,7 +152,13 @@ if ( have_posts() ) {
 		</div>
 
 		<div class="seo-text">
-			<p>Профессиональная подготовка катеров для спортивной рыбалки - это не просто красивый маркетинговый слоган. За этими словами стоят десятки тысяч моточасов проведенных нашими спортсменами на водоемах, сотни нестандартных ситуаций и испытаний, которые выпадают на долю рыболова и его катера. Именно спорт дает стимул быть лучшим во всем. Самым быстрым на воде. Самым знающим в рыбопоисковой технике. Самым опытным в подготовке спортивных катеров.</p>
+			<?php //echo apply_filters( 'the_content', get_field( 'Сео-контент' ) ); ?>
+
+			<?php 				
+				$term = get_term( get_queried_object()->term_id );
+				$seo  = get_field( 'seo-text', $term ); 
+				echo $seo ? $seo : '';
+			?> 
 		</div>
 	</div>
 	<?php
@@ -165,12 +171,20 @@ if ( have_posts() ) {
 	do_action( 'woocommerce_no_products_found' );
 }
 
+?>
+	<div class="grid-container">
+        <?php  the_field('seo-text', get_option( 'woocommerce_shop_page_id' )); ?>
+    </div>
+
+<?php
+
 /**
  * Hook: woocommerce_after_main_content.
  *
  * @hooked woocommerce_output_content_wrapper_end - 10 (outputs closing divs for the content)
  */
 do_action( 'woocommerce_after_main_content' );
+
 
 
 

@@ -7,7 +7,7 @@ get_header(); ?>
 
 <div class="services_page-content">
     <div class="grid-container">
-        <h3>Наши услуги</h3>
+        <h1>Наши услуги</h1>
     </div>
     
     <section class="section-services">
@@ -30,7 +30,7 @@ get_header(); ?>
                             <a class="sirvices-item-link-wrapper" href="<?php the_permalink(); ?>">
                             <div class="sirvices-item clearfix">
                                 <div class="sirvices-item-content float-left">
-                                    <h5><?php the_title(); ?></h5>
+                                    <h2 class="custome-size-h2"><?php the_title(); ?></h2>
                                     <button type="button" class="button">Заказать</button>
                                     <object data="" type="">
                                     <a>подробнее</a> 
@@ -105,10 +105,13 @@ get_header(); ?>
     <div class="grid-container">
         <div class="services_page-banner" style="background-image:url(<?= get_template_directory_uri() ?>/dist/assets/images/front_background.jpg);background-size:cover;background-position:0">
             <div class="services_page-banner-content">
-                <h2>Нам доверяют чемпионы!</h2>
+                <p class="services_page-banner-content-title">Нам доверяют чемпионы!</p>
                 <p>Многолетний опыт позволяет работать разными материалами, выполнять макетные работы. Уделяем особое внимание силовой проводке, настройке и установке оборудования.</p>
             </div>
         </div>
+    </div>
+    <div class="grid-container">
+        <?php  the_field('seo-text'); ?>
     </div>
 </div>
 

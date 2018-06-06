@@ -35,7 +35,9 @@ get_header(); ?>
                                 <div class="portfolio-page__review-info float-left">
                                     <?php the_post_thumbnail('', array( 'class' => "portfolio-page__title-small-avatar")) ?> 
                                     <p class="review-info-name"> <b> <?php the_field('name') ?></b> <br> <?php the_field('city') ?> </p>
-                                    <a class="review-project-name-link" href=""> <span class="review-project-name" >Проект:</span> Чемпионский alumacraft trophi 205</a>
+                                    <?php if(get_field('link_project') != ''): ?>
+                                    <a class="review-project-name-link" href="<?php the_field('link_project') ?>"> <span class="review-project-name" >Проект:</span> <?php the_field('project_name'); ?></a>
+                                    <?php endif; ?>
                                     <p class="review-info-comment"><?php the_field('text') ?></p>
                                 </div>
                             </div>
@@ -57,7 +59,7 @@ get_header(); ?>
 
 
         <div class="contacts-reviews-page__show-more">
-            <a href=""><img class="svg-green" src="<?= get_template_directory_uri() ?>/dist/assets/images/more-comments.svg">   Показать еще отзывы</a>
+            <a class="reviews-ajax"><img class="svg-green" src="<?= get_template_directory_uri() ?>/dist/assets/images/more-comments.svg">   Показать еще отзывы</a>
         </div>
 </div>
 

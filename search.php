@@ -8,22 +8,22 @@
 
 get_header(); ?>
 
-<div class="main-container">
-	<div class="main-grid">
-		<main id="search-results" class="main-content">
+<div class="main-container search-products">
+	<!-- <div class="main-grid"> -->
+		<!-- <main id="search-results" class="main-content"> -->
 
 		<header>
-			<h1 class="entry-title"><?php _e( 'Search Results for', 'foundationpress' ); ?> "<?php echo get_search_query(); ?>"</h1>
+			<h3 class="entry-title"><?php _e( 'Результат поиска:', 'foundationpress' ); ?> "<?php echo get_search_query(); ?>"</h3>
 		</header>
 
 		<?php if ( have_posts() ) : ?>
-
+			<div class="services-list">
 			<?php while ( have_posts() ) : the_post(); ?>
-				<?php get_template_part( 'template-parts/content', get_post_format() ); ?>
+				<?php wc_get_template_part( 'content', 'product' ); ?>			
 			<?php endwhile; ?>
-
+			</div>
 			<?php else : ?>
-				<?php get_template_part( 'template-parts/content', 'none' ); ?>
+				<p class="no-result">Товары не найдены<br><br><a href="<?php echo get_permalink( wc_get_page_id( 'shop' ) ); ?>" class="button">Назад</a></p>
 
 		<?php endif; ?>
 
@@ -38,9 +38,9 @@ get_header(); ?>
 			</nav>
 		<?php endif; ?>
 
-		</main>
-	<?php get_sidebar(); ?>
 
-	</div>
+	<?php //get_sidebar(); ?>
+
+
 </div>
 <?php get_footer();

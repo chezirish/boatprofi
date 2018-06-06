@@ -111,10 +111,14 @@ get_header(); ?>
     <div class="grid-container">
         <div class="services_page-banner" style="background-image:url(<?= get_template_directory_uri() ?>/dist/assets/images/front_background.jpg);background-size:cover;background-position:0">
             <div class="services_page-banner-content">
-                <h2>Нам доверяют чемпионы!</h2>
+                <p class="services_page-banner-content-title">Нам доверяют чемпионы!</p>
                 <p>Многолетний опыт позволяет работать разными материалами, выполнять макетные работы. Уделяем особое внимание силовой проводке, настройке и установке оборудования.</p>
             </div>
         </div>
+    </div>
+
+    <div class="grid-container">
+        <?php  the_field('seo-text'); ?>
     </div>
 
 </div>

@@ -38,7 +38,7 @@ get_header( 'shop' ); ?>
 <div class="single-product-page">
     <div class="single-product-page__content grid-x grid-padding-x">
             <div class="single-product-page__left-content cell medium-6 large-6">
-            <h4><?php the_title() ?></h4>
+            <h1><?php the_title() ?></h1>
             <!-- <p class="p-order"><span class="span-order">Под заказ </span> (Предполагаемый срок поставки: 25 марта)</p> -->
                 <?php if( !empty($gallery) ): ?>
                 <div class="single-product-page__preview-icons-wrapper">
@@ -72,7 +72,7 @@ get_header( 'shop' ); ?>
 
             </div>
             <div class="single-product-page__product-nav  cell medium-6 large-6">
-                <h4> <?php the_title(); ?></h4>
+                <h1> <?php the_title(); ?></h1>
                 <!-- <p class="p-order"><span class="span-order">Под заказ </span> (Предполагаемый срок поставки: 25 марта)</p> -->
                 <?php if( !empty($product->get_price()) ): ?>
                 <p class="single-service-page__price"><?= $product->get_price() . " руб." ?></p>

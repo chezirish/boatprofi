@@ -103,15 +103,21 @@
 					<?php if($address != ''): ?>					
 						<p><img src="<?= get_template_directory_uri() ?>/dist/assets/images/address_icon-header.png" alt="address_icon" ><?= ' ' . $address; ?> </p>
                     <?php endif; ?>
-					<a target="_blank"href="<?= get_page_link(18); ?>">показать на карте</a>
-					<div class="header-address-city">
-						<a href="">изменить город</a>	
-						<div class="header-address-city-modal">
-							<p>Ярославль</p>
-							<p>Москва</p>
-							<p>Тверь</p>
-						</div>
-					</div>	
+					<a href="<?= get_page_link(18); ?>">показать на карте</a>
+	
+	
+						<!-- <div class="header-address-city">
+							<a href="">изменить город</a>	
+							<div class="header-address-city-modal">
+								<p>Ярославль</p>
+								<p>Москва</p>
+								<p>Тверь</p>
+							</div>
+						</div> -->
+	
+
+					<?php echo foundationpress_city_nav(); ?>
+					
 				</div>
 			</div>
 			<div class="header-navigation-phone">
@@ -183,7 +189,7 @@
 							</li>
 							<li><a href="">Сопутствующие товары </a></li> -->
 
-							<?php 
+							<?php/*
 
 								$args = array(
 									'taxonomy'   => "product_cat",
@@ -212,7 +218,9 @@
 									
 								<?php }
 
-							?>
+							*/?>
+
+							<?php foundationpress_catalog_products_nav(); ?>
 						</ul>
 					</div>
 				
@@ -233,7 +241,7 @@
 							<li><a href="">Установка  картоплоттеров </a></li>
 							<li><a href="">Монтаж  электромоторов</a></li>
 							<li><a href="">ТО троллинговых моторов  </a></li> -->
-							<?php
+							<?php /*
                 
 								$ourCurrentPage = get_query_var('paged');
 								$args = array(
@@ -258,23 +266,25 @@
 									endwhile;
 									wp_reset_postdata(); 
 								endif;
-							?>
+							*/?>
+
+							<?php foundationpress_services_nav(); ?>
 						</ul>
 					</div>
 				
 				<div class="search cell medium-5 large-6">
-					<form action="<?php echo get_home_url(); ?>">
+					<form value="<?php echo get_search_query() ?>" action="<?php echo get_home_url(); ?>">
 						<input name='s' placeholder="Введите название товара" type="text">
 					</form>
 				</div>
 				<div class="woocommerce-data medium-3 large-2">
 					<div class="woocommerce-data-wrapper  <?php echo  is_front_page() ? '' : 'svg-colors' ?>">
 						<a style="margin-right: 30px;display: inline-block" href="<?= get_page_link(308); ?>"> 
-						<img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png"  alt="heart">
+						<img class="heart-icon" title="В избранное" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png"  alt="heart" data-tooltip tabindex="1" title="В избранное" data-position="bottom" data-alignment="center">
 						</a>
 						<!-- <img class="scheme-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme"> -->
 						<div class="basket-wrapper">
-						<a href="<?php echo esc_url( wc_get_cart_url() ); ?>">
+						<a title="Корзина" href="<?php echo esc_url( wc_get_cart_url() ); ?>">
 							<?php wp_kses_data( WC()->cart->get_cart_contents_count()) != 0 ? $basket_count = wp_kses_data( WC()->cart->get_cart_contents_count() ) : $basket_count =  '';?>
 							<?php if($basket_count != 0): ?>
 							<span class="basket-count"><?php echo $basket_count; ?></span>
@@ -295,14 +305,7 @@
 
 	<?php if(!is_front_page()): ?>
 		<div class="grid-container">
-			<!-- <div class="bread-crumbs">
-				<a href="">Каталог товаров</a>
-				<a href="">Электрические</a>
-				<p>троллинговые моторы</p>	
-			</div> -->
-			<?php //if (function_exists('dimox_breadcrumbs')) dimox_breadcrumbs(); ?>
 			<?php do_action('boatprofi_breadcrumb'); ?>
-
 		</div>
 	<?php endif; ?>
 
@@ -326,19 +329,19 @@
 
 
 		<!-- modal form -->
-	<section class="callout section-form small reveal"  id="footer__callback" data-reveal>
+	<!-- <section class="callout section-form small reveal"  id="footer__callback" data-reveal>
 		<button class="close-button"  aria-label="Close modal" type="button"  data-close>
 			<span aria-hidden="true">&times;</span>
 		</button>
 		<h4 class="section-form-title-desktop">Мы вам перезвоним</h4>
 		<h4 class="section-form-title-tablet">Мы вам перезвоним</h4>
-		<?php echo do_shortcode('[contact-form-7 id="414" title="Формы на сайте"]'); ?>
+		<?php //echo do_shortcode('[contact-form-7 id="414" title="Формы на сайте"]'); ?>
 		<?php //echo do_shortcode('[contact-form-7 id="249" title="Формы на сайте"]'); ?>
 
-		<?php $politics = carbon_get_theme_option( 'crb_politics' ); ?>
-		<?php if($politics != ''): ?>
-			<a target="_blank" href="<?php echo $politics;  ?>">Пользовательское соглашение</a>
-		<?php endif; ?>	
+		<?php //$politics = carbon_get_theme_option( 'crb_politics' ); ?>
+		<?php //if($politics != ''): ?>
+			<a target="_blank" href="<?php //echo $politics;  ?>">Пользовательское соглашение</a>
+		<?php //endif; ?>	
 	</section>
-    
+     -->
     

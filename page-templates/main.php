@@ -25,7 +25,7 @@ get_header(); ?>
 <!-- <div class="section-form-wrapper"> -->
 
 <!-- <div class="grid-container"> -->
-<section class="callout section-form">
+<section class="callout section-form section-form-main">
     
         <button class="close-button" aria-label="Dismiss alert" type="button">
             <span aria-hidden="true">&times;</span>
@@ -71,7 +71,7 @@ get_header(); ?>
 <div class="section-services-wrapper">
 <section class="section-services">
     <div class="section-headline">
-        <h3>Наши услуги</h3>
+        <h2>Наши услуги</h2>
     </div>
 
     <div class="services-list">  
@@ -95,7 +95,7 @@ get_header(); ?>
                             <a class="sirvices-item-link-wrapper" href="<?php the_permalink(); ?>">
                             <div class="sirvices-item clearfix">
                                 <div class="sirvices-item-content float-left">
-                                    <h5><?php the_title(); ?></h5>
+                                    <h3 class="custom-size-h3"><?php the_title(); ?></h3>
                                     <button type="button" class="button">Заказать</button>
                                     <object data="" type="">
                                         <a>подробнее</a> 
@@ -412,236 +412,6 @@ get_header(); ?>
 
 
     <div class="services-list">
-        <!-- <div class="sirvices-item">
-            <div class="sirvices-item-modal-basket reveal" data-closable>
-                <button class="close-button"  data-close aria-label="Dismiss alert" type="button">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <h4>Товар оправлен в корзину!</h4>
-                <a href="">перейти в корзину</a>
-                <p>Список будет очищен по завершению сессии</p>
-            </div>
-            <div class="sirvices-item-icon" <div class="sirvices-item-icon"  style="background-image:url(<?= get_template_directory_uri() ?>/dist/assets/images/tool2.png);background-size:contain;background-position:center;background-repeat:no-repeat">
-               <?php /* <img  src="<?= get_template_directory_uri() ?>/dist/assets/images/tool2.png" alt="tool"> */ ?>
-            </div>
-            <div class="sirvices-item-content">
-                <p>Зарядное устройство Dual Pro Professional SS1 220 В</p>
-                <p><span class="sirvices-item-costs">106600 руб.</span></p>
-                <div class="bottom-block">
-                    <button type="button" class="button add-basket">В корзину</button>
-                    <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart"  data-tooltip tabindex="1" title="В избранное" data-position="bottom" data-alignment="center">
-                    <img class="scheme-icon" data-tooltip tabindex="1" title="В сравнение" data-position="bottom" data-alignment="center" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
-                </div>
-            </div>
-        </div> -->
-        <!-- <div class="sirvices-item">
-            <p class="sirvices-item-tag">Хит продаж</p>
-            <p class="sirvices-item-tag">Новинка</p>
-            <div class="sirvices-item-modal-basket reveal" data-closable>
-                <button class="close-button"  data-close aria-label="Dismiss alert" type="button">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <h4>Товар оправлен в корзину!</h4>
-                <a href="">перейти в корзину</a>
-                <p>Список будет очищен по завершению сессии</p>
-            </div>
-
-            <div class="sirvices-item-icon" <div class="sirvices-item-icon"  style="background-image:url(<?= get_template_directory_uri() ?>/dist/assets/images/tool3.png);background-size:contain;background-position:center;background-repeat:no-repeat">
-               <?php /* <img  src="<?= get_template_directory_uri() ?>/dist/assets/images/tool2.png" alt="tool"> */ ?>
-            </div>
-            <div class="sirvices-item-content">
-                <p>Троллинговый мотор Minn Kota TERROVA 55LB-48</p>
-                <p><span class="sirvices-item-costs">106600 руб.</span></p>
-                <div class="bottom-block">
-                    <button type="button" class="button add-basket">В корзину</button>
-                    <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart"  data-tooltip tabindex="1" title="В избранное" data-position="bottom" data-alignment="center">
-                    <img class="scheme-icon" data-tooltip tabindex="1" title="В сравнение" data-position="bottom" data-alignment="center" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
-                </div>
-            </div>
-        </div> -->
-        <!-- <div class="sirvices-item">
-            <div class="sirvices-item-modal-basket reveal" data-closable>
-                <button class="close-button"  data-close aria-label="Dismiss alert" type="button">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <h4>Товар оправлен в корзину!</h4>
-                <a href="">перейти в корзину</a>
-                <p>Список будет очищен по завершению сессии</p>
-            </div>
-            <div class="sirvices-item-icon" <div class="sirvices-item-icon"  style="background-image:url(<?= get_template_directory_uri() ?>/dist/assets/images/tool4.png);background-size:contain;background-position:center;background-repeat:no-repeat">
-               <?php /* <img  src="<?= get_template_directory_uri() ?>/dist/assets/images/tool2.png" alt="tool"> */ ?>
-            </div>
-            <div class="sirvices-item-content">
-                <p>Эхолот-картплоттер  Humminbird HELIX 10 SI GPS</p>
-                <p><span class="sirvices-item-costs">106600 руб.</span></p>
-                <div class="bottom-block">
-                    <button type="button" class="button add-basket">В корзину</button>
-                    <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart"  data-tooltip tabindex="1" title="В избранное" data-position="bottom" data-alignment="center">
-                    <img class="scheme-icon" data-tooltip tabindex="1" title="В сравнение" data-position="bottom" data-alignment="center" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
-                </div>
-            </div>
-        </div>
-        <div class="sirvices-item">
-            <div class="sirvices-item-modal-basket reveal" data-closable>
-                <button class="close-button"  data-close aria-label="Dismiss alert" type="button">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <h4>Товар оправлен в корзину!</h4>
-                <a href="">перейти в корзину</a>
-                <p>Список будет очищен по завершению сессии</p>
-            </div>
-            <div class="sirvices-item-icon" <div class="sirvices-item-icon"  style="background-image:url(<?= get_template_directory_uri() ?>/dist/assets/images/tool2.png);background-size:contain;background-position:center;background-repeat:no-repeat">
-               <?php /* <img  src="<?= get_template_directory_uri() ?>/dist/assets/images/tool2.png" alt="tool"> */ ?>
-            </div>
-            <div class="sirvices-item-content">
-                <p>Зарядное устройство Dual Pro Professional SS1 220 В</p>
-                <p><span class="sirvices-item-costs">106600 руб.</span></p>
-                <div class="bottom-block">
-                    <button type="button" class="button add-basket">В корзину</button>
-                    <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart"  data-tooltip tabindex="1" title="В избранное" data-position="bottom" data-alignment="center">
-                    <img class="scheme-icon" data-tooltip tabindex="1" title="В сравнение" data-position="bottom" data-alignment="center" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
-                </div>
-            </div>
-        </div>
-        <div class="sirvices-item">
-            <div class="sirvices-item-modal-basket reveal" data-closable>
-                <button class="close-button"  data-close aria-label="Dismiss alert" type="button">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <h4>Товар оправлен в корзину!</h4>
-                <a href="">перейти в корзину</a>
-                <p>Список будет очищен по завершению сессии</p>
-            </div>
-            <div class="sirvices-item-icon" <div class="sirvices-item-icon"  style="background-image:url(<?= get_template_directory_uri() ?>/dist/assets/images/tool3.png);background-size:contain;background-position:center;background-repeat:no-repeat">
-               <?php /* <img  src="<?= get_template_directory_uri() ?>/dist/assets/images/tool2.png" alt="tool"> */ ?>
-            </div>
-            <div class="sirvices-item-content">
-                <p>Троллинговый мотор Minn Kota TERROVA 55LB-48</p>
-                <p><span class="sirvices-item-costs">106600 руб.</span></p>
-                <div class="bottom-block">
-                    <button type="button" class="button add-basket">В корзину</button>
-                    <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart"  data-tooltip tabindex="1" title="В избранное" data-position="bottom" data-alignment="center">
-                    <img class="scheme-icon" data-tooltip tabindex="1" title="В сравнение" data-position="bottom" data-alignment="center" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
-                </div>
-            </div>
-        </div>
-        <div class="sirvices-item">
-            <div class="sirvices-item-modal-basket reveal" data-closable>
-                <button class="close-button"  data-close aria-label="Dismiss alert" type="button">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <h4>Товар оправлен в корзину!</h4>
-                <a href="">перейти в корзину</a>
-                <p>Список будет очищен по завершению сессии</p>
-            </div>
-            <div class="sirvices-item-icon" <div class="sirvices-item-icon"  style="background-image:url(<?= get_template_directory_uri() ?>/dist/assets/images/tool2.png);background-size:contain;background-position:center;background-repeat:no-repeat">
-               <?php /* <img  src="<?= get_template_directory_uri() ?>/dist/assets/images/tool2.png" alt="tool"> */ ?>
-            </div>
-            <div class="sirvices-item-content">
-                <p>Зарядное устройство Dual Pro Professional SS1 220 В</p>
-                <p><span class="sirvices-item-costs">106600 руб.</span></p>
-                <div class="bottom-block">
-                    <button type="button" class="button add-basket">В корзину</button>
-                    <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart"  data-tooltip tabindex="1" title="В избранное" data-position="bottom" data-alignment="center">
-                    <img class="scheme-icon" data-tooltip tabindex="1" title="В сравнение" data-position="bottom" data-alignment="center" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
-                </div>
-            </div>
-        </div>
-
-        <div class="banner" style="background-image:url(<?= get_template_directory_uri() ?>/dist/assets/images/banner1.jpg);background-size:cover">
-            <h3>Разборный якорь  </h3>
-            <p>специальной формы литая, кованая или сварная конструкция, предназначенная для удержания корабля, подлодки, плота или другого плавающего объекта на одном месте за счёт сцепления с грунтом и связанная </p>
-            <button type="button" class="button">Подробнее</button>
-        </div>
-
-        <div class="sirvices-item">
-            <div class="sirvices-item-modal-basket reveal" data-closable>
-                <button class="close-button"  data-close aria-label="Dismiss alert" type="button">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <h4>Товар оправлен в корзину!</h4>
-                <a href="">перейти в корзину</a>
-                <p>Список будет очищен по завершению сессии</p>
-            </div>
-            <div class="sirvices-item-icon" <div class="sirvices-item-icon"  style="background-image:url(<?= get_template_directory_uri() ?>/dist/assets/images/tool2.png);background-size:contain;background-position:center;background-repeat:no-repeat">
-               <?php /* <img  src="<?= get_template_directory_uri() ?>/dist/assets/images/tool2.png" alt="tool"> */ ?>
-            </div>
-            <div class="sirvices-item-content">
-                <p>Зарядное устройство Dual Pro Professional SS1 220 В</p>
-                <p><span class="sirvices-item-costs">106600 руб.</span></p>
-                <div class="bottom-block">
-                    <button type="button" class="button add-basket">В корзину</button>
-                    <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart"  data-tooltip tabindex="1" title="В избранное" data-position="bottom" data-alignment="center">
-                    <img class="scheme-icon" data-tooltip tabindex="1" title="В сравнение" data-position="bottom" data-alignment="center" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
-                </div>
-            </div>
-        </div>
-        <div class="sirvices-item">
-            <div class="sirvices-item-modal-basket reveal" data-closable>
-                <button class="close-button"  data-close aria-label="Dismiss alert" type="button">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <h4>Товар оправлен в корзину!</h4>
-                <a href="">перейти в корзину</a>
-                <p>Список будет очищен по завершению сессии</p>
-            </div>
-            <div class="sirvices-item-icon" <div class="sirvices-item-icon"  style="background-image:url(<?= get_template_directory_uri() ?>/dist/assets/images/tool3.png);background-size:contain;background-position:center;background-repeat:no-repeat">
-               <?php /* <img  src="<?= get_template_directory_uri() ?>/dist/assets/images/tool2.png" alt="tool"> */ ?>
-            </div>
-            <div class="sirvices-item-content">
-                <p>Троллинговый мотор Minn Kota TERROVA 55LB-48</p>
-                <p><span class="sirvices-item-costs">106600 руб.</span></p>
-                <div class="bottom-block">
-                    <button type="button" class="button add-basket">В корзину</button>
-                    <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart"  data-tooltip tabindex="1" title="В избранное" data-position="bottom" data-alignment="center">
-                    <img class="scheme-icon" data-tooltip tabindex="1" title="В сравнение" data-position="bottom" data-alignment="center" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
-                </div>
-            </div>
-        </div>
-        <div class="sirvices-item">
-            <div class="sirvices-item-modal-basket reveal" data-closable>
-                <button class="close-button"  data-close aria-label="Dismiss alert" type="button">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <h4>Товар оправлен в корзину!</h4>
-                <a href="">перейти в корзину</a>
-                <p>Список будет очищен по завершению сессии</p>
-            </div>
-            <div class="sirvices-item-icon" <div class="sirvices-item-icon"  style="background-image:url(<?= get_template_directory_uri() ?>/dist/assets/images/tool4.png);background-size:contain;background-position:center;background-repeat:no-repeat">
-               <?php /* <img  src="<?= get_template_directory_uri() ?>/dist/assets/images/tool2.png" alt="tool"> */ ?>
-            </div>
-            <div class="sirvices-item-content">
-                <p>Эхолот-картплоттер  Humminbird HELIX 10 SI GPS</p>
-                <p><span class="sirvices-item-costs">106600 руб.</span></p>
-                <div class="bottom-block">
-                    <button type="button" class="button add-basket">В корзину</button>
-                    <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart"  data-tooltip tabindex="1" title="В избранное" data-position="bottom" data-alignment="center">
-                    <img class="scheme-icon" data-tooltip tabindex="1" title="В сравнение" data-position="bottom" data-alignment="center" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
-                </div>
-            </div>
-        </div>
-        <div class="sirvices-item">
-            <div class="sirvices-item-modal-basket reveal" data-closable>
-                <button class="close-button"  data-close aria-label="Dismiss alert" type="button">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <h4>Товар оправлен в корзину!</h4>
-                <a href="">перейти в корзину</a>
-                <p>Список будет очищен по завершению сессии</p>
-            </div>
-            <div class="sirvices-item-icon" <div class="sirvices-item-icon"  style="background-image:url(<?= get_template_directory_uri() ?>/dist/assets/images/tool2.png);background-size:contain;background-position:center;background-repeat:no-repeat">
-               <?php /* <img  src="<?= get_template_directory_uri() ?>/dist/assets/images/tool2.png" alt="tool"> */ ?>
-            </div>
-            <div class="sirvices-item-content">
-                <p>Зарядное устройство Dual Pro Professional SS1 220 В</p>
-                <p><span class="sirvices-item-costs">106600 руб.</span></p>
-                <div class="bottom-block">
-                    <button type="button" class="button add-basket">В корзину</button>
-                    <img class="heart-icon" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart"  data-tooltip tabindex="1" title="В избранное" data-position="bottom" data-alignment="center">
-                    <img class="scheme-icon" data-tooltip tabindex="1" title="В сравнение" data-position="bottom" data-alignment="center" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme">
-                </div>
-            </div>
-        </div> -->
 
 
 
@@ -652,6 +422,8 @@ get_header(); ?>
                     );
                 $loop = new WP_Query( $args );
                 $count = 0;
+
+                // var_dump($loop);
                 if ( $loop->have_posts() ) {
                     while ( $loop->have_posts() ) : $loop->the_post();
                     //var_dump($count);
@@ -671,7 +443,9 @@ get_header(); ?>
                             <?php echo has_term( 'Новинка', 'product_tag' ) ? '<p class="sirvices-item-tag">Новинка</p>' : ''; ?>
                             <?php echo has_term( 'аукционный', 'product_tag' ) ? '<p class="sirvices-item-tag">Акция</p>' : ''; ?>
                             <?php echo has_term( 'хит продаж', 'product_tag' ) ? '<p class="sirvices-item-tag">Хит продаж</p>' : ''; ?>
-                            <?php do_action( 'woocommerce_before_shop_loop_item_title' ); ?>
+
+                            <?php //do_action( 'woocommerce_before_shop_loop_item_title' ); ?>
+
                             <div class="sirvices-item-modal-basket reveal" data-closable>
                                 <button class="close-button"  data-close aria-label="Dismiss alert" type="button">
                                     <span aria-hidden="true">&times;</span>
@@ -691,6 +465,7 @@ get_header(); ?>
                                 <p><span class="sirvices-item-costs"><?php echo $product->get_price() != '' ? $product->get_price() . ' руб.' : ''; ?></span></p>
                                 <div class="bottom-block">
                                     <!-- <button type="button" class="button add-basket">В корзину</button> -->
+                                    <!-- <img class="heart-icon change" src="<?= get_template_directory_uri() ?>/dist/assets/images/heart_white.png" alt="heart"  data-tooltip tabindex="1" title="В избранное" data-position="bottom" data-alignment="center"> -->
                                     <?php do_action( 'woocommerce_after_shop_loop_item' ); ?>
                                     <?php  echo do_shortcode('[ti_wishlists_addtowishlist product_id="' . $product->get_id() . '" ]'); ?>
                                     <!-- <img class="scheme-icon" data-tooltip tabindex="1" title="В сравнение" data-position="bottom" data-alignment="center" src="<?= get_template_directory_uri() ?>/dist/assets/images/scheme-icon.png" alt="scheme"> -->
@@ -833,11 +608,15 @@ get_header(); ?>
             ?>
 
             <a href="<?= get_page_link(12); ?>"> 
-            <button type="button" class="button">Все статьи</button>
+                <button type="button" class="button">Все статьи</button>
             </a>
         </div>
     </div>
-
-
 </section>
+
+
+<div class="grid-container">
+    <?php the_field('seo-text'); ?>
+</div>
+
 <?php get_footer();

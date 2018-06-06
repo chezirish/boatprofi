@@ -39,6 +39,9 @@ if ( ! function_exists( 'foundationpress_scripts' ) ) :
 		// Enqueue the main Stylesheet.
 		wp_enqueue_style( 'main-stylesheet', get_template_directory_uri() . '/dist/assets/css/' . foundationpress_asset_path( 'app.css' ), array(), '2.10.4', 'all' );
 
+		wp_enqueue_style( 'font', 'https://fonts.googleapis.com/css?family=Roboto:400,500,700&amp;subset=cyrillic', array(), null, 'all' );
+
+
 		// Deregister the jquery version bundled with WordPress.
 		wp_deregister_script( 'jquery' );
 
