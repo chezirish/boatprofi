@@ -6,7 +6,13 @@ Template Name: Контакты
 get_header(); ?>
 
 <div class="contacts_page-content">
-    <h3>Контакты</h3>
+    <div class="grid-container">
+        <h3>Контакты</h3>
+        <div class="contacts_page-map-info-block-mobile">
+            
+        </div>
+    </div>
+
     <div class="contacts_page-map">
         <div class="contacts_page-map-info-block">
             <div class="header-phone">
@@ -26,16 +32,18 @@ get_header(); ?>
                 <?php endif; ?>
                 
                 <a href="">показать на карте</a>
-                <div class="header-address-city">
+                <!-- <div class="header-address-city">
                     <a href="">изменить город</a>	
                     <div class="header-address-city-modal">
                         <p>Ярославль</p>
                         <p>Москва</p>
                         <p>Тверь</p>
                     </div>
-                </div>	
+                </div>	 -->
+                <?php echo foundationpress_city_nav(); ?>
             </div>
-            <button type="button" class="button">Написать нам</button>
+            <button type="button" data-open="header__callback" aria-controls="header__callback" aria-haspopup="true"  class="button">Написать нам</button>
+            
             <p>По всем вопросам обращайтесь: </p>
             <div class="contacts_page-map-info-block-contacts-data">
                 <img src="<?= get_template_directory_uri() ?>/dist/assets/images/contacts-avatar.jpg">

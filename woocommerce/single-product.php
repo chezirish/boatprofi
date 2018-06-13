@@ -37,7 +37,7 @@ get_header( 'shop' ); ?>
 
 <div class="single-product-page">
     <div class="single-product-page__content grid-x grid-padding-x">
-            <div class="single-product-page__left-content cell medium-6 large-6">
+            <div class="single-product-page__left-content single-product-page__left-content-top cell medium-6 large-6">
             <h1><?php the_title() ?></h1>
             <!-- <p class="p-order"><span class="span-order">Под заказ </span> (Предполагаемый срок поставки: 25 марта)</p> -->
                 <?php if( !empty($gallery) ): ?>
@@ -55,6 +55,10 @@ get_header( 'shop' ); ?>
                 </div>
                 <?php endif; ?>
                 <div class="single-product-page__preview-avatar">
+                <?php //echo has_term( 'Новинка', 'product_tag' ) ? '<p class="sirvices-item-tag">Новинка</p>' : ''; ?>
+                <?php //echo has_term( 'аукционный', 'product_tag' ) ? '<p class="sirvices-item-tag">Акция</p>' : ''; ?>
+                <?php //echo has_term( 'хит продаж', 'product_tag' ) ? '<p class="sirvices-item-tag">Хит продаж</p>' : ''; ?>
+                <?php //do_action( 'woocommerce_before_shop_loop_item_title' ); ?>
                     <?php echo wp_get_attachment_image($product->get_image_id(), array('300', '270')); ?>
                 </div>
                 <?php if( !empty($gallery) ): ?>
@@ -116,45 +120,16 @@ get_header( 'shop' ); ?>
             </div>
         </div>
 
-        <div class="single-product-page-product-char cell medium-12 large-6">
-            <h4>Характеристики товара</h4>
-            <table>
-                <tbody>                                                         
-                    <!-- <tr>
-                        <td>Тип</td>
-                        <td>эхолт</td>
-                    </tr>  
-                    <tr>
-                        <td>Производитель</td>
-                        <td>Humminbird</td>
-                    </tr>  
-                    <tr>
-                        <td>Трансдьюсер	опциональный</td>
-                        <td></td>
-                    </tr>  
-                    <tr>
-                        <td>Влагозащищенный корпус </td>
-                        <td>есть</td>
-                    </tr>  
-                    <tr>
-                        <td>Класс влагозащиты	IPX7</td>
-                        <td></td>
-                    </tr>  
-                    <tr>
-                        <td>Подключение внешнего источника питания (12 В) </td>
-                        <td>есть</td>
-                    </tr>   -->
-                    <!-- <tr>
-                        <td>Питание от батареек/аккумулятора	</td>
-                        <td>есть</td>
-                    </tr>    -->
-
+        <div class="single-product-page-product-char cell medium-12 large-6">                                                     
                                 <?php
                 global $product;
                 $attributes = $product->get_attributes();
                 if ( $attributes ) {
-
-                
+                ?>
+                    <h4>Характеристики товара</h4>
+                    <table>
+                    <tbody>    
+                <?php
             
                 foreach ( $attributes as $attribute ) {
             
@@ -175,35 +150,6 @@ get_header( 'shop' ); ?>
                         </tr>  
 
                     <?php
-                    // if ( $attribute->is_taxonomy() ) {
-            
-                    //     $terms = wp_get_post_terms( $product->get_id(), $name, 'all' );
-            
-                    //     $cwtax = $terms[0]->taxonomy;
-            
-                    //     $cw_object_taxonomy = get_taxonomy($cwtax);
-            
-                    //     if ( isset ($cw_object_taxonomy->labels->singular_name) ) {
-                    //         $tax_label = $cw_object_taxonomy->labels->singular_name;
-                    //     } elseif ( isset( $cw_object_taxonomy->label ) ) {
-                    //         $tax_label = $cw_object_taxonomy->label;
-                    //         if ( 0 === strpos( $tax_label, 'Product ' ) ) {
-                    //             $tax_label = substr( $tax_label, 8 );
-                    //         }
-                    //     }
-                    //     $display_result .= $tax_label . ': ';
-                    //     $tax_terms = array();
-                    //     foreach ( $terms as $term ) {
-                    //         $single_term = esc_html( $term->name );
-                    //         array_push( $tax_terms, $single_term );
-                    //     }
-                    //     $display_result .= implode(', ', $tax_terms) .  '<br />';
-            
-                    // } else {
-                        // $display_result .= $name . ': ';
-                        // $display_result .= esc_html( implode( ', ', $attribute->get_options() ) ) ;
-                    // }
-                    
                 }
             }
             
@@ -213,10 +159,6 @@ get_header( 'shop' ); ?>
 
             <div class="price float-left">
                 <a id="table-show" href="javascript:void(0)">Показать подробнее</a>
-                <!-- <div class="price-modal">
-                    <a>По возрастанию</a>
-                    <a>По убыванию</a>
-                </div> -->
             </div>
         </div>
     </div>

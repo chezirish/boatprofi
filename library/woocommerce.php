@@ -238,7 +238,25 @@ add_action( 'pre_get_posts', 'boatprofi_search_woocommerce_only' );
 
 function boatprofi_search_woocommerce_only( $query ) {
   if( ! is_admin() && is_search() && $query->is_main_query() ) {
+	$query->set('posts_per_page', 12);
 	$query->set( 'post_type', array( 'product' ) );
   }
 }
 
+
+
+/**
+ * Change number of products that are displayed per page (shop page)
+ */
+add_filter( 'loop_shop_per_page', 'new_loop_shop_per_page', 20 );
+
+function new_loop_shop_per_page( $cols ) {
+  // $cols contains the current number of products per page based on the value stored on Options -> Reading
+  // Return the number of products you wanna show per page.
+  $cols = 12;
+  return $cols;
+}
+
+add_theme_support( 'wc-product-gallery-zoom' );
+add_theme_support( 'wc-product-gallery-lightbox' );
+add_theme_support( 'wc-product-gallery-slider' );

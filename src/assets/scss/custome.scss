@@ -57,6 +57,11 @@ body {
 
 }
 
+.mobile-menu .menu .is-active > a, .mobile-off-canvas-menu .menu .is-active > a {
+    background: #54ae3f; 
+    color: #fff;
+}
+
 .header-address-city li {
     list-style: none;
     padding: 10px 0;
@@ -885,6 +890,7 @@ html .section-form {
 
 .section-services-wrapper {
     background: #fff;
+    padding-top: 1rem;
 }
 
 .section-services {
@@ -992,6 +998,7 @@ html .section-form {
 
 .sirvices-item-icon img {
     padding-top: 2rem;
+    max-width: 123px;
 }
 
 .section-catalog .sirvices-item-icon img {
@@ -1498,6 +1505,12 @@ html .articles_page-article-item img {
     margin: 0 auto;
 }
 
+.catalog-products_page-content .woocommerce-info {
+    border-top: none;
+    background: none;
+    padding: 0;
+    margin: 0;
+}
 
 .tinv-wraper {
     align-self: center;
@@ -2007,6 +2020,13 @@ html body .catalog-products_content .sirvices-item-modal-over {
     }
 }
 
+.contacts_page-map-info-block-mobile {
+    margin-bottom: 3rem;
+    & .contacts_page-map-info-block {
+        position: static;
+        max-width: 400px;
+    }
+}
 
 //___________________________ Портфолио  ___________________________//
 
@@ -2575,6 +2595,7 @@ html .single-service-page__button {
 }
 
 .tinvwl_add_to_wishlist-text {
+    margin-left: 5px;
     position: relative;
     bottom: 4px;
 }
@@ -2613,6 +2634,23 @@ html .single-service-page__button {
     max-width: 75rem;
     margin: 0 auto;
     margin-top: 4rem;
+}
+
+.single-product-page__preview-avatar {
+    position: relative;
+}
+
+.single-product-page__product-nav h1 {
+    margin-bottom: 1rem;
+}
+
+.single-product-page__left-content-top {
+    & .single-product-page__preview-icons-wrapper {
+        text-align: left
+    }
+    & .single-product-page__preview-avatar {
+        text-align: center;
+    }
 }
 
 .single-product-page__left-content > h4,.single-product-page__left-content > h1 {
@@ -3629,9 +3667,9 @@ html .basket-page__content .basket-form-button:hover {
     .basket-form-button {
         float: none !important;
     }
-    .contacts_page-map-info-block {
-        display: none;
-    }
+    // .contacts_page-map-info-block {
+    //     display: none;
+    // }
     
     .basket-count {
         right: 4px;
