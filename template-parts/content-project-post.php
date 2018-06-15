@@ -158,7 +158,7 @@ if( !empty(get_field('single_project_review')) ){
 
 <section class="callout section-form">
     <h4>Хочу также</h4>
-    <?php echo do_shortcode('[contact-form-7 id="240" title="Форма на странице проекта"]'); ?>
+    <?php echo do_shortcode('[contact-form-7 id="342" title="Форма на странице проекта"]'); ?>
 
     <?php $politics = carbon_get_theme_option( 'crb_politics' ); ?>
     <?php if($politics != ''): ?>

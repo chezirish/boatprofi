@@ -1503,6 +1503,13 @@ html .articles_page-article-item img {
 .catalog-products_page-content {
     max-width: 75rem;
     margin: 0 auto;
+    & .tinvwl_add_to_wishlist-text {
+        display: none;
+    }
+}
+
+.slider-wrapper .tinvwl_add_to_wishlist-text {
+    display: none;
 }
 
 .catalog-products_page-content .woocommerce-info {

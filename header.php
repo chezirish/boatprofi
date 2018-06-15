@@ -189,36 +189,6 @@
 							</li>
 							<li><a href="">Сопутствующие товары </a></li> -->
 
-							<?php/*
-
-								$args = array(
-									'taxonomy'   => "product_cat",
-									'parent'  	 =>	0
-									// 'fields' 	 => "names"
-								);
-								$product_categories = get_terms($args);
-
-								// var_dump($product_categories);
-
-								foreach( $product_categories as $cat ) { 
-									$childs =  get_terms(array('taxonomy'   => "product_cat", 'parent' => $cat->term_id));
-									// var_dump($childs);
-
-									?>
-
-									<li <?php echo !empty($childs) ? 'class="dropdown-menu-have-nested"' : '' ?> ><a href="<?php echo get_term_link( $cat->term_id ,'product_cat'); ?>"><?php echo $cat->name ?></a>
-										<?php if( !empty($childs) ): ?>
-										<ul class="dropdown-menu dropdown-menu-nested">
-											<?php foreach($childs as $child): ?>
-												<li><a href="<?php echo get_term_link( $child->term_id ,'product_cat'); ?>"><?php echo $child->name ?></a></li>
-											<?php endforeach; ?>
-										</ul>
-										<?php endif; ?>
-									</li>
-									
-								<?php }
-
-							*/?>
 
 							<?php foundationpress_catalog_products_nav(); ?>
 						</ul>

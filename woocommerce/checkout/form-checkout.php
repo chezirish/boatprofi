@@ -38,7 +38,7 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 ?>
 
 	<div class="grid-container">
-    <?php do_action( 'woocommerce_before_checkout_form', $checkout ); ?>
+    <?php //do_action( 'woocommerce_before_checkout_form', $checkout ); ?>
         <section class="callout section-form">
         
             <h4>Оформление заказа</h4>   

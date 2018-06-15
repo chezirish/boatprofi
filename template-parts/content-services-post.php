@@ -13,7 +13,7 @@ get_header(); ?>
 		<h4 class="section-form-title-desktop">Отправить заявку</h4>
 		<h4 class="section-form-title-tablet">Отправить заявку</h4>
 		<?php //echo do_shortcode('[contact-form-7 id="250" title="Услуга подробно форма: (отправить заявку)"]'); ?>
-		<?php echo do_shortcode('[contact-form-7 id="250" title="Услуга подробно форма: (отправить заявку)"]'); ?>
+		<?php echo do_shortcode('[contact-form-7 id="416" title="Услуга подробно форма: (отправить заявку)"]'); ?>
 
 		<?php $politics = carbon_get_theme_option( 'crb_politics' ); ?>
 		<?php if($politics != ''): ?>
